@@ -2,15 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <parent>
-    <artifactId>java-rest</artifactId>
-    <groupId>io.github.cloudiator.client</groupId>
+    <groupId>io.github.cloudiator</groupId>
+    <artifactId>project</artifactId>
     <version>0.3.0-SNAPSHOT</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion>
-
+  <groupId>io.github.cloudiator.client</groupId>
   <artifactId>java-rest-examples</artifactId>
+  <packaging>jar</packaging>
+  <name>java-rest-examples</name>
+  <version>0.3.0-SNAPSHOT</version>
+  <url>https://github.com/cloudiator</url>
 
+  <modelVersion>4.0.0</modelVersion>
 
   <dependencies>
     <dependency>
@@ -19,5 +24,6 @@
       <version>0.3.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
+
 
 </project>

@@ -11,14 +11,10 @@
   </parent>
   <groupId>io.github.cloudiator.client</groupId>
   <artifactId>java-rest</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <name>java-rest</name>
   <version>0.3.0-SNAPSHOT</version>
   <url>https://github.com/cloudiator</url>
-
-  <modules>
-    <module>examples</module>
-  </modules>
 
   <repositories>
     <repository>
