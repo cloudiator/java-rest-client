@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Represents a communication port that the task requires from other (downstream) tasks. 
+ * Subtype of port. Represents a communication port that the task requires from other (downstream) tasks. 
  */
-@ApiModel(description = "Represents a communication port that the task requires from other (downstream) tasks. ")
+@ApiModel(description = "Subtype of port. Represents a communication port that the task requires from other (downstream) tasks. ")
 
 public class PortRequired extends Port {
   @SerializedName("updateAction")
@@ -45,7 +45,7 @@ public class PortRequired extends Port {
    * A script that is executed if a new instance of a downstream task is available. 
    * @return updateAction
   **/
-  @ApiModelProperty(example = "./mediawiki-tutorial/scripts/lance/haproxy.sh configure", value = "A script that is executed if a new instance of a downstream task is available. ")
+  @ApiModelProperty(value = "A script that is executed if a new instance of a downstream task is available. ")
   public String getUpdateAction() {
     return updateAction;
   }
@@ -63,7 +63,7 @@ public class PortRequired extends Port {
    * States if an instance of a downstream tasks needs to be already started (true), or if the task can start without a downstream task (false). 
    * @return isMandatory
   **/
-  @ApiModelProperty(example = "true", value = "States if an instance of a downstream tasks needs to be already started (true), or if the task can start without a downstream task (false). ")
+  @ApiModelProperty(value = "States if an instance of a downstream tasks needs to be already started (true), or if the task can start without a downstream task (false). ")
   public Boolean isIsMandatory() {
     return isMandatory;
   }

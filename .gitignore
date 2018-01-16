@@ -20,6 +20,6 @@ target
 .gradle
 build
 
-# idea 
-**/*.iml
+# idea files
 .idea
+*.iml

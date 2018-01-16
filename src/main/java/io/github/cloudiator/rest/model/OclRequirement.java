@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * OclRequirement
+ * Subytpe of Requirement 
  */
+@ApiModel(description = "Subytpe of Requirement ")
 
 public class OclRequirement extends Requirement {
   @SerializedName("constraint")

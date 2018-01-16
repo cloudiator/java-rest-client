@@ -30,9 +30,19 @@ Creates a new platform.
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 NewPlatform platform = new NewPlatform(); // NewPlatform | Platform to add
@@ -57,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -75,9 +85,19 @@ Creates a new PlatformEnvironment
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 NewPlatformEnvironment platformEnvironment = new NewPlatformEnvironment(); // NewPlatformEnvironment | PlatformEnvironment to be created 
@@ -102,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -120,9 +140,19 @@ Creates a new PlatformHardware
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 NewPlatformHardware platformHardware = new NewPlatformHardware(); // NewPlatformHardware | PlatformHardware to be created 
@@ -147,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -165,9 +195,19 @@ Creates a new PlatformRuntime
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 NewPlatformRuntime platformRuntime = new NewPlatformRuntime(); // NewPlatformRuntime | PlatformRuntime to be created 
@@ -192,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -210,9 +250,19 @@ Deletes the platform identified by the given id paramater.
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 String id = "id_example"; // String | Unique identifier of the resource
@@ -236,7 +286,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -254,9 +304,19 @@ Returns the platform identified by the given id parameter
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 String id = "id_example"; // String | Unique identifier of the resource
@@ -281,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -299,9 +359,19 @@ Returns the PlatformEnvironment identified by the id parameter.
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 String id = "id_example"; // String | Unique identifier of the resource
@@ -326,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -344,9 +414,19 @@ Returns all platform environment  visible to the user
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 try {
@@ -367,7 +447,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -385,9 +465,19 @@ Returns the PlatformHardware identified by the id parameter.
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 String id = "id_example"; // String | Unique identifier of the resource
@@ -412,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -430,9 +520,19 @@ Returns all platform hardware visible to the user
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 try {
@@ -453,7 +553,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -471,9 +571,19 @@ Returns the PlatformRuntime identified by the id parameter.
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 String id = "id_example"; // String | Unique identifier of the resource
@@ -498,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -516,9 +626,19 @@ Returns all platform runtime  visible to the user
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 try {
@@ -539,7 +659,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -557,9 +677,19 @@ Returns all platform from the system that the user has access to
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.PlatformApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 PlatformApi apiInstance = new PlatformApi();
 try {
@@ -580,7 +710,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

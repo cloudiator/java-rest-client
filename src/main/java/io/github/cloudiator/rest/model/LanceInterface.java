@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Represents a lance interface. 
+ * Part of a task. Subtype of TaskInterface. 
  */
-@ApiModel(description = "Represents a lance interface. ")
+@ApiModel(description = "Part of a task. Subtype of TaskInterface. ")
 
 public class LanceInterface extends TaskInterface {
   @SerializedName("init")

@@ -19,9 +19,19 @@ Returns all running LLRs visible to the user
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.LongRunningRequestApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 LongRunningRequestApi apiInstance = new LongRunningRequestApi();
 try {
@@ -42,7 +52,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -60,9 +70,19 @@ Returns the LRR identified by the id parameter.
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.LongRunningRequestApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 LongRunningRequestApi apiInstance = new LongRunningRequestApi();
 String id = "id_example"; // String | Unique identifier of the resource
@@ -87,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

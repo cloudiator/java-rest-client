@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DockerInterface
+ * Subtype of TaskInterface 
  */
+@ApiModel(description = "Subtype of TaskInterface ")
 
 public class DockerInterface extends TaskInterface {
   @SerializedName("dockerImage")

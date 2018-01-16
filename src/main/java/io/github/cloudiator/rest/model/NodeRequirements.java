@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a request to create a new node fullfilling the given requirements 
+ * Array of Requirements. Represents a request to create a new node fullfilling the given requirements 
  */
-@ApiModel(description = "Represents a request to create a new node fullfilling the given requirements ")
+@ApiModel(description = "Array of Requirements. Represents a request to create a new node fullfilling the given requirements ")
 
 public class NodeRequirements {
   @SerializedName("requirements")

@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Represents a communication requirement between two tasks by mapping a required port of a task to a provided port of another task. 
+ * Part of a job Represents a communication requirement between two tasks by mapping a required port of a task to a provided port of another task. 
  */
-@ApiModel(description = "Represents a communication requirement between two tasks by mapping a required port of a task to a provided port of another task. ")
+@ApiModel(description = "Part of a job Represents a communication requirement between two tasks by mapping a required port of a task to a provided port of another task. ")
 
 public class Communication {
   @SerializedName("portRequired")

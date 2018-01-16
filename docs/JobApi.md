@@ -21,9 +21,19 @@ Creates a new job
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.JobApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 JobApi apiInstance = new JobApi();
 Job job = new Job(); // Job | Job to be created. 
@@ -48,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -66,9 +76,19 @@ Creates a new task
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.JobApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 JobApi apiInstance = new JobApi();
 Task task = new Task(); // Task | Task to be created 
@@ -93,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -111,9 +131,19 @@ Returns all jobs visible to the user
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.JobApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 JobApi apiInstance = new JobApi();
 try {
@@ -134,7 +164,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -152,9 +182,19 @@ Returns all tasks visible to the user
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.JobApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 JobApi apiInstance = new JobApi();
 try {
@@ -175,7 +215,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

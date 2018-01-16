@@ -62,7 +62,7 @@ public class CloudCredential {
    * Secret (e.g. Password) for authentication at the cloud provider&#39;s API
    * @return secret
   **/
-  @ApiModelProperty(example = "MySuperSecurePassword", required = true, value = "Secret (e.g. Password) for authentication at the cloud provider's API")
+  @ApiModelProperty(example = "MeltdownVictim", required = true, value = "Secret (e.g. Password) for authentication at the cloud provider's API")
   public String getSecret() {
     return secret;
   }

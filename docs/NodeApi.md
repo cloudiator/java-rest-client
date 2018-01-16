@@ -18,9 +18,19 @@ Create a new node request
 ### Example
 ```java
 // Import classes:
+//import io.github.cloudiator.rest.ApiClient;
 //import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
 //import io.github.cloudiator.rest.api.NodeApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
 
 NodeApi apiInstance = new NodeApi();
 NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | Node Request
@@ -45,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

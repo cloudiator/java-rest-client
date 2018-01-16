@@ -28,4 +28,8 @@ public class PropertyAccess {
   public static String basePath() {
     return PROPERTIES.getProperty("basePath");
   }
+
+  public static String apiKey() {
+    return PROPERTIES.getProperty("apiKey");
+  }
 }

@@ -26,8 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * AttributeRequirement
+ * Subtype of Requirement 
  */
+@ApiModel(description = "Subtype of Requirement ")
 
 public class AttributeRequirement extends Requirement {
   @SerializedName("requirementClass")

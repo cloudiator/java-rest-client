@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Requirement
+ * polymorphic Superclass, only subtypes are allowed
  */
+@ApiModel(description = "polymorphic Superclass, only subtypes are allowed")
 
 
 public class Requirement {

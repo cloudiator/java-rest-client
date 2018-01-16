@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Represents a communication port that the tasks provides for other tasks or the end user. 
+ * Subtype of port. Represents a communication port that the tasks provides for other tasks or the end user. 
  */
-@ApiModel(description = "Represents a communication port that the tasks provides for other tasks or the end user. ")
+@ApiModel(description = "Subtype of port. Represents a communication port that the tasks provides for other tasks or the end user. ")
 
 public class PortProvided extends Port {
   @SerializedName("port")
@@ -42,7 +42,7 @@ public class PortProvided extends Port {
    * Get port
    * @return port
   **/
-  @ApiModelProperty(example = "80", value = "")
+  @ApiModelProperty(value = "")
   public Integer getPort() {
     return port;
   }

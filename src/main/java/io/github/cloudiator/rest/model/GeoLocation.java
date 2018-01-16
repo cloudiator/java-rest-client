@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Represents a geographical location
+ * Part of Location Represents a geographical location 
  */
-@ApiModel(description = "Represents a geographical location")
+@ApiModel(description = "Part of Location Represents a geographical location ")
 
 public class GeoLocation {
   @SerializedName("city")

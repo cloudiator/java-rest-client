@@ -20,6 +20,7 @@ public class NodeCandidateExample {
     if (basePath != null) {
       apiClient.setBasePath(basePath);
     }
+    apiClient.setApiKey(PropertyAccess.apiKey());
 
     CloudApi cloudApi = new CloudApi(apiClient);
 

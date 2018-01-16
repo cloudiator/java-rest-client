@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * IdentifierRequirement
+ * Subtype of Requirement 
  */
+@ApiModel(description = "Subtype of Requirement ")
 
 public class IdentifierRequirement extends Requirement {
   @SerializedName("hardwareId")

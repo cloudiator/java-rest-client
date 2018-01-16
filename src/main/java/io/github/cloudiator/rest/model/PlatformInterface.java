@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Represents a PaaS interface 
+ * Subtype of TaskInterface Represents a PaaS interface 
  */
-@ApiModel(description = "Represents a PaaS interface ")
+@ApiModel(description = "Subtype of TaskInterface Represents a PaaS interface ")
 
 public class PlatformInterface extends TaskInterface {
   @SerializedName("sourceRepository")

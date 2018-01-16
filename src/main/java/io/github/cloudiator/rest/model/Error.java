@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Error
+ * Basic errorClass 
  */
+@ApiModel(description = "Basic errorClass ")
 
 public class Error {
   @SerializedName("code")
@@ -43,7 +44,7 @@ public class Error {
    * Get code
    * @return code
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "404", required = true, value = "")
   public Integer getCode() {
     return code;
   }
@@ -61,7 +62,7 @@ public class Error {
    * Get message
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "Not found", required = true, value = "")
   public String getMessage() {
     return message;
   }
