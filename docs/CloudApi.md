@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**findHardware**](CloudApi.md#findHardware) | **GET** /hardware | 
 [**findImages**](CloudApi.md#findImages) | **GET** /images | 
 [**findLocations**](CloudApi.md#findLocations) | **GET** /locations | 
-[**findNodeCandidates**](CloudApi.md#findNodeCandidates) | **POST** /nodeCandidates | 
 
 
 <a name="addCloud"></a>
@@ -494,60 +493,5 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="findNodeCandidates"></a>
-# **findNodeCandidates**
-> List&lt;NodeCandidate&gt; findNodeCandidates(nodeRequirements)
-
-
-
-Returns possible node candidates. 
-
-### Example
-```java
-// Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.CloudApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-CloudApi apiInstance = new CloudApi();
-NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | Node Request 
-try {
-    List<NodeCandidate> result = apiInstance.findNodeCandidates(nodeRequirements);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CloudApi#findNodeCandidates");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **nodeRequirements** | [**NodeRequirements**](NodeRequirements.md)| Node Request  | [optional]
-
-### Return type
-
-[**List&lt;NodeCandidate&gt;**](NodeCandidate.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 

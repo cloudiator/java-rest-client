@@ -1,10 +1,10 @@
 
-# OclProblem
+# MatchmakingRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requirements** | [**List&lt;OclRequirement&gt;**](OclRequirement.md) |  |  [optional]
+**requirements** | [**NodeRequirements**](NodeRequirements.md) |  |  [optional]
 
 
 

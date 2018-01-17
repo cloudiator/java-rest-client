@@ -24,3 +24,6 @@
 
 # Ignore the pom.xml
 #pom.xml
+
+# ignore the .gitignore
+.gitignore

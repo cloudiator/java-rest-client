@@ -1,5 +1,5 @@
 
-# OclSolution
+# MatchmakingResponse
 
 ## Properties
 Name | Type | Description | Notes

@@ -21,8 +21,6 @@ import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.Location;
 import io.github.cloudiator.rest.model.LongRunningRequest;
 import io.github.cloudiator.rest.model.NewCloud;
-import io.github.cloudiator.rest.model.NodeCandidate;
-import io.github.cloudiator.rest.model.NodeRequirements;
 import io.github.cloudiator.rest.model.VirtualMachineRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -178,22 +176,6 @@ public class CloudApiTest {
     @Test
     public void findLocationsTest() throws ApiException {
         List<Location> response = api.findLocations();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Returns possible node candidates. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void findNodeCandidatesTest() throws ApiException {
-        NodeRequirements nodeRequirements = null;
-        List<NodeCandidate> response = api.findNodeCandidates(nodeRequirements);
 
         // TODO: test validations
     }

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.OclRequirement;
+import io.github.cloudiator.rest.model.VirtualMachineRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,38 +27,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a request to create a new node fullfilling the given requirements 
+ * Represents a response to a matchmaking request 
  */
-@ApiModel(description = "Represents a request to create a new node fullfilling the given requirements ")
+@ApiModel(description = "Represents a response to a matchmaking request ")
 
-public class OclProblem {
-  @SerializedName("requirements")
-  private List<OclRequirement> requirements = null;
+public class MatchmakingResponse {
+  @SerializedName("nodes")
+  private List<VirtualMachineRequest> nodes = null;
 
-  public OclProblem requirements(List<OclRequirement> requirements) {
-    this.requirements = requirements;
+  public MatchmakingResponse nodes(List<VirtualMachineRequest> nodes) {
+    this.nodes = nodes;
     return this;
   }
 
-  public OclProblem addRequirementsItem(OclRequirement requirementsItem) {
-    if (this.requirements == null) {
-      this.requirements = new ArrayList<OclRequirement>();
+  public MatchmakingResponse addNodesItem(VirtualMachineRequest nodesItem) {
+    if (this.nodes == null) {
+      this.nodes = new ArrayList<VirtualMachineRequest>();
     }
-    this.requirements.add(requirementsItem);
+    this.nodes.add(nodesItem);
     return this;
   }
 
    /**
-   * Get requirements
-   * @return requirements
+   * Get nodes
+   * @return nodes
   **/
   @ApiModelProperty(value = "")
-  public List<OclRequirement> getRequirements() {
-    return requirements;
+  public List<VirtualMachineRequest> getNodes() {
+    return nodes;
   }
 
-  public void setRequirements(List<OclRequirement> requirements) {
-    this.requirements = requirements;
+  public void setNodes(List<VirtualMachineRequest> nodes) {
+    this.nodes = nodes;
   }
 
 
@@ -70,22 +70,22 @@ public class OclProblem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OclProblem oclProblem = (OclProblem) o;
-    return Objects.equals(this.requirements, oclProblem.requirements);
+    MatchmakingResponse matchmakingResponse = (MatchmakingResponse) o;
+    return Objects.equals(this.nodes, matchmakingResponse.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requirements);
+    return Objects.hash(nodes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OclProblem {\n");
+    sb.append("class MatchmakingResponse {\n");
     
-    sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
+    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
