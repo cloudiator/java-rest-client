@@ -27,3 +27,6 @@
 
 # ignore the .gitignore
 .gitignore
+
+# ignore the travis file
+.travis.yml
