@@ -23,13 +23,16 @@ import io.github.cloudiator.rest.model.TaskInterface;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Part of a task. Subtype of TaskInterface. 
  */
 @ApiModel(description = "Part of a task. Subtype of TaskInterface. ")
 
-public class LanceInterface extends TaskInterface {
+public class LanceInterface extends TaskInterface implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("init")
   private String init = null;
 

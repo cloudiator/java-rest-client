@@ -25,13 +25,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Array of Requirements. Represents a request to create a new node fullfilling the given requirements 
  */
 @ApiModel(description = "Array of Requirements. Represents a request to create a new node fullfilling the given requirements ")
 
-public class NodeRequirements {
+public class NodeRequirements implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("requirements")
   private List<Requirement> requirements = null;
 

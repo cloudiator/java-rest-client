@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * polymorphic Superclass, only subtypes are allowed
@@ -29,7 +30,9 @@ import java.io.IOException;
 @ApiModel(description = "polymorphic Superclass, only subtypes are allowed")
 
 
-public class Requirement {
+public class Requirement implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("type")
   private String type = null;
 

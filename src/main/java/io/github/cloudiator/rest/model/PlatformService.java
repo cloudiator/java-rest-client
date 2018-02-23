@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Repesents additional PaaS services to component, e.g. a database, TODO! 
  */
 @ApiModel(description = "Repesents additional PaaS services to component, e.g. a database, TODO! ")
 
-public class PlatformService {
+public class PlatformService implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("id")
   private String id = null;
 

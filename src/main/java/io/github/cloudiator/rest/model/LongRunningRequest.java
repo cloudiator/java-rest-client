@@ -24,13 +24,16 @@ import io.github.cloudiator.rest.model.LRRType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents a long-running request (LRR) within the system 
  */
 @ApiModel(description = "Represents a long-running request (LRR) within the system ")
 
-public class LongRunningRequest {
+public class LongRunningRequest implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("id")
   private String id = null;
 

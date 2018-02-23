@@ -23,13 +23,16 @@ import io.github.cloudiator.rest.model.Requirement;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Subytpe of Requirement 
  */
 @ApiModel(description = "Subytpe of Requirement ")
 
-public class OclRequirement extends Requirement {
+public class OclRequirement extends Requirement implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("constraint")
   private String constraint = null;
 

@@ -19,39 +19,60 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.TaskInterface;
+import io.github.cloudiator.rest.model.Tenant;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Subtype of TaskInterface 
+ * A user of the system. 
  */
-@ApiModel(description = "Subtype of TaskInterface ")
+@ApiModel(description = "A user of the system. ")
 
-public class DockerInterface extends TaskInterface implements Serializable {
+public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("dockerImage")
-  private String dockerImage = null;
+  @SerializedName("email")
+  private String email = null;
 
-  public DockerInterface dockerImage(String dockerImage) {
-    this.dockerImage = dockerImage;
+  @SerializedName("tenant")
+  private Tenant tenant = null;
+
+  public User email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Name of the docker image 
-   * @return dockerImage
+   * EMail address of the user
+   * @return email
   **/
-  @ApiModelProperty(value = "Name of the docker image ")
-  public String getDockerImage() {
-    return dockerImage;
+  @ApiModelProperty(value = "EMail address of the user")
+  public String getEmail() {
+    return email;
   }
 
-  public void setDockerImage(String dockerImage) {
-    this.dockerImage = dockerImage;
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public User tenant(Tenant tenant) {
+    this.tenant = tenant;
+    return this;
+  }
+
+   /**
+   * Get tenant
+   * @return tenant
+  **/
+  @ApiModelProperty(value = "")
+  public Tenant getTenant() {
+    return tenant;
+  }
+
+  public void setTenant(Tenant tenant) {
+    this.tenant = tenant;
   }
 
 
@@ -63,23 +84,24 @@ public class DockerInterface extends TaskInterface implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DockerInterface dockerInterface = (DockerInterface) o;
-    return Objects.equals(this.dockerImage, dockerInterface.dockerImage) &&
-        super.equals(o);
+    User user = (User) o;
+    return Objects.equals(this.email, user.email) &&
+        Objects.equals(this.tenant, user.tenant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dockerImage, super.hashCode());
+    return Objects.hash(email, tenant);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DockerInterface {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    dockerImage: ").append(toIndentedString(dockerImage)).append("\n");
+    sb.append("class User {\n");
+    
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    tenant: ").append(toIndentedString(tenant)).append("\n");
     sb.append("}");
     return sb.toString();
   }

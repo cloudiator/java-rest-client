@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents a request to create a new virtual machine. 
  */
 @ApiModel(description = "Represents a request to create a new virtual machine. ")
 
-public class VirtualMachineRequest {
+public class VirtualMachineRequest implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("image")
   private String image = null;
 

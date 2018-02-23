@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * A key-value pair
  */
 @ApiModel(description = "A key-value pair")
 
-public class Property {
+public class Property implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("key")
   private String key = null;
 

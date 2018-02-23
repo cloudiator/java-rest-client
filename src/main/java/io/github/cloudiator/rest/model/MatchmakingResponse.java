@@ -25,13 +25,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Represents a response to a matchmaking request 
  */
 @ApiModel(description = "Represents a response to a matchmaking request ")
 
-public class MatchmakingResponse {
+public class MatchmakingResponse implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("nodes")
   private List<VirtualMachineRequest> nodes = null;
 

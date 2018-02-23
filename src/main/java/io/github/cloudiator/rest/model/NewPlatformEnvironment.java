@@ -28,13 +28,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Repesents a PaaS environemnt to run an component 
  */
 @ApiModel(description = "Repesents a PaaS environemnt to run an component ")
 
-public class NewPlatformEnvironment {
+public class NewPlatformEnvironment implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 

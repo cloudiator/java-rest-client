@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Part of a job Represents a communication requirement between two tasks by mapping a required port of a task to a provided port of another task. 
  */
 @ApiModel(description = "Part of a job Represents a communication requirement between two tasks by mapping a required port of a task to a provided port of another task. ")
 
-public class Communication {
+public class Communication implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("portRequired")
   private String portRequired = null;
 

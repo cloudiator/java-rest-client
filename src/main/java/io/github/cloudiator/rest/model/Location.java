@@ -24,13 +24,16 @@ import io.github.cloudiator.rest.model.Location;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Repesents a (virtual) location offers by a cloud 
  */
 @ApiModel(description = "Repesents a (virtual) location offers by a cloud ")
 
-public class Location {
+public class Location implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("id")
   private String id = null;
 

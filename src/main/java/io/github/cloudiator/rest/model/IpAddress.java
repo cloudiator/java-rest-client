@@ -24,12 +24,15 @@ import io.github.cloudiator.rest.model.IpVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * IpAddress
  */
 
-public class IpAddress {
+public class IpAddress implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("IpAddressType")
   private IpAddressType ipAddressType = null;
 

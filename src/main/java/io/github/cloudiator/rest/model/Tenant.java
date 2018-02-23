@@ -19,39 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.TaskInterface;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Subtype of TaskInterface 
+ * Represents a tenant of the system. 
  */
-@ApiModel(description = "Subtype of TaskInterface ")
+@ApiModel(description = "Represents a tenant of the system. ")
 
-public class DockerInterface extends TaskInterface implements Serializable {
+public class Tenant implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("dockerImage")
-  private String dockerImage = null;
+  @SerializedName("tenant")
+  private String tenant = null;
 
-  public DockerInterface dockerImage(String dockerImage) {
-    this.dockerImage = dockerImage;
+  public Tenant tenant(String tenant) {
+    this.tenant = tenant;
     return this;
   }
 
    /**
-   * Name of the docker image 
-   * @return dockerImage
+   * The tenant
+   * @return tenant
   **/
-  @ApiModelProperty(value = "Name of the docker image ")
-  public String getDockerImage() {
-    return dockerImage;
+  @ApiModelProperty(example = "admin", required = true, value = "The tenant")
+  public String getTenant() {
+    return tenant;
   }
 
-  public void setDockerImage(String dockerImage) {
-    this.dockerImage = dockerImage;
+  public void setTenant(String tenant) {
+    this.tenant = tenant;
   }
 
 
@@ -63,23 +62,22 @@ public class DockerInterface extends TaskInterface implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DockerInterface dockerInterface = (DockerInterface) o;
-    return Objects.equals(this.dockerImage, dockerInterface.dockerImage) &&
-        super.equals(o);
+    Tenant tenant = (Tenant) o;
+    return Objects.equals(this.tenant, tenant.tenant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dockerImage, super.hashCode());
+    return Objects.hash(tenant);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DockerInterface {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    dockerImage: ").append(toIndentedString(dockerImage)).append("\n");
+    sb.append("class Tenant {\n");
+    
+    sb.append("    tenant: ").append(toIndentedString(tenant)).append("\n");
     sb.append("}");
     return sb.toString();
   }

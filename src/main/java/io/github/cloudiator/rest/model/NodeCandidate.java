@@ -26,13 +26,16 @@ import io.github.cloudiator.rest.model.Location;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * A node creatable by the system
  */
 @ApiModel(description = "A node creatable by the system")
 
-public class NodeCandidate {
+public class NodeCandidate implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("price")
   private Double price = null;
 

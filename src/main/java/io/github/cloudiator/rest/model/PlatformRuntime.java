@@ -23,13 +23,16 @@ import io.github.cloudiator.rest.model.NewPlatformRuntime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Repesents a PaaS environemnt to run an component 
  */
 @ApiModel(description = "Repesents a PaaS environemnt to run an component ")
 
-public class PlatformRuntime {
+public class PlatformRuntime implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 

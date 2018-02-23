@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents an API used by a cloud 
  */
 @ApiModel(description = "Represents an API used by a cloud ")
 
-public class Api {
+public class Api implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("providerName")
   private String providerName = null;
 

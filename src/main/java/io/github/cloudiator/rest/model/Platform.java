@@ -25,13 +25,16 @@ import io.github.cloudiator.rest.model.NewPlatform;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Representation of a platform used by Cloudiator
  */
 @ApiModel(description = "Representation of a platform used by Cloudiator")
 
-public class Platform {
+public class Platform implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 

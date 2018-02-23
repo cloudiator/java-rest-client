@@ -27,13 +27,16 @@ import io.github.cloudiator.rest.model.NewCloud;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Representation of a cloud used by Cloudiator 
  */
 @ApiModel(description = "Representation of a cloud used by Cloudiator ")
 
-public class Cloud {
+public class Cloud implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("endpoint")
   private String endpoint = null;
 

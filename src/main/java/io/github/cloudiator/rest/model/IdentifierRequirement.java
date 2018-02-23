@@ -23,13 +23,16 @@ import io.github.cloudiator.rest.model.Requirement;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Subtype of Requirement 
  */
 @ApiModel(description = "Subtype of Requirement ")
 
-public class IdentifierRequirement extends Requirement {
+public class IdentifierRequirement extends Requirement implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("hardwareId")
   private String hardwareId = null;
 

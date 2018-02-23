@@ -27,21 +27,24 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Represents an job. An job is a logical group of tasks. 
  */
 @ApiModel(description = "Represents an job. An job is a logical group of tasks. ")
 
-public class Job {
+public class Job implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("tasks")
-  private List<Task> tasks = new ArrayList<Task>();
+  private List<Task> tasks = null;
 
   @SerializedName("communications")
-  private List<Communication> communications = new ArrayList<Communication>();
+  private List<Communication> communications = null;
 
   @SerializedName("requirements")
   private List<Requirement> requirements = null;
@@ -70,6 +73,9 @@ public class Job {
   }
 
   public Job addTasksItem(Task tasksItem) {
+    if (this.tasks == null) {
+      this.tasks = new ArrayList<Task>();
+    }
     this.tasks.add(tasksItem);
     return this;
   }
@@ -78,7 +84,7 @@ public class Job {
    * An array of tasks that form this application. 
    * @return tasks
   **/
-  @ApiModelProperty(required = true, value = "An array of tasks that form this application. ")
+  @ApiModelProperty(value = "An array of tasks that form this application. ")
   public List<Task> getTasks() {
     return tasks;
   }
@@ -93,6 +99,9 @@ public class Job {
   }
 
   public Job addCommunicationsItem(Communication communicationsItem) {
+    if (this.communications == null) {
+      this.communications = new ArrayList<Communication>();
+    }
     this.communications.add(communicationsItem);
     return this;
   }
@@ -101,7 +110,7 @@ public class Job {
    * Get communications
    * @return communications
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public List<Communication> getCommunications() {
     return communications;
   }

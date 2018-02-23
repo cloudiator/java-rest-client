@@ -24,13 +24,16 @@ import io.github.cloudiator.rest.model.RequirementOperator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Subtype of Requirement 
  */
 @ApiModel(description = "Subtype of Requirement ")
 
-public class AttributeRequirement extends Requirement {
+public class AttributeRequirement extends Requirement implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("requirementClass")
   private String requirementClass = null;
 

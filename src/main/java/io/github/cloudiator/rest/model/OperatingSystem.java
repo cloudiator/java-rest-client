@@ -25,13 +25,16 @@ import io.github.cloudiator.rest.model.OperatingSystemType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents the operating system of an image 
  */
 @ApiModel(description = "Represents the operating system of an image ")
 
-public class OperatingSystem {
+public class OperatingSystem implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("operatingSystemType")
   private OperatingSystemType operatingSystemType = null;
 

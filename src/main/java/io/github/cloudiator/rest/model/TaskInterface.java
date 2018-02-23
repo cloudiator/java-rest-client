@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents an interface 
@@ -29,7 +30,9 @@ import java.io.IOException;
 @ApiModel(description = "Represents an interface ")
 
 
-public class TaskInterface {
+public class TaskInterface implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("type")
   private String type = null;
 

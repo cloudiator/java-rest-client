@@ -24,13 +24,16 @@ import io.github.cloudiator.rest.model.OperatingSystem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents an image offer by a cloud 
  */
 @ApiModel(description = "Represents an image offer by a cloud ")
 
-public class Image {
+public class Image implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("id")
   private String id = null;
 

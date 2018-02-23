@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents a hardware configuration for a Platform (not all attributes might be supported for all PaaS providers) 
  */
 @ApiModel(description = "Represents a hardware configuration for a Platform (not all attributes might be supported for all PaaS providers) ")
 
-public class NewPlatformHardware {
+public class NewPlatformHardware implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 

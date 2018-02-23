@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents a runtime for a Platform component, e.g. Java, PHP, Tomcat
  */
 @ApiModel(description = "Represents a runtime for a Platform component, e.g. Java, PHP, Tomcat")
 
-public class NewPlatformRuntime {
+public class NewPlatformRuntime implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 

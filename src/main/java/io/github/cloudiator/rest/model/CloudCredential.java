@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Represents the credentials used to authenticate with a cloud 
  */
 @ApiModel(description = "Represents the credentials used to authenticate with a cloud ")
 
-public class CloudCredential {
+public class CloudCredential implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("user")
   private String user = null;
 

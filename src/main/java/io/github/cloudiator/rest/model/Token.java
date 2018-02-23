@@ -19,39 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.TaskInterface;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Subtype of TaskInterface 
+ * Represents an API Token, that is used to represent a successful authentication of a user 
  */
-@ApiModel(description = "Subtype of TaskInterface ")
+@ApiModel(description = "Represents an API Token, that is used to represent a successful authentication of a user ")
 
-public class DockerInterface extends TaskInterface implements Serializable {
+public class Token implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("dockerImage")
-  private String dockerImage = null;
+  @SerializedName("token")
+  private String token = null;
 
-  public DockerInterface dockerImage(String dockerImage) {
-    this.dockerImage = dockerImage;
+  public Token token(String token) {
+    this.token = token;
     return this;
   }
 
    /**
-   * Name of the docker image 
-   * @return dockerImage
+   * The token
+   * @return token
   **/
-  @ApiModelProperty(value = "Name of the docker image ")
-  public String getDockerImage() {
-    return dockerImage;
+  @ApiModelProperty(example = "theToken", required = true, value = "The token")
+  public String getToken() {
+    return token;
   }
 
-  public void setDockerImage(String dockerImage) {
-    this.dockerImage = dockerImage;
+  public void setToken(String token) {
+    this.token = token;
   }
 
 
@@ -63,23 +62,22 @@ public class DockerInterface extends TaskInterface implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DockerInterface dockerInterface = (DockerInterface) o;
-    return Objects.equals(this.dockerImage, dockerInterface.dockerImage) &&
-        super.equals(o);
+    Token token = (Token) o;
+    return Objects.equals(this.token, token.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dockerImage, super.hashCode());
+    return Objects.hash(token);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DockerInterface {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    dockerImage: ").append(toIndentedString(dockerImage)).append("\n");
+    sb.append("class Token {\n");
+    
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
   }

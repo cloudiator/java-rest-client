@@ -23,13 +23,16 @@ import io.github.cloudiator.rest.model.Port;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Subtype of port. Represents a communication port that the task requires from other (downstream) tasks. 
  */
 @ApiModel(description = "Subtype of port. Represents a communication port that the task requires from other (downstream) tasks. ")
 
-public class PortRequired extends Port {
+public class PortRequired extends Port implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("updateAction")
   private String updateAction = null;
 

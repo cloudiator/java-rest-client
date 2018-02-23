@@ -22,13 +22,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Basic errorClass 
  */
 @ApiModel(description = "Basic errorClass ")
 
-public class Error {
+public class Error implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("code")
   private Integer code = null;
 

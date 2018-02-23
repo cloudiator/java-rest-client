@@ -24,13 +24,16 @@ import io.github.cloudiator.rest.model.CloudCredential;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Repesents a new PaaS provider to be created 
  */
 @ApiModel(description = "Repesents a new PaaS provider to be created ")
 
-public class NewPlatform {
+public class NewPlatform implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("name")
   private String name = null;
 
