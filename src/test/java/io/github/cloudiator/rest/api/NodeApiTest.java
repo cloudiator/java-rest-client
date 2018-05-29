@@ -15,8 +15,10 @@ package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
-import io.github.cloudiator.rest.model.LongRunningRequest;
+import io.github.cloudiator.rest.model.Node;
+import io.github.cloudiator.rest.model.NodeGroup;
 import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.Queue;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +47,69 @@ public class NodeApiTest {
     @Test
     public void addNodeTest() throws ApiException {
         NodeRequirements nodeRequirements = null;
-        LongRunningRequest response = api.addNode(nodeRequirements);
+        Queue response = api.addNode(nodeRequirements);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns all node groups for the current user
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findNodeGroupsTest() throws ApiException {
+        List<NodeGroup> response = api.findNodeGroups();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieve all nodes the current user has access to
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findNodesTest() throws ApiException {
+        List<Node> response = api.findNodes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves the node with the given id.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNodeTest() throws ApiException {
+        String id = null;
+        Node response = api.getNode(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves a node group, which groups multiple nodes that were create during one request
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNodeGroupTest() throws ApiException {
+        String id = null;
+        NodeGroup response = api.getNodeGroup(id);
 
         // TODO: test validations
     }

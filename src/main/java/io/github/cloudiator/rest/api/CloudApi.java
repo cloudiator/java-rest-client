@@ -32,8 +32,8 @@ import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Hardware;
 import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.Location;
-import io.github.cloudiator.rest.model.LongRunningRequest;
 import io.github.cloudiator.rest.model.NewCloud;
+import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.VirtualMachineRequest;
 
 import java.lang.reflect.Type;
@@ -250,11 +250,11 @@ public class CloudApi {
      * 
      * Creates a new virtual machine request
      * @param virtualMachineRequest VirtualMachine Request (required)
-     * @return LongRunningRequest
+     * @return Queue
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LongRunningRequest addVM(VirtualMachineRequest virtualMachineRequest) throws ApiException {
-        ApiResponse<LongRunningRequest> resp = addVMWithHttpInfo(virtualMachineRequest);
+    public Queue addVM(VirtualMachineRequest virtualMachineRequest) throws ApiException {
+        ApiResponse<Queue> resp = addVMWithHttpInfo(virtualMachineRequest);
         return resp.getData();
     }
 
@@ -262,12 +262,12 @@ public class CloudApi {
      * 
      * Creates a new virtual machine request
      * @param virtualMachineRequest VirtualMachine Request (required)
-     * @return ApiResponse&lt;LongRunningRequest&gt;
+     * @return ApiResponse&lt;Queue&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LongRunningRequest> addVMWithHttpInfo(VirtualMachineRequest virtualMachineRequest) throws ApiException {
+    public ApiResponse<Queue> addVMWithHttpInfo(VirtualMachineRequest virtualMachineRequest) throws ApiException {
         com.squareup.okhttp.Call call = addVMValidateBeforeCall(virtualMachineRequest, null, null);
-        Type localVarReturnType = new TypeToken<LongRunningRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -279,7 +279,7 @@ public class CloudApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addVMAsync(VirtualMachineRequest virtualMachineRequest, final ApiCallback<LongRunningRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call addVMAsync(VirtualMachineRequest virtualMachineRequest, final ApiCallback<Queue> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -301,7 +301,7 @@ public class CloudApi {
         }
 
         com.squareup.okhttp.Call call = addVMValidateBeforeCall(virtualMachineRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LongRunningRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

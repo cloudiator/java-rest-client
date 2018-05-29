@@ -19,8 +19,8 @@ import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Hardware;
 import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.Location;
-import io.github.cloudiator.rest.model.LongRunningRequest;
 import io.github.cloudiator.rest.model.NewCloud;
+import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.VirtualMachineRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -66,7 +66,7 @@ public class CloudApiTest {
     @Test
     public void addVMTest() throws ApiException {
         VirtualMachineRequest virtualMachineRequest = null;
-        LongRunningRequest response = api.addVM(virtualMachineRequest);
+        Queue response = api.addVM(virtualMachineRequest);
 
         // TODO: test validations
     }

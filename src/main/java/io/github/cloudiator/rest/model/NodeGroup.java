@@ -19,61 +19,69 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.NodeRequirements;
-import io.github.cloudiator.rest.model.Optimization;
+import io.github.cloudiator.rest.model.Node;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
- * Issues a request to the matchmaking component 
+ * NodeGroup
  */
-@ApiModel(description = "Issues a request to the matchmaking component ")
 
-public class MatchmakingRequest implements Serializable {
+public class NodeGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("requirements")
-  private NodeRequirements requirements = null;
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("optimization")
-  private Optimization optimization = null;
+  @SerializedName("nodes")
+  private List<Node> nodes = null;
 
-  public MatchmakingRequest requirements(NodeRequirements requirements) {
-    this.requirements = requirements;
+  public NodeGroup id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get requirements
-   * @return requirements
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public NodeRequirements getRequirements() {
-    return requirements;
+  public String getId() {
+    return id;
   }
 
-  public void setRequirements(NodeRequirements requirements) {
-    this.requirements = requirements;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public MatchmakingRequest optimization(Optimization optimization) {
-    this.optimization = optimization;
+  public NodeGroup nodes(List<Node> nodes) {
+    this.nodes = nodes;
+    return this;
+  }
+
+  public NodeGroup addNodesItem(Node nodesItem) {
+    if (this.nodes == null) {
+      this.nodes = new ArrayList<Node>();
+    }
+    this.nodes.add(nodesItem);
     return this;
   }
 
    /**
-   * Get optimization
-   * @return optimization
+   * Get nodes
+   * @return nodes
   **/
   @ApiModelProperty(value = "")
-  public Optimization getOptimization() {
-    return optimization;
+  public List<Node> getNodes() {
+    return nodes;
   }
 
-  public void setOptimization(Optimization optimization) {
-    this.optimization = optimization;
+  public void setNodes(List<Node> nodes) {
+    this.nodes = nodes;
   }
 
 
@@ -85,24 +93,24 @@ public class MatchmakingRequest implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchmakingRequest matchmakingRequest = (MatchmakingRequest) o;
-    return Objects.equals(this.requirements, matchmakingRequest.requirements) &&
-        Objects.equals(this.optimization, matchmakingRequest.optimization);
+    NodeGroup nodeGroup = (NodeGroup) o;
+    return Objects.equals(this.id, nodeGroup.id) &&
+        Objects.equals(this.nodes, nodeGroup.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requirements, optimization);
+    return Objects.hash(id, nodes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchmakingRequest {\n");
+    sb.append("class NodeGroup {\n");
     
-    sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
-    sb.append("    optimization: ").append(toIndentedString(optimization)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

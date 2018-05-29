@@ -19,75 +19,53 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.IpAddressType;
-import io.github.cloudiator.rest.model.IpVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * IpAddress
+ * Tagging for monitoring
  */
+@ApiModel(description = "Tagging for monitoring")
 
-public class IpAddress implements Serializable {
+public class MonitoringTag implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("IpAddressType")
-  private IpAddressType ipAddressType = null;
-
-  @SerializedName("IpVersion")
-  private IpVersion ipVersion = null;
+  @SerializedName("key")
+  private String key = null;
 
   @SerializedName("value")
   private String value = null;
 
-  public IpAddress ipAddressType(IpAddressType ipAddressType) {
-    this.ipAddressType = ipAddressType;
+  public MonitoringTag key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get ipAddressType
-   * @return ipAddressType
+   * Key of the tag
+   * @return key
   **/
-  @ApiModelProperty(required = true, value = "")
-  public IpAddressType getIpAddressType() {
-    return ipAddressType;
+  @ApiModelProperty(value = "Key of the tag")
+  public String getKey() {
+    return key;
   }
 
-  public void setIpAddressType(IpAddressType ipAddressType) {
-    this.ipAddressType = ipAddressType;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public IpAddress ipVersion(IpVersion ipVersion) {
-    this.ipVersion = ipVersion;
-    return this;
-  }
-
-   /**
-   * Get ipVersion
-   * @return ipVersion
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public IpVersion getIpVersion() {
-    return ipVersion;
-  }
-
-  public void setIpVersion(IpVersion ipVersion) {
-    this.ipVersion = ipVersion;
-  }
-
-  public IpAddress value(String value) {
+  public MonitoringTag value(String value) {
     this.value = value;
     return this;
   }
 
    /**
-   * the ip address value
+   * Value of the tag
    * @return value
   **/
-  @ApiModelProperty(value = "the ip address value")
+  @ApiModelProperty(value = "Value of the tag")
   public String getValue() {
     return value;
   }
@@ -105,25 +83,23 @@ public class IpAddress implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IpAddress ipAddress = (IpAddress) o;
-    return Objects.equals(this.ipAddressType, ipAddress.ipAddressType) &&
-        Objects.equals(this.ipVersion, ipAddress.ipVersion) &&
-        Objects.equals(this.value, ipAddress.value);
+    MonitoringTag monitoringTag = (MonitoringTag) o;
+    return Objects.equals(this.key, monitoringTag.key) &&
+        Objects.equals(this.value, monitoringTag.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddressType, ipVersion, value);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IpAddress {\n");
+    sb.append("class MonitoringTag {\n");
     
-    sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");
-    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

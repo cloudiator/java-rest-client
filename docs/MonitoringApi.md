@@ -1,23 +1,22 @@
-# NodeApi
+# MonitoringApi
 
 All URIs are relative to *http://localhost:9000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addNode**](NodeApi.md#addNode) | **POST** /node | 
-[**findNodeGroups**](NodeApi.md#findNodeGroups) | **GET** /nodeGroup | 
-[**findNodes**](NodeApi.md#findNodes) | **GET** /node | 
-[**getNode**](NodeApi.md#getNode) | **GET** /node/{id} | 
-[**getNodeGroup**](NodeApi.md#getNodeGroup) | **GET** /nodeGroup/{id} | 
+[**addMonitor**](MonitoringApi.md#addMonitor) | **POST** /monitors | 
+[**deleteMonitor**](MonitoringApi.md#deleteMonitor) | **DELETE** /monitors/{id} | 
+[**findMonitors**](MonitoringApi.md#findMonitors) | **GET** /monitors | 
+[**getMonitor**](MonitoringApi.md#getMonitor) | **GET** /monitors/{id} | 
 
 
-<a name="addNode"></a>
-# **addNode**
-> Queue addNode(nodeRequirements)
+<a name="addMonitor"></a>
+# **addMonitor**
+> Monitor addMonitor(monitor)
 
 
 
-Create a new node request
+Creates a monitor 
 
 ### Example
 ```java
@@ -26,7 +25,7 @@ Create a new node request
 //import io.github.cloudiator.rest.ApiException;
 //import io.github.cloudiator.rest.Configuration;
 //import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.NodeApi;
+//import io.github.cloudiator.rest.api.MonitoringApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -36,13 +35,13 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
-NodeApi apiInstance = new NodeApi();
-NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | Node Request
+MonitoringApi apiInstance = new MonitoringApi();
+MonitorNew monitor = new MonitorNew(); // MonitorNew | Monitor to be created 
 try {
-    Queue result = apiInstance.addNode(nodeRequirements);
+    Monitor result = apiInstance.addMonitor(monitor);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling NodeApi#addNode");
+    System.err.println("Exception when calling MonitoringApi#addMonitor");
     e.printStackTrace();
 }
 ```
@@ -51,11 +50,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nodeRequirements** | [**NodeRequirements**](NodeRequirements.md)| Node Request |
+ **monitor** | [**MonitorNew**](MonitorNew.md)| Monitor to be created  |
 
 ### Return type
 
-[**Queue**](Queue.md)
+[**Monitor**](Monitor.md)
 
 ### Authorization
 
@@ -66,13 +65,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="findNodeGroups"></a>
-# **findNodeGroups**
-> List&lt;NodeGroup&gt; findNodeGroups()
+<a name="deleteMonitor"></a>
+# **deleteMonitor**
+> deleteMonitor(id)
 
 
 
-Returns all node groups for the current user
+Deletes the monitor identified by the given id paramater. 
 
 ### Example
 ```java
@@ -81,7 +80,7 @@ Returns all node groups for the current user
 //import io.github.cloudiator.rest.ApiException;
 //import io.github.cloudiator.rest.Configuration;
 //import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.NodeApi;
+//import io.github.cloudiator.rest.api.MonitoringApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -91,115 +90,12 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
-NodeApi apiInstance = new NodeApi();
-try {
-    List<NodeGroup> result = apiInstance.findNodeGroups();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling NodeApi#findNodeGroups");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;NodeGroup&gt;**](NodeGroup.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="findNodes"></a>
-# **findNodes**
-> List&lt;Node&gt; findNodes()
-
-
-
-Retrieve all nodes the current user has access to
-
-### Example
-```java
-// Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.NodeApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-NodeApi apiInstance = new NodeApi();
-try {
-    List<Node> result = apiInstance.findNodes();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling NodeApi#findNodes");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;Node&gt;**](Node.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getNode"></a>
-# **getNode**
-> Node getNode(id)
-
-
-
-Retrieves the node with the given id.
-
-### Example
-```java
-// Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.NodeApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-NodeApi apiInstance = new NodeApi();
+MonitoringApi apiInstance = new MonitoringApi();
 String id = "id_example"; // String | Unique identifier of the resource
 try {
-    Node result = apiInstance.getNode(id);
-    System.out.println(result);
+    apiInstance.deleteMonitor(id);
 } catch (ApiException e) {
-    System.err.println("Exception when calling NodeApi#getNode");
+    System.err.println("Exception when calling MonitoringApi#deleteMonitor");
     e.printStackTrace();
 }
 ```
@@ -212,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Node**](Node.md)
+null (empty response body)
 
 ### Authorization
 
@@ -223,13 +119,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getNodeGroup"></a>
-# **getNodeGroup**
-> NodeGroup getNodeGroup(id)
+<a name="findMonitors"></a>
+# **findMonitors**
+> List&lt;Monitor&gt; findMonitors()
 
 
 
-Retrieves a node group, which groups multiple nodes that were create during one request
+Returns all monitors visible to the user 
 
 ### Example
 ```java
@@ -238,7 +134,7 @@ Retrieves a node group, which groups multiple nodes that were create during one 
 //import io.github.cloudiator.rest.ApiException;
 //import io.github.cloudiator.rest.Configuration;
 //import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.NodeApi;
+//import io.github.cloudiator.rest.api.MonitoringApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -248,13 +144,64 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
-NodeApi apiInstance = new NodeApi();
-String id = "id_example"; // String | Unique identifier of the resource
+MonitoringApi apiInstance = new MonitoringApi();
 try {
-    NodeGroup result = apiInstance.getNodeGroup(id);
+    List<Monitor> result = apiInstance.findMonitors();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling NodeApi#getNodeGroup");
+    System.err.println("Exception when calling MonitoringApi#findMonitors");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Monitor&gt;**](Monitor.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMonitor"></a>
+# **getMonitor**
+> List&lt;Monitor&gt; getMonitor(id)
+
+
+
+Retrieves the monitor with the given id parameter 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.MonitoringApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+MonitoringApi apiInstance = new MonitoringApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    List<Monitor> result = apiInstance.getMonitor(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MonitoringApi#getMonitor");
     e.printStackTrace();
 }
 ```
@@ -267,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NodeGroup**](NodeGroup.md)
+[**List&lt;Monitor&gt;**](Monitor.md)
 
 ### Authorization
 

@@ -19,61 +19,71 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.NodeRequirements;
-import io.github.cloudiator.rest.model.Optimization;
+import io.github.cloudiator.rest.model.Node;
+import io.github.cloudiator.rest.model.Tool;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
- * Issues a request to the matchmaking component 
+ * todo
  */
-@ApiModel(description = "Issues a request to the matchmaking component ")
+@ApiModel(description = "todo")
 
-public class MatchmakingRequest implements Serializable {
+public class InstallationRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("requirements")
-  private NodeRequirements requirements = null;
+  @SerializedName("tools")
+  private List<Tool> tools = null;
 
-  @SerializedName("optimization")
-  private Optimization optimization = null;
+  @SerializedName("node")
+  private Node node = null;
 
-  public MatchmakingRequest requirements(NodeRequirements requirements) {
-    this.requirements = requirements;
+  public InstallationRequest tools(List<Tool> tools) {
+    this.tools = tools;
+    return this;
+  }
+
+  public InstallationRequest addToolsItem(Tool toolsItem) {
+    if (this.tools == null) {
+      this.tools = new ArrayList<Tool>();
+    }
+    this.tools.add(toolsItem);
     return this;
   }
 
    /**
-   * Get requirements
-   * @return requirements
+   * Get tools
+   * @return tools
   **/
   @ApiModelProperty(value = "")
-  public NodeRequirements getRequirements() {
-    return requirements;
+  public List<Tool> getTools() {
+    return tools;
   }
 
-  public void setRequirements(NodeRequirements requirements) {
-    this.requirements = requirements;
+  public void setTools(List<Tool> tools) {
+    this.tools = tools;
   }
 
-  public MatchmakingRequest optimization(Optimization optimization) {
-    this.optimization = optimization;
+  public InstallationRequest node(Node node) {
+    this.node = node;
     return this;
   }
 
    /**
-   * Get optimization
-   * @return optimization
+   * Get node
+   * @return node
   **/
   @ApiModelProperty(value = "")
-  public Optimization getOptimization() {
-    return optimization;
+  public Node getNode() {
+    return node;
   }
 
-  public void setOptimization(Optimization optimization) {
-    this.optimization = optimization;
+  public void setNode(Node node) {
+    this.node = node;
   }
 
 
@@ -85,24 +95,24 @@ public class MatchmakingRequest implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchmakingRequest matchmakingRequest = (MatchmakingRequest) o;
-    return Objects.equals(this.requirements, matchmakingRequest.requirements) &&
-        Objects.equals(this.optimization, matchmakingRequest.optimization);
+    InstallationRequest installationRequest = (InstallationRequest) o;
+    return Objects.equals(this.tools, installationRequest.tools) &&
+        Objects.equals(this.node, installationRequest.node);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requirements, optimization);
+    return Objects.hash(tools, node);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchmakingRequest {\n");
+    sb.append("class InstallationRequest {\n");
     
-    sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
-    sb.append("    optimization: ").append(toIndentedString(optimization)).append("\n");
+    sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
+    sb.append("    node: ").append(toIndentedString(node)).append("\n");
     sb.append("}");
     return sb.toString();
   }

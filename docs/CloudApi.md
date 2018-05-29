@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 <a name="addVM"></a>
 # **addVM**
-> LongRunningRequest addVM(virtualMachineRequest)
+> Queue addVM(virtualMachineRequest)
 
 
 
@@ -98,7 +98,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 CloudApi apiInstance = new CloudApi();
 VirtualMachineRequest virtualMachineRequest = new VirtualMachineRequest(); // VirtualMachineRequest | VirtualMachine Request
 try {
-    LongRunningRequest result = apiInstance.addVM(virtualMachineRequest);
+    Queue result = apiInstance.addVM(virtualMachineRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CloudApi#addVM");
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LongRunningRequest**](LongRunningRequest.md)
+[**Queue**](Queue.md)
 
 ### Authorization
 

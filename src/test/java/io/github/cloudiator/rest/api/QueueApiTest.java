@@ -15,7 +15,7 @@ package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
-import io.github.cloudiator.rest.model.LongRunningRequest;
+import io.github.cloudiator.rest.model.Queue;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -25,25 +25,26 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for LongRunningRequestApi
+ * API tests for QueueApi
  */
 @Ignore
-public class LongRunningRequestApiTest {
+public class QueueApiTest {
 
-    private final LongRunningRequestApi api = new LongRunningRequestApi();
+    private final QueueApi api = new QueueApi();
 
     
     /**
      * 
      *
-     * Returns all running LLRs visible to the user 
+     * Returns the queued task with the given id. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void findAllLongRunningRequestTest() throws ApiException {
-        List<LongRunningRequest> response = api.findAllLongRunningRequest();
+    public void findQueuedTaskTest() throws ApiException {
+        String id = null;
+        Queue response = api.findQueuedTask(id);
 
         // TODO: test validations
     }
@@ -51,15 +52,14 @@ public class LongRunningRequestApiTest {
     /**
      * 
      *
-     * Returns the LRR identified by the id parameter. 
+     * Returns all running queued tasks visible to the user 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void findLongRunningRequestTest() throws ApiException {
-        String id = null;
-        LongRunningRequest response = api.findLongRunningRequest(id);
+    public void getQueuedTasksTest() throws ApiException {
+        List<Queue> response = api.getQueuedTasks();
 
         // TODO: test validations
     }

@@ -132,10 +132,10 @@ public class Hardware implements Serializable {
   }
 
    /**
-   * Amount of RAM
+   * Amount of RAM (in MB)
    * @return ram
   **/
-  @ApiModelProperty(example = "2048", required = true, value = "Amount of RAM")
+  @ApiModelProperty(example = "2048", required = true, value = "Amount of RAM (in MB)")
   public Long getRam() {
     return ram;
   }
@@ -150,10 +150,10 @@ public class Hardware implements Serializable {
   }
 
    /**
-   * Amount of disk space
+   * Amount of disk space (in GB)
    * @return disk
   **/
-  @ApiModelProperty(example = "100.0", value = "Amount of disk space")
+  @ApiModelProperty(example = "100.0", value = "Amount of disk space (in GB)")
   public Double getDisk() {
     return disk;
   }

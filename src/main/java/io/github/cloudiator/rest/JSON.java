@@ -49,6 +49,18 @@ public class JSON {
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+          .registerTypeSelector(Optimization.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("AttributeOptimization".toUpperCase(), AttributeOptimization.class);
+                classByDiscriminatorValue.put("OCLOptimization".toUpperCase(), OCLOptimization.class);
+                classByDiscriminatorValue.put("Optimization".toUpperCase(), Optimization.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "type"));
+            }
+          })
           .registerTypeSelector(Requirement.class, new TypeSelector() {
             @Override
             public Class getClassForElement(JsonElement readElement) {
@@ -82,6 +94,18 @@ public class JSON {
                 classByDiscriminatorValue.put("PortProvided".toUpperCase(), PortProvided.class);
                 classByDiscriminatorValue.put("PortRequired".toUpperCase(), PortRequired.class);
                 classByDiscriminatorValue.put("Port".toUpperCase(), Port.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "type"));
+            }
+          })
+          .registerTypeSelector(Sensor.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("PullSensor".toUpperCase(), PullSensor.class);
+                classByDiscriminatorValue.put("PushSensor".toUpperCase(), PushSensor.class);
+                classByDiscriminatorValue.put("Sensor".toUpperCase(), Sensor.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, "type"));

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **name** | **String** | Human-readable name for the hardware | 
 **providerId** | **String** | Original id issued by the provider | 
 **cores** | **Integer** | Number of cores | 
-**ram** | **Long** | Amount of RAM | 
-**disk** | **Double** | Amount of disk space |  [optional]
+**ram** | **Long** | Amount of RAM (in MB) | 
+**disk** | **Double** | Amount of disk space (in GB) |  [optional]
 **location** | [**Location**](Location.md) |  |  [optional]
 
 

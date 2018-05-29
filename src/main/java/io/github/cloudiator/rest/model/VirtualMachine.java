@@ -23,6 +23,7 @@ import io.github.cloudiator.rest.model.Hardware;
 import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.IpAddress;
 import io.github.cloudiator.rest.model.Location;
+import io.github.cloudiator.rest.model.LoginCredential;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class VirtualMachine implements Serializable {
   private List<IpAddress> ipaddresses = null;
 
   @SerializedName("logincredential")
-  private String logincredential = null;
+  private LoginCredential logincredential = null;
 
   public VirtualMachine image(Image image) {
     this.image = image;
@@ -153,7 +154,7 @@ public class VirtualMachine implements Serializable {
     this.ipaddresses = ipaddresses;
   }
 
-  public VirtualMachine logincredential(String logincredential) {
+  public VirtualMachine logincredential(LoginCredential logincredential) {
     this.logincredential = logincredential;
     return this;
   }
@@ -163,11 +164,11 @@ public class VirtualMachine implements Serializable {
    * @return logincredential
   **/
   @ApiModelProperty(value = "")
-  public String getLogincredential() {
+  public LoginCredential getLogincredential() {
     return logincredential;
   }
 
-  public void setLogincredential(String logincredential) {
+  public void setLogincredential(LoginCredential logincredential) {
     this.logincredential = logincredential;
   }
 

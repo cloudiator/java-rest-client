@@ -19,75 +19,52 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.IpAddressType;
-import io.github.cloudiator.rest.model.IpVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * IpAddress
+ * DataSinkConfiguration
  */
 
-public class IpAddress implements Serializable {
+public class DataSinkConfiguration implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("IpAddressType")
-  private IpAddressType ipAddressType = null;
-
-  @SerializedName("IpVersion")
-  private IpVersion ipVersion = null;
+  @SerializedName("key")
+  private String key = null;
 
   @SerializedName("value")
   private String value = null;
 
-  public IpAddress ipAddressType(IpAddressType ipAddressType) {
-    this.ipAddressType = ipAddressType;
+  public DataSinkConfiguration key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get ipAddressType
-   * @return ipAddressType
+   * Get key
+   * @return key
   **/
-  @ApiModelProperty(required = true, value = "")
-  public IpAddressType getIpAddressType() {
-    return ipAddressType;
+  @ApiModelProperty(value = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setIpAddressType(IpAddressType ipAddressType) {
-    this.ipAddressType = ipAddressType;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public IpAddress ipVersion(IpVersion ipVersion) {
-    this.ipVersion = ipVersion;
-    return this;
-  }
-
-   /**
-   * Get ipVersion
-   * @return ipVersion
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public IpVersion getIpVersion() {
-    return ipVersion;
-  }
-
-  public void setIpVersion(IpVersion ipVersion) {
-    this.ipVersion = ipVersion;
-  }
-
-  public IpAddress value(String value) {
+  public DataSinkConfiguration value(String value) {
     this.value = value;
     return this;
   }
 
    /**
-   * the ip address value
+   * Get value
    * @return value
   **/
-  @ApiModelProperty(value = "the ip address value")
+  @ApiModelProperty(value = "")
   public String getValue() {
     return value;
   }
@@ -105,25 +82,23 @@ public class IpAddress implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IpAddress ipAddress = (IpAddress) o;
-    return Objects.equals(this.ipAddressType, ipAddress.ipAddressType) &&
-        Objects.equals(this.ipVersion, ipAddress.ipVersion) &&
-        Objects.equals(this.value, ipAddress.value);
+    DataSinkConfiguration dataSinkConfiguration = (DataSinkConfiguration) o;
+    return Objects.equals(this.key, dataSinkConfiguration.key) &&
+        Objects.equals(this.value, dataSinkConfiguration.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddressType, ipVersion, value);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IpAddress {\n");
+    sb.append("class DataSinkConfiguration {\n");
     
-    sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");
-    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

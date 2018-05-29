@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **location** | [**Location**](Location.md) |  |  [optional]
 **id** | **String** |  |  [optional]
 **ipaddresses** | [**List&lt;IpAddress&gt;**](IpAddress.md) |  |  [optional]
-**logincredential** | **String** |  |  [optional]
+**logincredential** | [**LoginCredential**](LoginCredential.md) |  |  [optional]
 
 
 
