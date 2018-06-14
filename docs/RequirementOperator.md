@@ -14,5 +14,9 @@
 
 * `LT` (value: `"LT"`)
 
+* `NEQ` (value: `"NEQ"`)
+
+* `IN` (value: `"IN"`)
+
 
 

@@ -7,12 +7,19 @@ Method | HTTP request | Description
 [**addCloud**](CloudApi.md#addCloud) | **POST** /clouds | 
 [**addVM**](CloudApi.md#addVM) | **POST** /vm | 
 [**deleteCloud**](CloudApi.md#deleteCloud) | **DELETE** /clouds/{id} | 
+[**editHardware**](CloudApi.md#editHardware) | **PUT** /hardware/{id} | 
 [**editImage**](CloudApi.md#editImage) | **PUT** /images/{id} | 
+[**editLocation**](CloudApi.md#editLocation) | **PUT** /locations/{id} | 
 [**findCloud**](CloudApi.md#findCloud) | **GET** /clouds/{id} | 
 [**findClouds**](CloudApi.md#findClouds) | **GET** /clouds | 
 [**findHardware**](CloudApi.md#findHardware) | **GET** /hardware | 
 [**findImages**](CloudApi.md#findImages) | **GET** /images | 
 [**findLocations**](CloudApi.md#findLocations) | **GET** /locations | 
+[**findVMs**](CloudApi.md#findVMs) | **GET** /vm | 
+[**getHardware**](CloudApi.md#getHardware) | **GET** /hardware/{id} | 
+[**getImage**](CloudApi.md#getImage) | **GET** /images/{id} | 
+[**getLocation**](CloudApi.md#getLocation) | **GET** /locations/{id} | 
+[**getVM**](CloudApi.md#getVM) | **GET** /vm/{id} | 
 
 
 <a name="addCloud"></a>
@@ -179,6 +186,63 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="editHardware"></a>
+# **editHardware**
+> Hardware editHardware(id, hardware)
+
+
+
+Updates a specific hardware 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+Hardware hardware = new Hardware(); // Hardware | Hardware to update 
+try {
+    Hardware result = apiInstance.editHardware(id, hardware);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#editHardware");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+ **hardware** | [**Hardware**](Hardware.md)| Hardware to update  |
+
+### Return type
+
+[**Hardware**](Hardware.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="editImage"></a>
 # **editImage**
 > Image editImage(id, image)
@@ -226,6 +290,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Image**](Image.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editLocation"></a>
+# **editLocation**
+> Location editLocation(id, location)
+
+
+
+Updates a specific location 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+Location location = new Location(); // Location | Location to update 
+try {
+    Location result = apiInstance.editLocation(id, location);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#editLocation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+ **location** | [**Location**](Location.md)| Location to update  |
+
+### Return type
+
+[**Location**](Location.md)
 
 ### Authorization
 
@@ -344,7 +465,7 @@ This endpoint does not need any parameter.
 
 <a name="findHardware"></a>
 # **findHardware**
-> List&lt;Hardware&gt; findHardware()
+> List&lt;Hardware&gt; findHardware(cloudId)
 
 
 
@@ -368,8 +489,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 CloudApi apiInstance = new CloudApi();
+String cloudId = "cloudId_example"; // String | (Optional) Unique identifier to filter a specific cloud
 try {
-    List<Hardware> result = apiInstance.findHardware();
+    List<Hardware> result = apiInstance.findHardware(cloudId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CloudApi#findHardware");
@@ -378,7 +500,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cloudId** | **String**| (Optional) Unique identifier to filter a specific cloud | [optional]
 
 ### Return type
 
@@ -395,7 +520,7 @@ This endpoint does not need any parameter.
 
 <a name="findImages"></a>
 # **findImages**
-> List&lt;Image&gt; findImages()
+> List&lt;Image&gt; findImages(cloudId)
 
 
 
@@ -419,8 +544,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 CloudApi apiInstance = new CloudApi();
+String cloudId = "cloudId_example"; // String | (Optional) Unique identifier to filter a specific cloud
 try {
-    List<Image> result = apiInstance.findImages();
+    List<Image> result = apiInstance.findImages(cloudId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CloudApi#findImages");
@@ -429,7 +555,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cloudId** | **String**| (Optional) Unique identifier to filter a specific cloud | [optional]
 
 ### Return type
 
@@ -446,7 +575,7 @@ This endpoint does not need any parameter.
 
 <a name="findLocations"></a>
 # **findLocations**
-> List&lt;Location&gt; findLocations()
+> List&lt;Location&gt; findLocations(cloudId)
 
 
 
@@ -470,8 +599,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 CloudApi apiInstance = new CloudApi();
+String cloudId = "cloudId_example"; // String | (Optional) Unique identifier to filter a specific cloud
 try {
-    List<Location> result = apiInstance.findLocations();
+    List<Location> result = apiInstance.findLocations(cloudId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CloudApi#findLocations");
@@ -480,7 +610,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cloudId** | **String**| (Optional) Unique identifier to filter a specific cloud | [optional]
 
 ### Return type
 
@@ -493,5 +626,280 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="findVMs"></a>
+# **findVMs**
+> List&lt;VirtualMachine&gt; findVMs(cloudId)
+
+
+
+Finds all virtual machines the user has access to
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String cloudId = "cloudId_example"; // String | (Optional) Unique identifier to filter a specific cloud
+try {
+    List<VirtualMachine> result = apiInstance.findVMs(cloudId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#findVMs");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cloudId** | **String**| (Optional) Unique identifier to filter a specific cloud | [optional]
+
+### Return type
+
+[**List&lt;VirtualMachine&gt;**](VirtualMachine.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getHardware"></a>
+# **getHardware**
+> Hardware getHardware(id)
+
+
+
+Retrieves the hardware with the given id. 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Hardware result = apiInstance.getHardware(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#getHardware");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Hardware**](Hardware.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getImage"></a>
+# **getImage**
+> Image getImage(id)
+
+
+
+Retrieves the image with the given id. 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Image result = apiInstance.getImage(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#getImage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Image**](Image.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getLocation"></a>
+# **getLocation**
+> Location getLocation(id)
+
+
+
+Retrieves the location with the given id. 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Location result = apiInstance.getLocation(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#getLocation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Location**](Location.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getVM"></a>
+# **getVM**
+> VirtualMachine getVM(id)
+
+
+
+Finds the virtual machine identified by the given id parameter
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    VirtualMachine result = apiInstance.getVM(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#getVM");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**VirtualMachine**](VirtualMachine.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

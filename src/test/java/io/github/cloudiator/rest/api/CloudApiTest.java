@@ -21,6 +21,7 @@ import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.Location;
 import io.github.cloudiator.rest.model.NewCloud;
 import io.github.cloudiator.rest.model.Queue;
+import io.github.cloudiator.rest.model.VirtualMachine;
 import io.github.cloudiator.rest.model.VirtualMachineRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -90,6 +91,23 @@ public class CloudApiTest {
     /**
      * 
      *
+     * Updates a specific hardware 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHardwareTest() throws ApiException {
+        String id = null;
+        Hardware hardware = null;
+        Hardware response = api.editHardware(id, hardware);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Updates a specific image 
      *
      * @throws ApiException
@@ -100,6 +118,23 @@ public class CloudApiTest {
         String id = null;
         Image image = null;
         Image response = api.editImage(id, image);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Updates a specific location 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editLocationTest() throws ApiException {
+        String id = null;
+        Location location = null;
+        Location response = api.editLocation(id, location);
 
         // TODO: test validations
     }
@@ -145,7 +180,8 @@ public class CloudApiTest {
      */
     @Test
     public void findHardwareTest() throws ApiException {
-        List<Hardware> response = api.findHardware();
+        String cloudId = null;
+        List<Hardware> response = api.findHardware(cloudId);
 
         // TODO: test validations
     }
@@ -160,7 +196,8 @@ public class CloudApiTest {
      */
     @Test
     public void findImagesTest() throws ApiException {
-        List<Image> response = api.findImages();
+        String cloudId = null;
+        List<Image> response = api.findImages(cloudId);
 
         // TODO: test validations
     }
@@ -175,7 +212,88 @@ public class CloudApiTest {
      */
     @Test
     public void findLocationsTest() throws ApiException {
-        List<Location> response = api.findLocations();
+        String cloudId = null;
+        List<Location> response = api.findLocations(cloudId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Finds all virtual machines the user has access to
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findVMsTest() throws ApiException {
+        String cloudId = null;
+        List<VirtualMachine> response = api.findVMs(cloudId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves the hardware with the given id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getHardwareTest() throws ApiException {
+        String id = null;
+        Hardware response = api.getHardware(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves the image with the given id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getImageTest() throws ApiException {
+        String id = null;
+        Image response = api.getImage(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves the location with the given id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLocationTest() throws ApiException {
+        String id = null;
+        Location response = api.getLocation(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Finds the virtual machine identified by the given id parameter
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getVMTest() throws ApiException {
+        String id = null;
+        VirtualMachine response = api.getVM(id);
 
         // TODO: test validations
     }

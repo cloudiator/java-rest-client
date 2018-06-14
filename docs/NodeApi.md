@@ -4,12 +4,68 @@ All URIs are relative to *http://localhost:9000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addBYON**](NodeApi.md#addBYON) | **POST** /byon | 
 [**addNode**](NodeApi.md#addNode) | **POST** /node | 
 [**findNodeGroups**](NodeApi.md#findNodeGroups) | **GET** /nodeGroup | 
 [**findNodes**](NodeApi.md#findNodes) | **GET** /node | 
 [**getNode**](NodeApi.md#getNode) | **GET** /node/{id} | 
 [**getNodeGroup**](NodeApi.md#getNodeGroup) | **GET** /nodeGroup/{id} | 
 
+
+<a name="addBYON"></a>
+# **addBYON**
+> Node addBYON(node)
+
+
+
+Registers an already existing node for usage
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.NodeApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+NodeApi apiInstance = new NodeApi();
+Node node = new Node(); // Node | Node to be registered
+try {
+    Node result = apiInstance.addBYON(node);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling NodeApi#addBYON");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **node** | [**Node**](Node.md)| Node to be registered |
+
+### Return type
+
+[**Node**](Node.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="addNode"></a>
 # **addNode**

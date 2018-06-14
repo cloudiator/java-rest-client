@@ -48,7 +48,7 @@ public class Monitor implements Serializable {
   private Sensor sensor = null;
 
   @SerializedName("sinks")
-  private DataSink sinks = null;
+  private List<DataSink> sinks = null;
 
   @SerializedName("tags")
   private List<MonitoringTag> tags = null;
@@ -118,8 +118,16 @@ public class Monitor implements Serializable {
     this.sensor = sensor;
   }
 
-  public Monitor sinks(DataSink sinks) {
+  public Monitor sinks(List<DataSink> sinks) {
     this.sinks = sinks;
+    return this;
+  }
+
+  public Monitor addSinksItem(DataSink sinksItem) {
+    if (this.sinks == null) {
+      this.sinks = new ArrayList<DataSink>();
+    }
+    this.sinks.add(sinksItem);
     return this;
   }
 
@@ -128,11 +136,11 @@ public class Monitor implements Serializable {
    * @return sinks
   **/
   @ApiModelProperty(value = "")
-  public DataSink getSinks() {
+  public List<DataSink> getSinks() {
     return sinks;
   }
 
-  public void setSinks(DataSink sinks) {
+  public void setSinks(List<DataSink> sinks) {
     this.sinks = sinks;
   }
 

@@ -39,6 +39,22 @@ public class NodeApiTest {
     /**
      * 
      *
+     * Registers an already existing node for usage
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addBYONTest() throws ApiException {
+        Node node = null;
+        Node response = api.addBYON(node);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Create a new node request
      *
      * @throws ApiException
