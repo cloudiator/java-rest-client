@@ -29,7 +29,9 @@ import java.io.IOException;
 
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Job;
-import io.github.cloudiator.rest.model.Task;
+import io.github.cloudiator.rest.model.JobNew;
+import io.github.cloudiator.rest.model.Schedule;
+import io.github.cloudiator.rest.model.ScheduleNew;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class JobApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addJobCall(Job job, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addJobCall(JobNew job, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = job;
 
         // create path and map variables
@@ -106,7 +108,7 @@ public class JobApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addJobValidateBeforeCall(Job job, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addJobValidateBeforeCall(JobNew job, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'job' is set
         if (job == null) {
@@ -126,7 +128,7 @@ public class JobApi {
      * @return Job
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Job addJob(Job job) throws ApiException {
+    public Job addJob(JobNew job) throws ApiException {
         ApiResponse<Job> resp = addJobWithHttpInfo(job);
         return resp.getData();
     }
@@ -138,7 +140,7 @@ public class JobApi {
      * @return ApiResponse&lt;Job&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Job> addJobWithHttpInfo(Job job) throws ApiException {
+    public ApiResponse<Job> addJobWithHttpInfo(JobNew job) throws ApiException {
         com.squareup.okhttp.Call call = addJobValidateBeforeCall(job, null, null);
         Type localVarReturnType = new TypeToken<Job>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -152,7 +154,7 @@ public class JobApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addJobAsync(Job job, final ApiCallback<Job> callback) throws ApiException {
+    public com.squareup.okhttp.Call addJobAsync(JobNew job, final ApiCallback<Job> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -179,18 +181,18 @@ public class JobApi {
         return call;
     }
     /**
-     * Build call for addTask
-     * @param task Task to be created  (required)
+     * Build call for addSchedule
+     * @param schedule Schedule to be created  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addTaskCall(Task task, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = task;
+    public com.squareup.okhttp.Call addScheduleCall(ScheduleNew schedule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = schedule;
 
         // create path and map variables
-        String localVarPath = "/tasks";
+        String localVarPath = "/schedule";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -228,53 +230,53 @@ public class JobApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addTaskValidateBeforeCall(Task task, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addScheduleValidateBeforeCall(ScheduleNew schedule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'task' is set
-        if (task == null) {
-            throw new ApiException("Missing the required parameter 'task' when calling addTask(Async)");
+        // verify the required parameter 'schedule' is set
+        if (schedule == null) {
+            throw new ApiException("Missing the required parameter 'schedule' when calling addSchedule(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = addTaskCall(task, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addScheduleCall(schedule, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * 
-     * Creates a new task 
-     * @param task Task to be created  (required)
-     * @return Task
+     * Creates a new schedule 
+     * @param schedule Schedule to be created  (required)
+     * @return Schedule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Task addTask(Task task) throws ApiException {
-        ApiResponse<Task> resp = addTaskWithHttpInfo(task);
+    public Schedule addSchedule(ScheduleNew schedule) throws ApiException {
+        ApiResponse<Schedule> resp = addScheduleWithHttpInfo(schedule);
         return resp.getData();
     }
 
     /**
      * 
-     * Creates a new task 
-     * @param task Task to be created  (required)
-     * @return ApiResponse&lt;Task&gt;
+     * Creates a new schedule 
+     * @param schedule Schedule to be created  (required)
+     * @return ApiResponse&lt;Schedule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Task> addTaskWithHttpInfo(Task task) throws ApiException {
-        com.squareup.okhttp.Call call = addTaskValidateBeforeCall(task, null, null);
-        Type localVarReturnType = new TypeToken<Task>(){}.getType();
+    public ApiResponse<Schedule> addScheduleWithHttpInfo(ScheduleNew schedule) throws ApiException {
+        com.squareup.okhttp.Call call = addScheduleValidateBeforeCall(schedule, null, null);
+        Type localVarReturnType = new TypeToken<Schedule>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Creates a new task 
-     * @param task Task to be created  (required)
+     * Creates a new schedule 
+     * @param schedule Schedule to be created  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addTaskAsync(Task task, final ApiCallback<Task> callback) throws ApiException {
+    public com.squareup.okhttp.Call addScheduleAsync(ScheduleNew schedule, final ApiCallback<Schedule> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -295,8 +297,131 @@ public class JobApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addTaskValidateBeforeCall(task, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Task>(){}.getType();
+        com.squareup.okhttp.Call call = addScheduleValidateBeforeCall(schedule, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Schedule>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for findJob
+     * @param id Unique identifier of the resource (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call findJobCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/jobs/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call findJobValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling findJob(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = findJobCall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Returns the job with the given id. 
+     * @param id Unique identifier of the resource (required)
+     * @return Job
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Job findJob(String id) throws ApiException {
+        ApiResponse<Job> resp = findJobWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Returns the job with the given id. 
+     * @param id Unique identifier of the resource (required)
+     * @return ApiResponse&lt;Job&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Job> findJobWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = findJobValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<Job>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns the job with the given id. 
+     * @param id Unique identifier of the resource (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call findJobAsync(String id, final ApiCallback<Job> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = findJobValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Job>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -414,17 +539,17 @@ public class JobApi {
         return call;
     }
     /**
-     * Build call for findTasks
+     * Build call for getSchedules
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call findTasksCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSchedulesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/tasks";
+        String localVarPath = "/schedule";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -462,45 +587,45 @@ public class JobApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call findTasksValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSchedulesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = findTasksCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSchedulesCall(progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * 
-     * Returns all tasks visible to the user 
-     * @return List&lt;Task&gt;
+     * Retrieves all schedules by the current user. 
+     * @return List&lt;Schedule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Task> findTasks() throws ApiException {
-        ApiResponse<List<Task>> resp = findTasksWithHttpInfo();
+    public List<Schedule> getSchedules() throws ApiException {
+        ApiResponse<List<Schedule>> resp = getSchedulesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * 
-     * Returns all tasks visible to the user 
-     * @return ApiResponse&lt;List&lt;Task&gt;&gt;
+     * Retrieves all schedules by the current user. 
+     * @return ApiResponse&lt;List&lt;Schedule&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Task>> findTasksWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = findTasksValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<Task>>(){}.getType();
+    public ApiResponse<List<Schedule>> getSchedulesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getSchedulesValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<List<Schedule>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Returns all tasks visible to the user 
+     * Retrieves all schedules by the current user. 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call findTasksAsync(final ApiCallback<List<Task>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSchedulesAsync(final ApiCallback<List<Schedule>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -521,8 +646,8 @@ public class JobApi {
             };
         }
 
-        com.squareup.okhttp.Call call = findTasksValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Task>>(){}.getType();
+        com.squareup.okhttp.Call call = getSchedulesValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Schedule>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

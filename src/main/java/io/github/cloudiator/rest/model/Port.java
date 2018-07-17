@@ -48,7 +48,7 @@ public class Port implements Serializable {
    * Discriminator for polymorphism. Only subtypes are allowed. 
    * @return type
   **/
-  @ApiModelProperty(value = "Discriminator for polymorphism. Only subtypes are allowed. ")
+  @ApiModelProperty(required = true, value = "Discriminator for polymorphism. Only subtypes are allowed. ")
   public String getType() {
     return type;
   }

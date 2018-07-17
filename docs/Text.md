@@ -1,10 +1,10 @@
 
-# PortProvided
+# Text
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**port** | **Integer** |  | 
+**content** | **String** | Content of the string | 
 
 
 

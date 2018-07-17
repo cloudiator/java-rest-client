@@ -16,7 +16,9 @@ package io.github.cloudiator.rest.api;
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Job;
-import io.github.cloudiator.rest.model.Task;
+import io.github.cloudiator.rest.model.JobNew;
+import io.github.cloudiator.rest.model.Schedule;
+import io.github.cloudiator.rest.model.ScheduleNew;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +46,7 @@ public class JobApiTest {
      */
     @Test
     public void addJobTest() throws ApiException {
-        Job job = null;
+        JobNew job = null;
         Job response = api.addJob(job);
 
         // TODO: test validations
@@ -53,15 +55,31 @@ public class JobApiTest {
     /**
      * 
      *
-     * Creates a new task 
+     * Creates a new schedule 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void addTaskTest() throws ApiException {
-        Task task = null;
-        Task response = api.addTask(task);
+    public void addScheduleTest() throws ApiException {
+        ScheduleNew schedule = null;
+        Schedule response = api.addSchedule(schedule);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns the job with the given id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findJobTest() throws ApiException {
+        String id = null;
+        Job response = api.findJob(id);
 
         // TODO: test validations
     }
@@ -84,14 +102,14 @@ public class JobApiTest {
     /**
      * 
      *
-     * Returns all tasks visible to the user 
+     * Retrieves all schedules by the current user. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void findTasksTest() throws ApiException {
-        List<Task> response = api.findTasks();
+    public void getSchedulesTest() throws ApiException {
+        List<Schedule> response = api.getSchedules();
 
         // TODO: test validations
     }

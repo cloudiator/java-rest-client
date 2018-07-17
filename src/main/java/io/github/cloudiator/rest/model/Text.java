@@ -19,39 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Port;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Subtype of port. Represents a communication port that the tasks provides for other tasks or the end user. 
+ * Represents a string as valid json object 
  */
-@ApiModel(description = "Subtype of port. Represents a communication port that the tasks provides for other tasks or the end user. ")
+@ApiModel(description = "Represents a string as valid json object ")
 
-public class PortProvided extends Port implements Serializable {
+public class Text implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("port")
-  private Integer port = null;
+  @SerializedName("content")
+  private String content = null;
 
-  public PortProvided port(Integer port) {
-    this.port = port;
+  public Text content(String content) {
+    this.content = content;
     return this;
   }
 
    /**
-   * Get port
-   * @return port
+   * Content of the string
+   * @return content
   **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getPort() {
-    return port;
+  @ApiModelProperty(required = true, value = "Content of the string")
+  public String getContent() {
+    return content;
   }
 
-  public void setPort(Integer port) {
-    this.port = port;
+  public void setContent(String content) {
+    this.content = content;
   }
 
 
@@ -63,23 +62,22 @@ public class PortProvided extends Port implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PortProvided portProvided = (PortProvided) o;
-    return Objects.equals(this.port, portProvided.port) &&
-        super.equals(o);
+    Text text = (Text) o;
+    return Objects.equals(this.content, text.content);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(port, super.hashCode());
+    return Objects.hash(content);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PortProvided {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("class Text {\n");
+    
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");
     return sb.toString();
   }

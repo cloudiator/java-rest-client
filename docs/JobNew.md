@@ -1,5 +1,5 @@
 
-# Job
+# JobNew
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **tasks** | [**List&lt;Task&gt;**](Task.md) | An array of tasks that form this application.  |  [optional]
 **communications** | [**List&lt;Communication&gt;**](Communication.md) |  |  [optional]
 **requirements** | [**List&lt;Requirement&gt;**](Requirement.md) |  |  [optional]
-**id** | **String** |  |  [optional]
 
 
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ports** | [**List&lt;Port&gt;**](Port.md) |  |  [optional]
 **interfaces** | [**List&lt;TaskInterface&gt;**](TaskInterface.md) | Interfaces of this task |  [optional]
 **executionEnvironment** | [**ExecutionEnvironment**](ExecutionEnvironment.md) |  | 
+**optimization** | [**Optimization**](Optimization.md) |  |  [optional]
 **requirements** | [**List&lt;Requirement&gt;**](Requirement.md) |  |  [optional]
 **taskType** | [**TaskType**](TaskType.md) |  | 
 
