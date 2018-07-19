@@ -8,6 +8,7 @@ import io.github.cloudiator.rest.model.NodeCandidate;
 import io.github.cloudiator.rest.model.NodeRequirements;
 import io.github.cloudiator.rest.model.RequirementOperator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class NodeCandidateExample {
 
@@ -17,6 +18,9 @@ public class NodeCandidateExample {
     String basePath = PropertyAccess.basePath();
 
     ApiClient apiClient = new ApiClient();
+
+    apiClient.getHttpClient().setReadTimeout(1, TimeUnit.MINUTES);
+
     if (basePath != null) {
       apiClient.setBasePath(basePath);
     }
@@ -24,8 +28,8 @@ public class NodeCandidateExample {
 
     MatchmakingApi matchmakingApi = new MatchmakingApi(apiClient);
 
-    getAllNodeCandidates(matchmakingApi);
-    getAllNodeCandidatesFourCores(matchmakingApi);
+    //getAllNodeCandidates(matchmakingApi);
+    getAllNodeCandidatesWithRequirements(matchmakingApi);
 
 
   }
@@ -46,22 +50,31 @@ public class NodeCandidateExample {
   }
 
   /**
-   * Example code that fetches all node candidates that have at least for cores.
+   * Example code that fetches all node candidates that have 2 cores and 2048 ram.
    *
    * @param matchmakingApi the api to use
    */
-  private static void getAllNodeCandidatesFourCores(MatchmakingApi matchmakingApi)
+  private static void getAllNodeCandidatesWithRequirements(MatchmakingApi matchmakingApi)
       throws ApiException {
-    //get possible node candidates with at least 4 cores
-    final AttributeRequirement attributeRequirement = new AttributeRequirement();
-    attributeRequirement.setType("AttributeRequirement");
-    attributeRequirement.setRequirementClass("hardware");
-    attributeRequirement.setRequirementAttribute("cores");
-    attributeRequirement.setRequirementOperator(RequirementOperator.GEQ);
-    attributeRequirement.setValue("4");
+    //get possible node candidates with 2 cores
+    final AttributeRequirement coreRequirement = new AttributeRequirement();
+    coreRequirement.setType("AttributeRequirement");
+    coreRequirement.setRequirementClass("hardware");
+    coreRequirement.setRequirementAttribute("cores");
+    coreRequirement.setRequirementOperator(RequirementOperator.EQ);
+    coreRequirement.setValue("2");
+
+    //get possible node candidates with 2048 ram
+    final AttributeRequirement ramRequirement = new AttributeRequirement();
+    ramRequirement.setType("AttributeRequirement");
+    ramRequirement.setRequirementClass("hardware");
+    ramRequirement.setRequirementAttribute("ram");
+    ramRequirement.setRequirementOperator(RequirementOperator.EQ);
+    ramRequirement.setValue("2048");
 
     NodeRequirements nodeRequirements = new NodeRequirements();
-    nodeRequirements.addRequirementsItem(attributeRequirement);
+    nodeRequirements.addRequirementsItem(coreRequirement);
+    nodeRequirements.addRequirementsItem(ramRequirement);
 
     final List<NodeCandidate> nodeCandidates = matchmakingApi.findNodeCandidates(nodeRequirements);
 

@@ -20,13 +20,13 @@ public class GetOffersExample {
     CloudApi cloudApi = new CloudApi(apiClient);
 
     System.out.println("HARDWARE");
-    cloudApi.findHardware().forEach(System.out::println);
+    cloudApi.findHardware(null).forEach(System.out::println);
 
     System.out.println("LOCATIONS");
-    cloudApi.findLocations().forEach(System.out::println);
+    cloudApi.findLocations(null).forEach(System.out::println);
 
     System.out.println("IMAGES");
-    cloudApi.findImages().forEach(System.out::println);
+    cloudApi.findImages(null).forEach(System.out::println);
 
   }
 
