@@ -33,6 +33,58 @@ import java.io.Serializable;
 public class LanceInterface extends TaskInterface implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The container type that lance should use. Can be DOCKER to force a docker deployment, NATIVE to force a plain container deployment or BOTH to let the system derive the container type. 
+   */
+  @JsonAdapter(ContainerTypeEnum.Adapter.class)
+  public enum ContainerTypeEnum {
+    NATIVE("NATIVE"),
+    
+    DOCKER("DOCKER"),
+    
+    BOTH("BOTH");
+
+    private String value;
+
+    ContainerTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ContainerTypeEnum fromValue(String text) {
+      for (ContainerTypeEnum b : ContainerTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ContainerTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ContainerTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ContainerTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ContainerTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("containerType")
+  private ContainerTypeEnum containerType = null;
+
   @SerializedName("init")
   private String init = null;
 
@@ -71,6 +123,24 @@ public class LanceInterface extends TaskInterface implements Serializable {
 
   @SerializedName("shutdown")
   private String shutdown = null;
+
+  public LanceInterface containerType(ContainerTypeEnum containerType) {
+    this.containerType = containerType;
+    return this;
+  }
+
+   /**
+   * The container type that lance should use. Can be DOCKER to force a docker deployment, NATIVE to force a plain container deployment or BOTH to let the system derive the container type. 
+   * @return containerType
+  **/
+  @ApiModelProperty(value = "The container type that lance should use. Can be DOCKER to force a docker deployment, NATIVE to force a plain container deployment or BOTH to let the system derive the container type. ")
+  public ContainerTypeEnum getContainerType() {
+    return containerType;
+  }
+
+  public void setContainerType(ContainerTypeEnum containerType) {
+    this.containerType = containerType;
+  }
 
   public LanceInterface init(String init) {
     this.init = init;
@@ -316,7 +386,8 @@ public class LanceInterface extends TaskInterface implements Serializable {
       return false;
     }
     LanceInterface lanceInterface = (LanceInterface) o;
-    return Objects.equals(this.init, lanceInterface.init) &&
+    return Objects.equals(this.containerType, lanceInterface.containerType) &&
+        Objects.equals(this.init, lanceInterface.init) &&
         Objects.equals(this.preInstall, lanceInterface.preInstall) &&
         Objects.equals(this.install, lanceInterface.install) &&
         Objects.equals(this.postInstall, lanceInterface.postInstall) &&
@@ -334,7 +405,7 @@ public class LanceInterface extends TaskInterface implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(init, preInstall, install, postInstall, preStart, start, startDetection, stopDetection, postStart, preStop, stop, postStop, shutdown, super.hashCode());
+    return Objects.hash(containerType, init, preInstall, install, postInstall, preStart, start, startDetection, stopDetection, postStart, preStop, stop, postStop, shutdown, super.hashCode());
   }
 
 
@@ -343,6 +414,7 @@ public class LanceInterface extends TaskInterface implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class LanceInterface {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    containerType: ").append(toIndentedString(containerType)).append("\n");
     sb.append("    init: ").append(toIndentedString(init)).append("\n");
     sb.append("    preInstall: ").append(toIndentedString(preInstall)).append("\n");
     sb.append("    install: ").append(toIndentedString(install)).append("\n");

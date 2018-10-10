@@ -14,10 +14,9 @@
 package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
-import io.github.cloudiator.rest.model.MatchmakingRequest;
-import io.github.cloudiator.rest.model.MatchmakingResponse;
 import io.github.cloudiator.rest.model.NodeCandidate;
 import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.Requirement;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +44,7 @@ public class MatchmakingApiTest {
      */
     @Test
     public void findNodeCandidatesTest() throws ApiException {
-        NodeRequirements nodeRequirements = null;
+        List<Requirement> nodeRequirements = null;
         List<NodeCandidate> response = api.findNodeCandidates(nodeRequirements);
 
         // TODO: test validations
@@ -61,8 +60,8 @@ public class MatchmakingApiTest {
      */
     @Test
     public void solveMatchmakingTest() throws ApiException {
-        MatchmakingRequest matchmakingRequest = null;
-        MatchmakingResponse response = api.solveMatchmaking(matchmakingRequest);
+        NodeRequirements nodeRequirements = null;
+        List<NodeCandidate> response = api.solveMatchmaking(nodeRequirements);
 
         // TODO: test validations
     }

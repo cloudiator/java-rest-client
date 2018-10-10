@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**containerType** | [**ContainerTypeEnum**](#ContainerTypeEnum) | The container type that lance should use. Can be DOCKER to force a docker deployment, NATIVE to force a plain container deployment or BOTH to let the system derive the container type.  |  [optional]
 **init** | **String** | Initialization action.  |  [optional]
 **preInstall** | **String** | Executed before installation action. Can be e.g. used for downloading binaries.  |  [optional]
 **install** | **String** | Used for installing the application.  |  [optional]
@@ -17,6 +18,15 @@ Name | Type | Description | Notes
 **stop** | **String** | Stops the application.  |  [optional]
 **postStop** | **String** | Executed after the application is successfully stopped.  |  [optional]
 **shutdown** | **String** | Executed before the container is shutdown. Can be used to backup state.  |  [optional]
+
+
+<a name="ContainerTypeEnum"></a>
+## Enum: ContainerTypeEnum
+Name | Value
+---- | -----
+NATIVE | &quot;NATIVE&quot;
+DOCKER | &quot;DOCKER&quot;
+BOTH | &quot;BOTH&quot;
 
 
 

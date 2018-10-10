@@ -19,12 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Property;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -39,7 +36,7 @@ public class CloudConfiguration implements Serializable {
   private String nodeGroup = null;
 
   @SerializedName("properties")
-  private List<Property> properties = null;
+  private java.util.Map properties = null;
 
   public CloudConfiguration nodeGroup(String nodeGroup) {
     this.nodeGroup = nodeGroup;
@@ -59,29 +56,21 @@ public class CloudConfiguration implements Serializable {
     this.nodeGroup = nodeGroup;
   }
 
-  public CloudConfiguration properties(List<Property> properties) {
+  public CloudConfiguration properties(java.util.Map properties) {
     this.properties = properties;
     return this;
   }
 
-  public CloudConfiguration addPropertiesItem(Property propertiesItem) {
-    if (this.properties == null) {
-      this.properties = new ArrayList<Property>();
-    }
-    this.properties.add(propertiesItem);
-    return this;
-  }
-
    /**
-   * Array of configuration properties.
+   * Configuration as key-value map.
    * @return properties
   **/
-  @ApiModelProperty(value = "Array of configuration properties.")
-  public List<Property> getProperties() {
+  @ApiModelProperty(value = "Configuration as key-value map.")
+  public java.util.Map getProperties() {
     return properties;
   }
 
-  public void setProperties(List<Property> properties) {
+  public void setProperties(java.util.Map properties) {
     this.properties = properties;
   }
 

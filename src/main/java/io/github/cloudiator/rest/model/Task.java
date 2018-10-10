@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.ExecutionEnvironment;
 import io.github.cloudiator.rest.model.Optimization;
 import io.github.cloudiator.rest.model.Port;
 import io.github.cloudiator.rest.model.Requirement;
@@ -48,9 +47,6 @@ public class Task implements Serializable {
 
   @SerializedName("interfaces")
   private List<TaskInterface> interfaces = null;
-
-  @SerializedName("executionEnvironment")
-  private ExecutionEnvironment executionEnvironment = null;
 
   @SerializedName("optimization")
   private Optimization optimization = null;
@@ -131,24 +127,6 @@ public class Task implements Serializable {
     this.interfaces = interfaces;
   }
 
-  public Task executionEnvironment(ExecutionEnvironment executionEnvironment) {
-    this.executionEnvironment = executionEnvironment;
-    return this;
-  }
-
-   /**
-   * Get executionEnvironment
-   * @return executionEnvironment
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public ExecutionEnvironment getExecutionEnvironment() {
-    return executionEnvironment;
-  }
-
-  public void setExecutionEnvironment(ExecutionEnvironment executionEnvironment) {
-    this.executionEnvironment = executionEnvironment;
-  }
-
   public Task optimization(Optimization optimization) {
     this.optimization = optimization;
     return this;
@@ -224,7 +202,6 @@ public class Task implements Serializable {
     return Objects.equals(this.name, task.name) &&
         Objects.equals(this.ports, task.ports) &&
         Objects.equals(this.interfaces, task.interfaces) &&
-        Objects.equals(this.executionEnvironment, task.executionEnvironment) &&
         Objects.equals(this.optimization, task.optimization) &&
         Objects.equals(this.requirements, task.requirements) &&
         Objects.equals(this.taskType, task.taskType);
@@ -232,7 +209,7 @@ public class Task implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, ports, interfaces, executionEnvironment, optimization, requirements, taskType);
+    return Objects.hash(name, ports, interfaces, optimization, requirements, taskType);
   }
 
 
@@ -244,7 +221,6 @@ public class Task implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    interfaces: ").append(toIndentedString(interfaces)).append("\n");
-    sb.append("    executionEnvironment: ").append(toIndentedString(executionEnvironment)).append("\n");
     sb.append("    optimization: ").append(toIndentedString(optimization)).append("\n");
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");

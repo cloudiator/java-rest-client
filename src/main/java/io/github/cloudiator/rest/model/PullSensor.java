@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.cloudiator.rest.model.Interval;
 import io.github.cloudiator.rest.model.Sensor;
-import io.github.cloudiator.rest.model.SensorConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class PullSensor extends Sensor implements Serializable {
   private String className = null;
 
   @SerializedName("configuration")
-  private SensorConfiguration _configuration = null;
+  private java.util.Map _configuration = null;
 
   @SerializedName("interval")
   private Interval interval = null;
@@ -61,21 +60,21 @@ public class PullSensor extends Sensor implements Serializable {
     this.className = className;
   }
 
-  public PullSensor _configuration(SensorConfiguration _configuration) {
+  public PullSensor _configuration(java.util.Map _configuration) {
     this._configuration = _configuration;
     return this;
   }
 
    /**
-   * Configuration of the sensor
+   * Configuration of the sensor as key-value map
    * @return _configuration
   **/
-  @ApiModelProperty(value = "Configuration of the sensor")
-  public SensorConfiguration getConfiguration() {
+  @ApiModelProperty(value = "Configuration of the sensor as key-value map")
+  public java.util.Map getConfiguration() {
     return _configuration;
   }
 
-  public void setConfiguration(SensorConfiguration _configuration) {
+  public void setConfiguration(java.util.Map _configuration) {
     this._configuration = _configuration;
   }
 

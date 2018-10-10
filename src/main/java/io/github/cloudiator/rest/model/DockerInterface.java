@@ -26,9 +26,9 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Subtype of TaskInterface 
+ * Subtype of TaskInterface to represent docker containers 
  */
-@ApiModel(description = "Subtype of TaskInterface ")
+@ApiModel(description = "Subtype of TaskInterface to represent docker containers ")
 
 public class DockerInterface extends TaskInterface implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -36,22 +36,43 @@ public class DockerInterface extends TaskInterface implements Serializable {
   @SerializedName("dockerImage")
   private String dockerImage = null;
 
+  @SerializedName("environment")
+  private java.util.Map environment = null;
+
   public DockerInterface dockerImage(String dockerImage) {
     this.dockerImage = dockerImage;
     return this;
   }
 
    /**
-   * Name of the docker image 
+   * Name of the docker image (should include repository, credentials, tags) 
    * @return dockerImage
   **/
-  @ApiModelProperty(value = "Name of the docker image ")
+  @ApiModelProperty(value = "Name of the docker image (should include repository, credentials, tags) ")
   public String getDockerImage() {
     return dockerImage;
   }
 
   public void setDockerImage(String dockerImage) {
     this.dockerImage = dockerImage;
+  }
+
+  public DockerInterface environment(java.util.Map environment) {
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * A key-value map representing the environment of the docker container 
+   * @return environment
+  **/
+  @ApiModelProperty(value = "A key-value map representing the environment of the docker container ")
+  public java.util.Map getEnvironment() {
+    return environment;
+  }
+
+  public void setEnvironment(java.util.Map environment) {
+    this.environment = environment;
   }
 
 
@@ -65,12 +86,13 @@ public class DockerInterface extends TaskInterface implements Serializable {
     }
     DockerInterface dockerInterface = (DockerInterface) o;
     return Objects.equals(this.dockerImage, dockerInterface.dockerImage) &&
+        Objects.equals(this.environment, dockerInterface.environment) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dockerImage, super.hashCode());
+    return Objects.hash(dockerImage, environment, super.hashCode());
   }
 
 
@@ -80,6 +102,7 @@ public class DockerInterface extends TaskInterface implements Serializable {
     sb.append("class DockerInterface {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    dockerImage: ").append(toIndentedString(dockerImage)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

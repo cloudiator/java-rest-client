@@ -1,11 +1,11 @@
 
-# DataSinkConfiguration
+# Tuple
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **String** |  |  [optional]
-**value** | **String** |  |  [optional]
+**key** | **String** | Key of the tuple  | 
+**value** | **String** | Value of the tuple  | 
 
 
 

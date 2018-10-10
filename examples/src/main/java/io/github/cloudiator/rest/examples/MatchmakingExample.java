@@ -4,11 +4,11 @@ import io.github.cloudiator.rest.ApiClient;
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.api.MatchmakingApi;
 import io.github.cloudiator.rest.model.AttributeRequirement;
-import io.github.cloudiator.rest.model.MatchmakingRequest;
-import io.github.cloudiator.rest.model.MatchmakingResponse;
+import io.github.cloudiator.rest.model.NodeCandidate;
 import io.github.cloudiator.rest.model.NodeRequirements;
 import io.github.cloudiator.rest.model.OclRequirement;
 import io.github.cloudiator.rest.model.RequirementOperator;
+import java.util.List;
 
 public class MatchmakingExample {
 
@@ -36,13 +36,11 @@ public class MatchmakingExample {
     attributeRequirement.setRequirementOperator(RequirementOperator.GEQ);
     attributeRequirement.setValue("2048");
     nodeRequirements.addRequirementsItem(attributeRequirement);
-    MatchmakingRequest matchmakingRequest = new MatchmakingRequest();
-    matchmakingRequest.setRequirements(nodeRequirements);
 
-    final MatchmakingResponse matchmakingResponse = matchmakingApi
-        .solveMatchmaking(matchmakingRequest);
+    final List<NodeCandidate> nodeCandidates = matchmakingApi
+        .solveMatchmaking(nodeRequirements);
 
-    System.out.println(matchmakingResponse);
+    nodeCandidates.forEach(System.out::println);
 
   }
 

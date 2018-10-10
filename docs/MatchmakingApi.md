@@ -34,7 +34,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 MatchmakingApi apiInstance = new MatchmakingApi();
-NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | Node Request 
+List<Requirement> nodeRequirements = Arrays.asList(new Requirement()); // List<Requirement> | Node Request 
 try {
     List<NodeCandidate> result = apiInstance.findNodeCandidates(nodeRequirements);
     System.out.println(result);
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nodeRequirements** | [**NodeRequirements**](NodeRequirements.md)| Node Request  | [optional]
+ **nodeRequirements** | [**List&lt;Requirement&gt;**](Requirement.md)| Node Request  | [optional]
 
 ### Return type
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 <a name="solveMatchmaking"></a>
 # **solveMatchmaking**
-> MatchmakingResponse solveMatchmaking(matchmakingRequest)
+> List&lt;NodeCandidate&gt; solveMatchmaking(nodeRequirements)
 
 
 
@@ -89,9 +89,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 MatchmakingApi apiInstance = new MatchmakingApi();
-MatchmakingRequest matchmakingRequest = new MatchmakingRequest(); // MatchmakingRequest | The matchmaking request to solve
+NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | The requirements with respect to nodes
 try {
-    MatchmakingResponse result = apiInstance.solveMatchmaking(matchmakingRequest);
+    List<NodeCandidate> result = apiInstance.solveMatchmaking(nodeRequirements);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MatchmakingApi#solveMatchmaking");
@@ -103,11 +103,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **matchmakingRequest** | [**MatchmakingRequest**](MatchmakingRequest.md)| The matchmaking request to solve |
+ **nodeRequirements** | [**NodeRequirements**](NodeRequirements.md)| The requirements with respect to nodes |
 
 ### Return type
 
-[**MatchmakingResponse**](MatchmakingResponse.md)
+[**List&lt;NodeCandidate&gt;**](NodeCandidate.md)
 
 ### Authorization
 

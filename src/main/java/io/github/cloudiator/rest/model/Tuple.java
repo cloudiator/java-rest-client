@@ -19,49 +19,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Property;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 /**
- * Key-Value configuration of the sensor
+ * A key - value tuple 
  */
-@ApiModel(description = "Key-Value configuration of the sensor")
+@ApiModel(description = "A key - value tuple ")
 
-public class SensorConfiguration implements Serializable {
+public class Tuple implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("properties")
-  private List<Property> properties = null;
+  @SerializedName("key")
+  private String key = null;
 
-  public SensorConfiguration properties(List<Property> properties) {
-    this.properties = properties;
-    return this;
-  }
+  @SerializedName("value")
+  private String value = null;
 
-  public SensorConfiguration addPropertiesItem(Property propertiesItem) {
-    if (this.properties == null) {
-      this.properties = new ArrayList<Property>();
-    }
-    this.properties.add(propertiesItem);
+  public Tuple key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Array of configuration properties
-   * @return properties
+   * Key of the tuple 
+   * @return key
   **/
-  @ApiModelProperty(value = "Array of configuration properties")
-  public List<Property> getProperties() {
-    return properties;
+  @ApiModelProperty(required = true, value = "Key of the tuple ")
+  public String getKey() {
+    return key;
   }
 
-  public void setProperties(List<Property> properties) {
-    this.properties = properties;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public Tuple value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Value of the tuple 
+   * @return value
+  **/
+  @ApiModelProperty(required = true, value = "Value of the tuple ")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -73,22 +83,24 @@ public class SensorConfiguration implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensorConfiguration sensorConfiguration = (SensorConfiguration) o;
-    return Objects.equals(this.properties, sensorConfiguration.properties);
+    Tuple tuple = (Tuple) o;
+    return Objects.equals(this.key, tuple.key) &&
+        Objects.equals(this.value, tuple.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(properties);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SensorConfiguration {\n");
+    sb.append("class Tuple {\n");
     
-    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

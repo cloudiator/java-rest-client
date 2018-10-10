@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addJob**](JobApi.md#addJob) | **POST** /jobs | 
 [**addSchedule**](JobApi.md#addSchedule) | **POST** /schedule | 
+[**createProcess**](JobApi.md#createProcess) | **POST** /process | 
 [**findJob**](JobApi.md#findJob) | **GET** /jobs/{id} | 
 [**findJobs**](JobApi.md#findJobs) | **GET** /jobs | 
+[**getProcesses**](JobApi.md#getProcesses) | **GET** /process | 
 [**getSchedules**](JobApi.md#getSchedules) | **GET** /schedule | 
 
 
@@ -68,7 +70,7 @@ Name | Type | Description  | Notes
 
 <a name="addSchedule"></a>
 # **addSchedule**
-> Schedule addSchedule(schedule)
+> Queue addSchedule(schedule)
 
 
 
@@ -94,7 +96,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 JobApi apiInstance = new JobApi();
 ScheduleNew schedule = new ScheduleNew(); // ScheduleNew | Schedule to be created 
 try {
-    Schedule result = apiInstance.addSchedule(schedule);
+    Queue result = apiInstance.addSchedule(schedule);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling JobApi#addSchedule");
@@ -110,7 +112,62 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Schedule**](Schedule.md)
+[**Queue**](Queue.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createProcess"></a>
+# **createProcess**
+> Queue createProcess(process)
+
+
+
+Creates a new process 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.JobApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+JobApi apiInstance = new JobApi();
+ProcessNew process = new ProcessNew(); // ProcessNew | Process to be created 
+try {
+    Queue result = apiInstance.createProcess(process);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling JobApi#createProcess");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **process** | [**ProcessNew**](ProcessNew.md)| Process to be created  |
+
+### Return type
+
+[**Queue**](Queue.md)
 
 ### Authorization
 
@@ -217,6 +274,57 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Job&gt;**](Job.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getProcesses"></a>
+# **getProcesses**
+> List&lt;Process&gt; getProcesses()
+
+
+
+Retrieves all process of the current user. 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.JobApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+JobApi apiInstance = new JobApi();
+try {
+    List<Process> result = apiInstance.getProcesses();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling JobApi#getProcesses");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Process&gt;**](Process.md)
 
 ### Authorization
 

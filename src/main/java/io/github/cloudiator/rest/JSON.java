@@ -81,6 +81,7 @@ public class JSON {
                 classByDiscriminatorValue.put("DockerInterface".toUpperCase(), DockerInterface.class);
                 classByDiscriminatorValue.put("LanceInterface".toUpperCase(), LanceInterface.class);
                 classByDiscriminatorValue.put("PlatformInterface".toUpperCase(), PlatformInterface.class);
+                classByDiscriminatorValue.put("SparkInterface".toUpperCase(), SparkInterface.class);
                 classByDiscriminatorValue.put("TaskInterface".toUpperCase(), TaskInterface.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,

@@ -19,12 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.DataSinkConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -86,7 +83,7 @@ public class DataSink implements Serializable {
   private TypeEnum type = null;
 
   @SerializedName("configuration")
-  private List<DataSinkConfiguration> _configuration = null;
+  private java.util.Map _configuration = null;
 
   public DataSink type(TypeEnum type) {
     this.type = type;
@@ -106,16 +103,8 @@ public class DataSink implements Serializable {
     this.type = type;
   }
 
-  public DataSink _configuration(List<DataSinkConfiguration> _configuration) {
+  public DataSink _configuration(java.util.Map _configuration) {
     this._configuration = _configuration;
-    return this;
-  }
-
-  public DataSink addConfigurationItem(DataSinkConfiguration _configurationItem) {
-    if (this._configuration == null) {
-      this._configuration = new ArrayList<DataSinkConfiguration>();
-    }
-    this._configuration.add(_configurationItem);
     return this;
   }
 
@@ -124,11 +113,11 @@ public class DataSink implements Serializable {
    * @return _configuration
   **/
   @ApiModelProperty(value = "")
-  public List<DataSinkConfiguration> getConfiguration() {
+  public java.util.Map getConfiguration() {
     return _configuration;
   }
 
-  public void setConfiguration(List<DataSinkConfiguration> _configuration) {
+  public void setConfiguration(java.util.Map _configuration) {
     this._configuration = _configuration;
   }
 

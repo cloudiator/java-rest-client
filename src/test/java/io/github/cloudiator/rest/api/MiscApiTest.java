@@ -15,7 +15,6 @@ package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.InstallationRequest;
-import io.github.cloudiator.rest.model.Text;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,38 +31,6 @@ public class MiscApiTest {
 
     private final MiscApi api = new MiscApi();
 
-    
-    /**
-     * 
-     *
-     * Decrypts the given string
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void decryptTest() throws ApiException {
-        String text = null;
-        Text response = api.decrypt(text);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Encrypts the given string
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void encryptTest() throws ApiException {
-        String text = null;
-        Text response = api.encrypt(text);
-
-        // TODO: test validations
-    }
     
     /**
      * 

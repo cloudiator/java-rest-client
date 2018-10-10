@@ -1,11 +1,11 @@
 
-# Property
+# ProcessGroup
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **String** | Key of the property | 
-**value** | **String** | Value of the property | 
+**id** | **String** |  | 
+**processes** | [**List&lt;Process&gt;**](Process.md) |  | 
 
 
 

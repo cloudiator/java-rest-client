@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.Optimization;
 import io.github.cloudiator.rest.model.Requirement;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,15 +29,18 @@ import java.util.List;
 import java.io.Serializable;
 
 /**
- * Array of Requirements. Represents a request to create a new node fullfilling the given requirements 
+ * Issues a request to the matchmaking component 
  */
-@ApiModel(description = "Array of Requirements. Represents a request to create a new node fullfilling the given requirements ")
+@ApiModel(description = "Issues a request to the matchmaking component ")
 
 public class NodeRequirements implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("requirements")
   private List<Requirement> requirements = null;
+
+  @SerializedName("optimization")
+  private Optimization optimization = null;
 
   public NodeRequirements requirements(List<Requirement> requirements) {
     this.requirements = requirements;
@@ -64,6 +68,24 @@ public class NodeRequirements implements Serializable {
     this.requirements = requirements;
   }
 
+  public NodeRequirements optimization(Optimization optimization) {
+    this.optimization = optimization;
+    return this;
+  }
+
+   /**
+   * Get optimization
+   * @return optimization
+  **/
+  @ApiModelProperty(value = "")
+  public Optimization getOptimization() {
+    return optimization;
+  }
+
+  public void setOptimization(Optimization optimization) {
+    this.optimization = optimization;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -74,12 +96,13 @@ public class NodeRequirements implements Serializable {
       return false;
     }
     NodeRequirements nodeRequirements = (NodeRequirements) o;
-    return Objects.equals(this.requirements, nodeRequirements.requirements);
+    return Objects.equals(this.requirements, nodeRequirements.requirements) &&
+        Objects.equals(this.optimization, nodeRequirements.optimization);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requirements);
+    return Objects.hash(requirements, optimization);
   }
 
 
@@ -89,6 +112,7 @@ public class NodeRequirements implements Serializable {
     sb.append("class NodeRequirements {\n");
     
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
+    sb.append("    optimization: ").append(toIndentedString(optimization)).append("\n");
     sb.append("}");
     return sb.toString();
   }

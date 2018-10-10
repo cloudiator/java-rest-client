@@ -27,10 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.github.cloudiator.rest.model.MatchmakingRequest;
-import io.github.cloudiator.rest.model.MatchmakingResponse;
 import io.github.cloudiator.rest.model.NodeCandidate;
 import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.Requirement;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class MatchmakingApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call findNodeCandidatesCall(NodeRequirements nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findNodeCandidatesCall(List<Requirement> nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = nodeRequirements;
 
         // create path and map variables
@@ -107,7 +106,7 @@ public class MatchmakingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call findNodeCandidatesValidateBeforeCall(NodeRequirements nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call findNodeCandidatesValidateBeforeCall(List<Requirement> nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = findNodeCandidatesCall(nodeRequirements, progressListener, progressRequestListener);
@@ -122,7 +121,7 @@ public class MatchmakingApi {
      * @return List&lt;NodeCandidate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<NodeCandidate> findNodeCandidates(NodeRequirements nodeRequirements) throws ApiException {
+    public List<NodeCandidate> findNodeCandidates(List<Requirement> nodeRequirements) throws ApiException {
         ApiResponse<List<NodeCandidate>> resp = findNodeCandidatesWithHttpInfo(nodeRequirements);
         return resp.getData();
     }
@@ -134,7 +133,7 @@ public class MatchmakingApi {
      * @return ApiResponse&lt;List&lt;NodeCandidate&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<NodeCandidate>> findNodeCandidatesWithHttpInfo(NodeRequirements nodeRequirements) throws ApiException {
+    public ApiResponse<List<NodeCandidate>> findNodeCandidatesWithHttpInfo(List<Requirement> nodeRequirements) throws ApiException {
         com.squareup.okhttp.Call call = findNodeCandidatesValidateBeforeCall(nodeRequirements, null, null);
         Type localVarReturnType = new TypeToken<List<NodeCandidate>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -148,7 +147,7 @@ public class MatchmakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call findNodeCandidatesAsync(NodeRequirements nodeRequirements, final ApiCallback<List<NodeCandidate>> callback) throws ApiException {
+    public com.squareup.okhttp.Call findNodeCandidatesAsync(List<Requirement> nodeRequirements, final ApiCallback<List<NodeCandidate>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,14 +175,14 @@ public class MatchmakingApi {
     }
     /**
      * Build call for solveMatchmaking
-     * @param matchmakingRequest The matchmaking request to solve (required)
+     * @param nodeRequirements The requirements with respect to nodes (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call solveMatchmakingCall(MatchmakingRequest matchmakingRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = matchmakingRequest;
+    public com.squareup.okhttp.Call solveMatchmakingCall(NodeRequirements nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = nodeRequirements;
 
         // create path and map variables
         String localVarPath = "/matchmaking";
@@ -224,15 +223,15 @@ public class MatchmakingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call solveMatchmakingValidateBeforeCall(MatchmakingRequest matchmakingRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call solveMatchmakingValidateBeforeCall(NodeRequirements nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'matchmakingRequest' is set
-        if (matchmakingRequest == null) {
-            throw new ApiException("Missing the required parameter 'matchmakingRequest' when calling solveMatchmaking(Async)");
+        // verify the required parameter 'nodeRequirements' is set
+        if (nodeRequirements == null) {
+            throw new ApiException("Missing the required parameter 'nodeRequirements' when calling solveMatchmaking(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = solveMatchmakingCall(matchmakingRequest, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = solveMatchmakingCall(nodeRequirements, progressListener, progressRequestListener);
         return call;
 
     }
@@ -240,37 +239,37 @@ public class MatchmakingApi {
     /**
      * 
      * Solves a matchmaking problem
-     * @param matchmakingRequest The matchmaking request to solve (required)
-     * @return MatchmakingResponse
+     * @param nodeRequirements The requirements with respect to nodes (required)
+     * @return List&lt;NodeCandidate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MatchmakingResponse solveMatchmaking(MatchmakingRequest matchmakingRequest) throws ApiException {
-        ApiResponse<MatchmakingResponse> resp = solveMatchmakingWithHttpInfo(matchmakingRequest);
+    public List<NodeCandidate> solveMatchmaking(NodeRequirements nodeRequirements) throws ApiException {
+        ApiResponse<List<NodeCandidate>> resp = solveMatchmakingWithHttpInfo(nodeRequirements);
         return resp.getData();
     }
 
     /**
      * 
      * Solves a matchmaking problem
-     * @param matchmakingRequest The matchmaking request to solve (required)
-     * @return ApiResponse&lt;MatchmakingResponse&gt;
+     * @param nodeRequirements The requirements with respect to nodes (required)
+     * @return ApiResponse&lt;List&lt;NodeCandidate&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MatchmakingResponse> solveMatchmakingWithHttpInfo(MatchmakingRequest matchmakingRequest) throws ApiException {
-        com.squareup.okhttp.Call call = solveMatchmakingValidateBeforeCall(matchmakingRequest, null, null);
-        Type localVarReturnType = new TypeToken<MatchmakingResponse>(){}.getType();
+    public ApiResponse<List<NodeCandidate>> solveMatchmakingWithHttpInfo(NodeRequirements nodeRequirements) throws ApiException {
+        com.squareup.okhttp.Call call = solveMatchmakingValidateBeforeCall(nodeRequirements, null, null);
+        Type localVarReturnType = new TypeToken<List<NodeCandidate>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * Solves a matchmaking problem
-     * @param matchmakingRequest The matchmaking request to solve (required)
+     * @param nodeRequirements The requirements with respect to nodes (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call solveMatchmakingAsync(MatchmakingRequest matchmakingRequest, final ApiCallback<MatchmakingResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call solveMatchmakingAsync(NodeRequirements nodeRequirements, final ApiCallback<List<NodeCandidate>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -291,8 +290,8 @@ public class MatchmakingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = solveMatchmakingValidateBeforeCall(matchmakingRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<MatchmakingResponse>(){}.getType();
+        com.squareup.okhttp.Call call = solveMatchmakingValidateBeforeCall(nodeRequirements, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<NodeCandidate>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -5,8 +5,10 @@ import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.api.MatchmakingApi;
 import io.github.cloudiator.rest.model.AttributeRequirement;
 import io.github.cloudiator.rest.model.NodeCandidate;
-import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.Requirement;
 import io.github.cloudiator.rest.model.RequirementOperator;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -42,7 +44,7 @@ public class NodeCandidateExample {
   private static void getAllNodeCandidates(MatchmakingApi matchmakingApi) throws ApiException {
     //get all possible node candidates
     final List<NodeCandidate> nodeCandidates = matchmakingApi
-        .findNodeCandidates(new NodeRequirements());
+        .findNodeCandidates(Collections.emptyList());
 
     for (NodeCandidate nodeCandidate : nodeCandidates) {
       System.out.println(nodeCandidate);
@@ -56,6 +58,9 @@ public class NodeCandidateExample {
    */
   private static void getAllNodeCandidatesWithRequirements(MatchmakingApi matchmakingApi)
       throws ApiException {
+
+    List<Requirement> requirements = new ArrayList<>();
+
     //get possible node candidates with 2 cores
     final AttributeRequirement coreRequirement = new AttributeRequirement();
     coreRequirement.setType("AttributeRequirement");
@@ -63,6 +68,7 @@ public class NodeCandidateExample {
     coreRequirement.setRequirementAttribute("cores");
     coreRequirement.setRequirementOperator(RequirementOperator.EQ);
     coreRequirement.setValue("2");
+    requirements.add(coreRequirement);
 
     //get possible node candidates with 2048 ram
     final AttributeRequirement ramRequirement = new AttributeRequirement();
@@ -71,12 +77,9 @@ public class NodeCandidateExample {
     ramRequirement.setRequirementAttribute("ram");
     ramRequirement.setRequirementOperator(RequirementOperator.EQ);
     ramRequirement.setValue("2048");
+    requirements.add(ramRequirement);
 
-    NodeRequirements nodeRequirements = new NodeRequirements();
-    nodeRequirements.addRequirementsItem(coreRequirement);
-    nodeRequirements.addRequirementsItem(ramRequirement);
-
-    final List<NodeCandidate> nodeCandidates = matchmakingApi.findNodeCandidates(nodeRequirements);
+    final List<NodeCandidate> nodeCandidates = matchmakingApi.findNodeCandidates(requirements);
 
     for (NodeCandidate nodeCandidate : nodeCandidates) {
       System.out.println(nodeCandidate);

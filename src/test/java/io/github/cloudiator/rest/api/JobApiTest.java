@@ -17,6 +17,9 @@ import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Job;
 import io.github.cloudiator.rest.model.JobNew;
+import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.ProcessNew;
+import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.Schedule;
 import io.github.cloudiator.rest.model.ScheduleNew;
 import org.junit.Test;
@@ -63,7 +66,23 @@ public class JobApiTest {
     @Test
     public void addScheduleTest() throws ApiException {
         ScheduleNew schedule = null;
-        Schedule response = api.addSchedule(schedule);
+        Queue response = api.addSchedule(schedule);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Creates a new process 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createProcessTest() throws ApiException {
+        ProcessNew process = null;
+        Queue response = api.createProcess(process);
 
         // TODO: test validations
     }
@@ -95,6 +114,21 @@ public class JobApiTest {
     @Test
     public void findJobsTest() throws ApiException {
         List<Job> response = api.findJobs();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves all process of the current user. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProcessesTest() throws ApiException {
+        List<Process> response = api.getProcesses();
 
         // TODO: test validations
     }

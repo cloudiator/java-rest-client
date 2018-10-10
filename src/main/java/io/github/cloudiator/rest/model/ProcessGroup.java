@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.VirtualMachineRequest;
+import io.github.cloudiator.rest.model.Process;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,40 +28,58 @@ import java.util.List;
 import java.io.Serializable;
 
 /**
- * Represents a response to a matchmaking request 
+ * Groups multiple processes.
  */
-@ApiModel(description = "Represents a response to a matchmaking request ")
+@ApiModel(description = "Groups multiple processes.")
 
-public class MatchmakingResponse implements Serializable {
+public class ProcessGroup implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("nodes")
-  private List<VirtualMachineRequest> nodes = null;
+  @SerializedName("id")
+  private String id = null;
 
-  public MatchmakingResponse nodes(List<VirtualMachineRequest> nodes) {
-    this.nodes = nodes;
-    return this;
-  }
+  @SerializedName("processes")
+  private List<Process> processes = new ArrayList<Process>();
 
-  public MatchmakingResponse addNodesItem(VirtualMachineRequest nodesItem) {
-    if (this.nodes == null) {
-      this.nodes = new ArrayList<VirtualMachineRequest>();
-    }
-    this.nodes.add(nodesItem);
+  public ProcessGroup id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get nodes
-   * @return nodes
+   * Get id
+   * @return id
   **/
-  @ApiModelProperty(value = "")
-  public List<VirtualMachineRequest> getNodes() {
-    return nodes;
+  @ApiModelProperty(required = true, value = "")
+  public String getId() {
+    return id;
   }
 
-  public void setNodes(List<VirtualMachineRequest> nodes) {
-    this.nodes = nodes;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public ProcessGroup processes(List<Process> processes) {
+    this.processes = processes;
+    return this;
+  }
+
+  public ProcessGroup addProcessesItem(Process processesItem) {
+    this.processes.add(processesItem);
+    return this;
+  }
+
+   /**
+   * Get processes
+   * @return processes
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public List<Process> getProcesses() {
+    return processes;
+  }
+
+  public void setProcesses(List<Process> processes) {
+    this.processes = processes;
   }
 
 
@@ -73,22 +91,24 @@ public class MatchmakingResponse implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchmakingResponse matchmakingResponse = (MatchmakingResponse) o;
-    return Objects.equals(this.nodes, matchmakingResponse.nodes);
+    ProcessGroup processGroup = (ProcessGroup) o;
+    return Objects.equals(this.id, processGroup.id) &&
+        Objects.equals(this.processes, processGroup.processes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodes);
+    return Objects.hash(id, processes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchmakingResponse {\n");
+    sb.append("class ProcessGroup {\n");
     
-    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    processes: ").append(toIndentedString(processes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
