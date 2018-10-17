@@ -11,7 +11,7 @@ if [ "$TRAVIS_REPO_SLUG" == "cloudiator/java-rest-client" ] && [ "$TRAVIS_JDK_VE
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
-  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/cloudiator/common gh-pages > /dev/null
+  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/cloudiator/java-rest-client gh-pages > /dev/null
 
   cd gh-pages
   git rm -rf ./javadoc
