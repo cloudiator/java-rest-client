@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:9000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addMonitor**](MonitoringApi.md#addMonitor) | **POST** /monitors | 
-[**deleteMonitor**](MonitoringApi.md#deleteMonitor) | **DELETE** /monitors/{id} | 
+[**deleteMonitor**](MonitoringApi.md#deleteMonitor) | **DELETE** /monitors/{metric} | 
 [**findMonitors**](MonitoringApi.md#findMonitors) | **GET** /monitors | 
-[**getMonitor**](MonitoringApi.md#getMonitor) | **GET** /monitors/{id} | 
+[**getMonitor**](MonitoringApi.md#getMonitor) | **GET** /monitors/{metric} | 
 
 
 <a name="addMonitor"></a>
@@ -36,7 +36,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 MonitoringApi apiInstance = new MonitoringApi();
-MonitorNew monitor = new MonitorNew(); // MonitorNew | Monitor to be created 
+Monitor monitor = new Monitor(); // Monitor | Monitor to be created 
 try {
     Monitor result = apiInstance.addMonitor(monitor);
     System.out.println(result);
@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitor** | [**MonitorNew**](MonitorNew.md)| Monitor to be created  |
+ **monitor** | [**Monitor**](Monitor.md)| Monitor to be created  |
 
 ### Return type
 
@@ -67,11 +67,11 @@ Name | Type | Description  | Notes
 
 <a name="deleteMonitor"></a>
 # **deleteMonitor**
-> deleteMonitor(id)
+> deleteMonitor(metric)
 
 
 
-Deletes the monitor identified by the given id paramater. 
+Deletes the monitor identified by the given metric name. 
 
 ### Example
 ```java
@@ -91,9 +91,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 MonitoringApi apiInstance = new MonitoringApi();
-String id = "id_example"; // String | Unique identifier of the resource
+String metric = "metric_example"; // String | Unique identifier of a monitor
 try {
-    apiInstance.deleteMonitor(id);
+    apiInstance.deleteMonitor(metric);
 } catch (ApiException e) {
     System.err.println("Exception when calling MonitoringApi#deleteMonitor");
     e.printStackTrace();
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier of the resource |
+ **metric** | **String**| Unique identifier of a monitor |
 
 ### Return type
 
@@ -172,11 +172,11 @@ This endpoint does not need any parameter.
 
 <a name="getMonitor"></a>
 # **getMonitor**
-> List&lt;Monitor&gt; getMonitor(id)
+> List&lt;Monitor&gt; getMonitor(metric)
 
 
 
-Retrieves the monitor with the given id parameter 
+Retrieves the monitor with the given metric name 
 
 ### Example
 ```java
@@ -196,9 +196,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 MonitoringApi apiInstance = new MonitoringApi();
-String id = "id_example"; // String | Unique identifier of the resource
+String metric = "metric_example"; // String | Unique identifier of a monitor
 try {
-    List<Monitor> result = apiInstance.getMonitor(id);
+    List<Monitor> result = apiInstance.getMonitor(metric);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MonitoringApi#getMonitor");
@@ -210,7 +210,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier of the resource |
+ **metric** | **String**| Unique identifier of a monitor |
 
 ### Return type
 

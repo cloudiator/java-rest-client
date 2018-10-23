@@ -14,5 +14,7 @@
 
 * `AXE` (value: `"AXE"`)
 
+* `SPARK_WORKER` (value: `"SPARK_WORKER"`)
+
 
 

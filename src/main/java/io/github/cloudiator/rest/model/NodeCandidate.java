@@ -36,6 +36,9 @@ import java.io.Serializable;
 public class NodeCandidate implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("price")
   private Double price = null;
 
@@ -50,6 +53,24 @@ public class NodeCandidate implements Serializable {
 
   @SerializedName("location")
   private Location location = null;
+
+  public NodeCandidate id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public NodeCandidate price(Double price) {
     this.price = price;
@@ -151,7 +172,8 @@ public class NodeCandidate implements Serializable {
       return false;
     }
     NodeCandidate nodeCandidate = (NodeCandidate) o;
-    return Objects.equals(this.price, nodeCandidate.price) &&
+    return Objects.equals(this.id, nodeCandidate.id) &&
+        Objects.equals(this.price, nodeCandidate.price) &&
         Objects.equals(this.cloud, nodeCandidate.cloud) &&
         Objects.equals(this.image, nodeCandidate.image) &&
         Objects.equals(this.hardware, nodeCandidate.hardware) &&
@@ -160,7 +182,7 @@ public class NodeCandidate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(price, cloud, image, hardware, location);
+    return Objects.hash(id, price, cloud, image, hardware, location);
   }
 
 
@@ -169,6 +191,7 @@ public class NodeCandidate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeCandidate {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    cloud: ").append(toIndentedString(cloud)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");

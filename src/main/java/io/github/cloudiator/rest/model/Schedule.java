@@ -19,10 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.Process;
 import io.github.cloudiator.rest.model.ScheduleNew;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -88,6 +91,9 @@ public class Schedule implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("processes")
+  private List<Process> processes = null;
+
   public Schedule job(String job) {
     this.job = job;
     return this;
@@ -142,6 +148,32 @@ public class Schedule implements Serializable {
     this.id = id;
   }
 
+  public Schedule processes(List<Process> processes) {
+    this.processes = processes;
+    return this;
+  }
+
+  public Schedule addProcessesItem(Process processesItem) {
+    if (this.processes == null) {
+      this.processes = new ArrayList<Process>();
+    }
+    this.processes.add(processesItem);
+    return this;
+  }
+
+   /**
+   * Get processes
+   * @return processes
+  **/
+  @ApiModelProperty(value = "")
+  public List<Process> getProcesses() {
+    return processes;
+  }
+
+  public void setProcesses(List<Process> processes) {
+    this.processes = processes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -154,12 +186,13 @@ public class Schedule implements Serializable {
     Schedule schedule = (Schedule) o;
     return Objects.equals(this.job, schedule.job) &&
         Objects.equals(this.instantiation, schedule.instantiation) &&
-        Objects.equals(this.id, schedule.id);
+        Objects.equals(this.id, schedule.id) &&
+        Objects.equals(this.processes, schedule.processes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, instantiation, id);
+    return Objects.hash(job, instantiation, id, processes);
   }
 
 
@@ -171,6 +204,7 @@ public class Schedule implements Serializable {
     sb.append("    job: ").append(toIndentedString(job)).append("\n");
     sb.append("    instantiation: ").append(toIndentedString(instantiation)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    processes: ").append(toIndentedString(processes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

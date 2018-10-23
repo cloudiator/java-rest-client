@@ -121,14 +121,47 @@ public class JobApiTest {
     /**
      * 
      *
-     * Retrieves all process of the current user. 
+     * Finds the job corresponding to the given id and parameters. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findProcessTest() throws ApiException {
+        String id = null;
+        Process response = api.findProcess(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves the schedule identified by parameter id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findScheduleTest() throws ApiException {
+        String id = null;
+        Schedule response = api.findSchedule(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves all process of the current user matching the parameters. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void getProcessesTest() throws ApiException {
-        List<Process> response = api.getProcesses();
+        String scheduleId = null;
+        List<Process> response = api.getProcesses(scheduleId);
 
         // TODO: test validations
     }
