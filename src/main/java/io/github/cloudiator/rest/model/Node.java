@@ -39,6 +39,9 @@ public class Node implements Serializable {
   @SerializedName("nodeId")
   private String nodeId = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("loginCredential")
   private LoginCredential loginCredential = null;
 
@@ -118,6 +121,24 @@ public class Node implements Serializable {
 
   public void setNodeId(String nodeId) {
     this.nodeId = nodeId;
+  }
+
+  public Node name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public Node loginCredential(LoginCredential loginCredential) {
@@ -211,6 +232,7 @@ public class Node implements Serializable {
     }
     Node node = (Node) o;
     return Objects.equals(this.nodeId, node.nodeId) &&
+        Objects.equals(this.name, node.name) &&
         Objects.equals(this.loginCredential, node.loginCredential) &&
         Objects.equals(this.nodeType, node.nodeType) &&
         Objects.equals(this.ipAddresses, node.ipAddresses) &&
@@ -219,7 +241,7 @@ public class Node implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeId, loginCredential, nodeType, ipAddresses, nodeProperties);
+    return Objects.hash(nodeId, name, loginCredential, nodeType, ipAddresses, nodeProperties);
   }
 
 
@@ -229,6 +251,7 @@ public class Node implements Serializable {
     sb.append("class Node {\n");
     
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    loginCredential: ").append(toIndentedString(loginCredential)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");

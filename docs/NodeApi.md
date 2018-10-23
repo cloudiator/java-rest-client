@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 <a name="addNode"></a>
 # **addNode**
-> Queue addNode(nodeRequirements)
+> Queue addNode(nodeRequest)
 
 
 
@@ -93,9 +93,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 NodeApi apiInstance = new NodeApi();
-NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | Node Request
+NodeRequest nodeRequest = new NodeRequest(); // NodeRequest | Node Request
 try {
-    Queue result = apiInstance.addNode(nodeRequirements);
+    Queue result = apiInstance.addNode(nodeRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NodeApi#addNode");
@@ -107,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nodeRequirements** | [**NodeRequirements**](NodeRequirements.md)| Node Request |
+ **nodeRequest** | [**NodeRequest**](NodeRequest.md)| Node Request |
 
 ### Return type
 

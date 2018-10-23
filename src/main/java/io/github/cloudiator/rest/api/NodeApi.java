@@ -30,7 +30,7 @@ import java.io.IOException;
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Node;
 import io.github.cloudiator.rest.model.NodeGroup;
-import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.NodeRequest;
 import io.github.cloudiator.rest.model.Queue;
 
 import java.lang.reflect.Type;
@@ -182,14 +182,14 @@ public class NodeApi {
     }
     /**
      * Build call for addNode
-     * @param nodeRequirements Node Request (required)
+     * @param nodeRequest Node Request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addNodeCall(NodeRequirements nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = nodeRequirements;
+    public com.squareup.okhttp.Call addNodeCall(NodeRequest nodeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = nodeRequest;
 
         // create path and map variables
         String localVarPath = "/node";
@@ -230,15 +230,15 @@ public class NodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addNodeValidateBeforeCall(NodeRequirements nodeRequirements, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addNodeValidateBeforeCall(NodeRequest nodeRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'nodeRequirements' is set
-        if (nodeRequirements == null) {
-            throw new ApiException("Missing the required parameter 'nodeRequirements' when calling addNode(Async)");
+        // verify the required parameter 'nodeRequest' is set
+        if (nodeRequest == null) {
+            throw new ApiException("Missing the required parameter 'nodeRequest' when calling addNode(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = addNodeCall(nodeRequirements, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addNodeCall(nodeRequest, progressListener, progressRequestListener);
         return call;
 
     }
@@ -246,24 +246,24 @@ public class NodeApi {
     /**
      * 
      * Create a new node request
-     * @param nodeRequirements Node Request (required)
+     * @param nodeRequest Node Request (required)
      * @return Queue
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Queue addNode(NodeRequirements nodeRequirements) throws ApiException {
-        ApiResponse<Queue> resp = addNodeWithHttpInfo(nodeRequirements);
+    public Queue addNode(NodeRequest nodeRequest) throws ApiException {
+        ApiResponse<Queue> resp = addNodeWithHttpInfo(nodeRequest);
         return resp.getData();
     }
 
     /**
      * 
      * Create a new node request
-     * @param nodeRequirements Node Request (required)
+     * @param nodeRequest Node Request (required)
      * @return ApiResponse&lt;Queue&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Queue> addNodeWithHttpInfo(NodeRequirements nodeRequirements) throws ApiException {
-        com.squareup.okhttp.Call call = addNodeValidateBeforeCall(nodeRequirements, null, null);
+    public ApiResponse<Queue> addNodeWithHttpInfo(NodeRequest nodeRequest) throws ApiException {
+        com.squareup.okhttp.Call call = addNodeValidateBeforeCall(nodeRequest, null, null);
         Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -271,12 +271,12 @@ public class NodeApi {
     /**
      *  (asynchronously)
      * Create a new node request
-     * @param nodeRequirements Node Request (required)
+     * @param nodeRequest Node Request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addNodeAsync(NodeRequirements nodeRequirements, final ApiCallback<Queue> callback) throws ApiException {
+    public com.squareup.okhttp.Call addNodeAsync(NodeRequest nodeRequest, final ApiCallback<Queue> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -297,7 +297,7 @@ public class NodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addNodeValidateBeforeCall(nodeRequirements, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addNodeValidateBeforeCall(nodeRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **nodeId** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
 **loginCredential** | [**LoginCredential**](LoginCredential.md) |  |  [optional]
 **nodeType** | [**NodeTypeEnum**](#NodeTypeEnum) |  |  [optional]
 **ipAddresses** | [**List&lt;IpAddress&gt;**](IpAddress.md) |  |  [optional]

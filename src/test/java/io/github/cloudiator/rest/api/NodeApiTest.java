@@ -17,7 +17,7 @@ import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Node;
 import io.github.cloudiator.rest.model.NodeGroup;
-import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.NodeRequest;
 import io.github.cloudiator.rest.model.Queue;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -62,8 +62,8 @@ public class NodeApiTest {
      */
     @Test
     public void addNodeTest() throws ApiException {
-        NodeRequirements nodeRequirements = null;
-        Queue response = api.addNode(nodeRequirements);
+        NodeRequest nodeRequest = null;
+        Queue response = api.addNode(nodeRequest);
 
         // TODO: test validations
     }
