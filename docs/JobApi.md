@@ -7,12 +7,14 @@ Method | HTTP request | Description
 [**addJob**](JobApi.md#addJob) | **POST** /jobs | 
 [**addSchedule**](JobApi.md#addSchedule) | **POST** /schedule | 
 [**createProcess**](JobApi.md#createProcess) | **POST** /process | 
+[**deleteProcess**](JobApi.md#deleteProcess) | **DELETE** /process/{id} | 
 [**findJob**](JobApi.md#findJob) | **GET** /jobs/{id} | 
 [**findJobs**](JobApi.md#findJobs) | **GET** /jobs | 
 [**findProcess**](JobApi.md#findProcess) | **GET** /process/{id} | 
 [**findSchedule**](JobApi.md#findSchedule) | **GET** /schedule/{id} | 
 [**getProcesses**](JobApi.md#getProcesses) | **GET** /process | 
 [**getSchedules**](JobApi.md#getSchedules) | **GET** /schedule | 
+[**jobGraph**](JobApi.md#jobGraph) | **GET** /jobs/{id}/graph | 
 
 
 <a name="addJob"></a>
@@ -180,6 +182,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="deleteProcess"></a>
+# **deleteProcess**
+> Queue deleteProcess(id)
+
+
+
+Deletes the process corresponding to the given id. 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.JobApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+JobApi apiInstance = new JobApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Queue result = apiInstance.deleteProcess(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling JobApi#deleteProcess");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Queue**](Queue.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="findJob"></a>
 # **findJob**
 > Job findJob(id)
@@ -292,7 +349,7 @@ This endpoint does not need any parameter.
 
 
 
-Finds the job corresponding to the given id and parameters. 
+Finds the process corresponding to the given id. 
 
 ### Example
 ```java
@@ -492,6 +549,61 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Schedule&gt;**](Schedule.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="jobGraph"></a>
+# **jobGraph**
+> Object jobGraph(id)
+
+
+
+Returns a json graph representation usable by cyctoscape.js 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.JobApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+JobApi apiInstance = new JobApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Object result = apiInstance.jobGraph(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling JobApi#jobGraph");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+**Object**
 
 ### Authorization
 

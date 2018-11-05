@@ -16,5 +16,9 @@
 
 * `SPARK_WORKER` (value: `"SPARK_WORKER"`)
 
+* `DLMS_AGENT` (value: `"DLMS_AGENT"`)
+
+* `ALLUXIO_CLIENT` (value: `"ALLUXIO_CLIENT"`)
+
 
 

@@ -90,6 +90,22 @@ public class JobApiTest {
     /**
      * 
      *
+     * Deletes the process corresponding to the given id. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteProcessTest() throws ApiException {
+        String id = null;
+        Queue response = api.deleteProcess(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Returns the job with the given id. 
      *
      * @throws ApiException
@@ -121,7 +137,7 @@ public class JobApiTest {
     /**
      * 
      *
-     * Finds the job corresponding to the given id and parameters. 
+     * Finds the process corresponding to the given id. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -177,6 +193,22 @@ public class JobApiTest {
     @Test
     public void getSchedulesTest() throws ApiException {
         List<Schedule> response = api.getSchedules();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns a json graph representation usable by cyctoscape.js 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void jobGraphTest() throws ApiException {
+        String id = null;
+        Object response = api.jobGraph(id);
 
         // TODO: test validations
     }

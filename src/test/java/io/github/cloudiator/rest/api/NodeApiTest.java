@@ -71,6 +71,22 @@ public class NodeApiTest {
     /**
      * 
      *
+     * Deletes the node with the given id.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteNodeTest() throws ApiException {
+        String id = null;
+        Queue response = api.deleteNode(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Returns all node groups for the current user
      *
      * @throws ApiException

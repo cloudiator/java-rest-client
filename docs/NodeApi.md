@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addBYON**](NodeApi.md#addBYON) | **POST** /byon | 
 [**addNode**](NodeApi.md#addNode) | **POST** /node | 
+[**deleteNode**](NodeApi.md#deleteNode) | **DELETE** /node/{id} | 
 [**findNodeGroups**](NodeApi.md#findNodeGroups) | **GET** /nodeGroup | 
 [**findNodes**](NodeApi.md#findNodes) | **GET** /node | 
 [**getNode**](NodeApi.md#getNode) | **GET** /node/{id} | 
@@ -120,6 +121,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteNode"></a>
+# **deleteNode**
+> Queue deleteNode(id)
+
+
+
+Deletes the node with the given id.
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.NodeApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+NodeApi apiInstance = new NodeApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Queue result = apiInstance.deleteNode(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling NodeApi#deleteNode");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Queue**](Queue.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="findNodeGroups"></a>
