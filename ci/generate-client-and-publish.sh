@@ -14,12 +14,11 @@ if [ "$TRAVIS_REPO_SLUG" == "cloudiator/java-rest-client" ] && [ "$TRAVIS_JDK_VE
   # Configure git
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
-
-  git remote add origin-master https://${GH_TOKEN}@github.com/cloudiator/java-rest-client.git
+  git config --global push.default current
 
   git add -f .
   git commit -m "Travis build $TRAVIS_BUILD_NUMBER auto generated client."
-  git push --quiet --set-upstream origin-master master
+  git push https://${GH_TOKEN}@github.com/cloudiator/java-rest-client.git
 
   echo -e "Generated client \n"
 
