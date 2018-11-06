@@ -2,22 +2,25 @@
 
 if [ "$TRAVIS_REPO_SLUG" == "cloudiator/java-rest-client" ] && [ "$TRAVIS_JDK_VERSION" == "oraclejdk8" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
-  echo -e "Publishing javadoc...\n"
+  echo -e "Generating latest version of the client...\n"
 
-  cp -R target/apidocs $HOME/javadoc-latest
+  # Delete the existing src and docs directory
+  rm -r src
+  rm -r docs
 
-  cd $HOME
+  # Generate the client using swagger
+  ./bin/generate.sh
+
+  # Configure git
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
-  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/cloudiator/java-rest-client gh-pages > /dev/null
 
-  cd gh-pages
-  git rm -rf ./javadoc
-  cp -Rf $HOME/javadoc-latest ./javadoc
+  git remote add origin-master https://${GH_TOKEN}@github.com/cloudiator/java-rest-client.git
+
   git add -f .
-  git commit -m "Lastest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
-  git push -fq origin gh-pages > /dev/null
+  git commit -m "Travis build $TRAVIS_BUILD_NUMBER auto generated client."
+  git push --quiet --set-upstream origin-master master
 
-  echo -e "Published Javadoc to gh-pages.\n"
+  echo -e "Generated client \n"
 
 fi
