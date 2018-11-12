@@ -23,6 +23,7 @@ import io.github.cloudiator.rest.model.QueueStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -38,6 +39,12 @@ public class Queue implements Serializable {
 
   @SerializedName("status")
   private QueueStatus status = null;
+
+  @SerializedName("start")
+  private OffsetDateTime start = null;
+
+  @SerializedName("end")
+  private OffsetDateTime end = null;
 
   @SerializedName("diagnosis")
   private String diagnosis = null;
@@ -79,6 +86,42 @@ public class Queue implements Serializable {
 
   public void setStatus(QueueStatus status) {
     this.status = status;
+  }
+
+  public Queue start(OffsetDateTime start) {
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getStart() {
+    return start;
+  }
+
+  public void setStart(OffsetDateTime start) {
+    this.start = start;
+  }
+
+  public Queue end(OffsetDateTime end) {
+    this.end = end;
+    return this;
+  }
+
+   /**
+   * Get end
+   * @return end
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getEnd() {
+    return end;
+  }
+
+  public void setEnd(OffsetDateTime end) {
+    this.end = end;
   }
 
   public Queue diagnosis(String diagnosis) {
@@ -129,13 +172,15 @@ public class Queue implements Serializable {
     Queue queue = (Queue) o;
     return Objects.equals(this.id, queue.id) &&
         Objects.equals(this.status, queue.status) &&
+        Objects.equals(this.start, queue.start) &&
+        Objects.equals(this.end, queue.end) &&
         Objects.equals(this.diagnosis, queue.diagnosis) &&
         Objects.equals(this.location, queue.location);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, diagnosis, location);
+    return Objects.hash(id, status, start, end, diagnosis, location);
   }
 
 
@@ -146,6 +191,8 @@ public class Queue implements Serializable {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    diagnosis: ").append(toIndentedString(diagnosis)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("}");

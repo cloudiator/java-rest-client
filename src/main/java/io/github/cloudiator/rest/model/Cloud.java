@@ -55,6 +55,59 @@ public class Cloud implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  /**
+   * State of the cloud
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    OK("OK"),
+    
+    ERROR("ERROR");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("state")
+  private StateEnum state = null;
+
+  @SerializedName("diagnostic")
+  private String diagnostic = null;
+
   public Cloud endpoint(String endpoint) {
     this.endpoint = endpoint;
     return this;
@@ -163,6 +216,42 @@ public class Cloud implements Serializable {
     this.id = id;
   }
 
+  public Cloud state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * State of the cloud
+   * @return state
+  **/
+  @ApiModelProperty(value = "State of the cloud")
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
+  }
+
+  public Cloud diagnostic(String diagnostic) {
+    this.diagnostic = diagnostic;
+    return this;
+  }
+
+   /**
+   * Diagnostic information for the cloud
+   * @return diagnostic
+  **/
+  @ApiModelProperty(value = "Diagnostic information for the cloud")
+  public String getDiagnostic() {
+    return diagnostic;
+  }
+
+  public void setDiagnostic(String diagnostic) {
+    this.diagnostic = diagnostic;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -178,12 +267,14 @@ public class Cloud implements Serializable {
         Objects.equals(this.api, cloud.api) &&
         Objects.equals(this.credential, cloud.credential) &&
         Objects.equals(this.cloudConfiguration, cloud.cloudConfiguration) &&
-        Objects.equals(this.id, cloud.id);
+        Objects.equals(this.id, cloud.id) &&
+        Objects.equals(this.state, cloud.state) &&
+        Objects.equals(this.diagnostic, cloud.diagnostic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpoint, cloudType, api, credential, cloudConfiguration, id);
+    return Objects.hash(endpoint, cloudType, api, credential, cloudConfiguration, id, state, diagnostic);
   }
 
 
@@ -198,6 +289,8 @@ public class Cloud implements Serializable {
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    cloudConfiguration: ").append(toIndentedString(cloudConfiguration)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    diagnostic: ").append(toIndentedString(diagnostic)).append("\n");
     sb.append("}");
     return sb.toString();
   }

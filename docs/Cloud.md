@@ -10,6 +10,16 @@ Name | Type | Description | Notes
 **credential** | [**CloudCredential**](CloudCredential.md) |  | 
 **cloudConfiguration** | [**CloudConfiguration**](CloudConfiguration.md) |  |  [optional]
 **id** | **String** | Unique identifier for the cloud |  [optional]
+**state** | [**StateEnum**](#StateEnum) | State of the cloud |  [optional]
+**diagnostic** | **String** | Diagnostic information for the cloud |  [optional]
+
+
+<a name="StateEnum"></a>
+## Enum: StateEnum
+Name | Value
+---- | -----
+OK | &quot;OK&quot;
+ERROR | &quot;ERROR&quot;
 
 
 
