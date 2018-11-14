@@ -34,6 +34,9 @@ import java.io.Serializable;
 public class NodeProperties implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("providerId")
+  private String providerId = null;
+
   @SerializedName("numberOfCores")
   private Integer numberOfCores = null;
 
@@ -48,6 +51,24 @@ public class NodeProperties implements Serializable {
 
   @SerializedName("geoLocation")
   private GeoLocation geoLocation = null;
+
+  public NodeProperties providerId(String providerId) {
+    this.providerId = providerId;
+    return this;
+  }
+
+   /**
+   * Get providerId
+   * @return providerId
+  **/
+  @ApiModelProperty(value = "")
+  public String getProviderId() {
+    return providerId;
+  }
+
+  public void setProviderId(String providerId) {
+    this.providerId = providerId;
+  }
 
   public NodeProperties numberOfCores(Integer numberOfCores) {
     this.numberOfCores = numberOfCores;
@@ -149,7 +170,8 @@ public class NodeProperties implements Serializable {
       return false;
     }
     NodeProperties nodeProperties = (NodeProperties) o;
-    return Objects.equals(this.numberOfCores, nodeProperties.numberOfCores) &&
+    return Objects.equals(this.providerId, nodeProperties.providerId) &&
+        Objects.equals(this.numberOfCores, nodeProperties.numberOfCores) &&
         Objects.equals(this.memory, nodeProperties.memory) &&
         Objects.equals(this.disk, nodeProperties.disk) &&
         Objects.equals(this.operatingSystem, nodeProperties.operatingSystem) &&
@@ -158,7 +180,7 @@ public class NodeProperties implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfCores, memory, disk, operatingSystem, geoLocation);
+    return Objects.hash(providerId, numberOfCores, memory, disk, operatingSystem, geoLocation);
   }
 
 
@@ -167,6 +189,7 @@ public class NodeProperties implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeProperties {\n");
     
+    sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    numberOfCores: ").append(toIndentedString(numberOfCores)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    disk: ").append(toIndentedString(disk)).append("\n");
