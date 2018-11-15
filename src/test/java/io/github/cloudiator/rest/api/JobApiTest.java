@@ -17,11 +17,7 @@ import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Job;
 import io.github.cloudiator.rest.model.JobNew;
-import io.github.cloudiator.rest.model.Process;
-import io.github.cloudiator.rest.model.ProcessNew;
 import io.github.cloudiator.rest.model.Queue;
-import io.github.cloudiator.rest.model.Schedule;
-import io.github.cloudiator.rest.model.ScheduleNew;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -58,47 +54,15 @@ public class JobApiTest {
     /**
      * 
      *
-     * Creates a new schedule 
+     * Deletes the schedule identified by the given id and all corresponding processes and nodes. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void addScheduleTest() throws ApiException {
-        ScheduleNew schedule = null;
-        Queue response = api.addSchedule(schedule);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Creates a new process 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createProcessTest() throws ApiException {
-        ProcessNew process = null;
-        Queue response = api.createProcess(process);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Deletes the process corresponding to the given id. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteProcessTest() throws ApiException {
+    public void deleteScheduleTest() throws ApiException {
         String id = null;
-        Queue response = api.deleteProcess(id);
+        Queue response = api.deleteSchedule(id);
 
         // TODO: test validations
     }
@@ -130,69 +94,6 @@ public class JobApiTest {
     @Test
     public void findJobsTest() throws ApiException {
         List<Job> response = api.findJobs();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Finds the process corresponding to the given id. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void findProcessTest() throws ApiException {
-        String id = null;
-        Process response = api.findProcess(id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Retrieves the schedule identified by parameter id. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void findScheduleTest() throws ApiException {
-        String id = null;
-        Schedule response = api.findSchedule(id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Retrieves all process of the current user matching the parameters. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getProcessesTest() throws ApiException {
-        String scheduleId = null;
-        List<Process> response = api.getProcesses(scheduleId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Retrieves all schedules by the current user. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSchedulesTest() throws ApiException {
-        List<Schedule> response = api.getSchedules();
 
         // TODO: test validations
     }
