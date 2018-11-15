@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.cloudiator.rest.model.OperatingSystemArchitecture;
 import io.github.cloudiator.rest.model.OperatingSystemFamily;
-import io.github.cloudiator.rest.model.OperatingSystemType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -35,9 +34,6 @@ import java.io.Serializable;
 public class OperatingSystem implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("operatingSystemType")
-  private OperatingSystemType operatingSystemType = null;
-
   @SerializedName("operatingSystemFamily")
   private OperatingSystemFamily operatingSystemFamily = null;
 
@@ -46,24 +42,6 @@ public class OperatingSystem implements Serializable {
 
   @SerializedName("operatingSystemVersion")
   private String operatingSystemVersion = null;
-
-  public OperatingSystem operatingSystemType(OperatingSystemType operatingSystemType) {
-    this.operatingSystemType = operatingSystemType;
-    return this;
-  }
-
-   /**
-   * Get operatingSystemType
-   * @return operatingSystemType
-  **/
-  @ApiModelProperty(value = "")
-  public OperatingSystemType getOperatingSystemType() {
-    return operatingSystemType;
-  }
-
-  public void setOperatingSystemType(OperatingSystemType operatingSystemType) {
-    this.operatingSystemType = operatingSystemType;
-  }
 
   public OperatingSystem operatingSystemFamily(OperatingSystemFamily operatingSystemFamily) {
     this.operatingSystemFamily = operatingSystemFamily;
@@ -129,15 +107,14 @@ public class OperatingSystem implements Serializable {
       return false;
     }
     OperatingSystem operatingSystem = (OperatingSystem) o;
-    return Objects.equals(this.operatingSystemType, operatingSystem.operatingSystemType) &&
-        Objects.equals(this.operatingSystemFamily, operatingSystem.operatingSystemFamily) &&
+    return Objects.equals(this.operatingSystemFamily, operatingSystem.operatingSystemFamily) &&
         Objects.equals(this.operatingSystemArchitecture, operatingSystem.operatingSystemArchitecture) &&
         Objects.equals(this.operatingSystemVersion, operatingSystem.operatingSystemVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operatingSystemType, operatingSystemFamily, operatingSystemArchitecture, operatingSystemVersion);
+    return Objects.hash(operatingSystemFamily, operatingSystemArchitecture, operatingSystemVersion);
   }
 
 
@@ -146,7 +123,6 @@ public class OperatingSystem implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class OperatingSystem {\n");
     
-    sb.append("    operatingSystemType: ").append(toIndentedString(operatingSystemType)).append("\n");
     sb.append("    operatingSystemFamily: ").append(toIndentedString(operatingSystemFamily)).append("\n");
     sb.append("    operatingSystemArchitecture: ").append(toIndentedString(operatingSystemArchitecture)).append("\n");
     sb.append("    operatingSystemVersion: ").append(toIndentedString(operatingSystemVersion)).append("\n");
