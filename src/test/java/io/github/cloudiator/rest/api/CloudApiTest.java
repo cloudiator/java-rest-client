@@ -16,6 +16,7 @@ package io.github.cloudiator.rest.api;
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Cloud;
 import io.github.cloudiator.rest.model.Error;
+import io.github.cloudiator.rest.model.Function;
 import io.github.cloudiator.rest.model.Hardware;
 import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.Location;
@@ -173,6 +174,21 @@ public class CloudApiTest {
     /**
      * 
      *
+     * Finds all functions the user has access to
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findFunctionsTest() throws ApiException {
+        List<Function> response = api.findFunctions();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Returns all hardware visible to the user 
      *
      * @throws ApiException
@@ -230,6 +246,22 @@ public class CloudApiTest {
     public void findVMsTest() throws ApiException {
         String cloudId = null;
         List<VirtualMachine> response = api.findVMs(cloudId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Finds the function identified by the given id parameter
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFunctionTest() throws ApiException {
+        String id = null;
+        Function response = api.getFunction(id);
 
         // TODO: test validations
     }

@@ -42,6 +42,56 @@ public class Node implements Serializable {
   @SerializedName("name")
   private String name = null;
 
+  /**
+   * Gets or Sets state
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    OK("OK"),
+    
+    ERROR("ERROR");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("state")
+  private StateEnum state = null;
+
   @SerializedName("loginCredential")
   private LoginCredential loginCredential = null;
 
@@ -56,7 +106,9 @@ public class Node implements Serializable {
     
     BYON("BYON"),
     
-    CONTAINER("CONTAINER");
+    CONTAINER("CONTAINER"),
+    
+    FAAS("FAAS");
 
     private String value;
 
@@ -139,6 +191,24 @@ public class Node implements Serializable {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Node state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
   public Node loginCredential(LoginCredential loginCredential) {
@@ -233,6 +303,7 @@ public class Node implements Serializable {
     Node node = (Node) o;
     return Objects.equals(this.nodeId, node.nodeId) &&
         Objects.equals(this.name, node.name) &&
+        Objects.equals(this.state, node.state) &&
         Objects.equals(this.loginCredential, node.loginCredential) &&
         Objects.equals(this.nodeType, node.nodeType) &&
         Objects.equals(this.ipAddresses, node.ipAddresses) &&
@@ -241,7 +312,7 @@ public class Node implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeId, name, loginCredential, nodeType, ipAddresses, nodeProperties);
+    return Objects.hash(nodeId, name, state, loginCredential, nodeType, ipAddresses, nodeProperties);
   }
 
 
@@ -252,6 +323,7 @@ public class Node implements Serializable {
     
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    loginCredential: ").append(toIndentedString(loginCredential)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");

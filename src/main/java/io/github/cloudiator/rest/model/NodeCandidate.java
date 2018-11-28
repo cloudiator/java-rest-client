@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.cloudiator.rest.model.Cloud;
+import io.github.cloudiator.rest.model.Environment;
 import io.github.cloudiator.rest.model.Hardware;
 import io.github.cloudiator.rest.model.Image;
 import io.github.cloudiator.rest.model.Location;
@@ -39,6 +40,60 @@ public class NodeCandidate implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  /**
+   * Gets or Sets nodeCandidateType
+   */
+  @JsonAdapter(NodeCandidateTypeEnum.Adapter.class)
+  public enum NodeCandidateTypeEnum {
+    IAAS("IAAS"),
+    
+    FAAS("FAAS"),
+    
+    PAAS("PAAS"),
+    
+    BYON("BYON");
+
+    private String value;
+
+    NodeCandidateTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NodeCandidateTypeEnum fromValue(String text) {
+      for (NodeCandidateTypeEnum b : NodeCandidateTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<NodeCandidateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeCandidateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NodeCandidateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return NodeCandidateTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("nodeCandidateType")
+  private NodeCandidateTypeEnum nodeCandidateType = null;
+
   @SerializedName("price")
   private Double price = null;
 
@@ -53,6 +108,15 @@ public class NodeCandidate implements Serializable {
 
   @SerializedName("location")
   private Location location = null;
+
+  @SerializedName("pricePerInvocation")
+  private Double pricePerInvocation = null;
+
+  @SerializedName("memoryPrice")
+  private Double memoryPrice = null;
+
+  @SerializedName("environment")
+  private Environment environment = null;
 
   public NodeCandidate id(String id) {
     this.id = id;
@@ -70,6 +134,24 @@ public class NodeCandidate implements Serializable {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public NodeCandidate nodeCandidateType(NodeCandidateTypeEnum nodeCandidateType) {
+    this.nodeCandidateType = nodeCandidateType;
+    return this;
+  }
+
+   /**
+   * Get nodeCandidateType
+   * @return nodeCandidateType
+  **/
+  @ApiModelProperty(value = "")
+  public NodeCandidateTypeEnum getNodeCandidateType() {
+    return nodeCandidateType;
+  }
+
+  public void setNodeCandidateType(NodeCandidateTypeEnum nodeCandidateType) {
+    this.nodeCandidateType = nodeCandidateType;
   }
 
   public NodeCandidate price(Double price) {
@@ -162,6 +244,60 @@ public class NodeCandidate implements Serializable {
     this.location = location;
   }
 
+  public NodeCandidate pricePerInvocation(Double pricePerInvocation) {
+    this.pricePerInvocation = pricePerInvocation;
+    return this;
+  }
+
+   /**
+   * Get pricePerInvocation
+   * @return pricePerInvocation
+  **/
+  @ApiModelProperty(value = "")
+  public Double getPricePerInvocation() {
+    return pricePerInvocation;
+  }
+
+  public void setPricePerInvocation(Double pricePerInvocation) {
+    this.pricePerInvocation = pricePerInvocation;
+  }
+
+  public NodeCandidate memoryPrice(Double memoryPrice) {
+    this.memoryPrice = memoryPrice;
+    return this;
+  }
+
+   /**
+   * Get memoryPrice
+   * @return memoryPrice
+  **/
+  @ApiModelProperty(value = "")
+  public Double getMemoryPrice() {
+    return memoryPrice;
+  }
+
+  public void setMemoryPrice(Double memoryPrice) {
+    this.memoryPrice = memoryPrice;
+  }
+
+  public NodeCandidate environment(Environment environment) {
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Get environment
+   * @return environment
+  **/
+  @ApiModelProperty(value = "")
+  public Environment getEnvironment() {
+    return environment;
+  }
+
+  public void setEnvironment(Environment environment) {
+    this.environment = environment;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -173,16 +309,20 @@ public class NodeCandidate implements Serializable {
     }
     NodeCandidate nodeCandidate = (NodeCandidate) o;
     return Objects.equals(this.id, nodeCandidate.id) &&
+        Objects.equals(this.nodeCandidateType, nodeCandidate.nodeCandidateType) &&
         Objects.equals(this.price, nodeCandidate.price) &&
         Objects.equals(this.cloud, nodeCandidate.cloud) &&
         Objects.equals(this.image, nodeCandidate.image) &&
         Objects.equals(this.hardware, nodeCandidate.hardware) &&
-        Objects.equals(this.location, nodeCandidate.location);
+        Objects.equals(this.location, nodeCandidate.location) &&
+        Objects.equals(this.pricePerInvocation, nodeCandidate.pricePerInvocation) &&
+        Objects.equals(this.memoryPrice, nodeCandidate.memoryPrice) &&
+        Objects.equals(this.environment, nodeCandidate.environment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, price, cloud, image, hardware, location);
+    return Objects.hash(id, nodeCandidateType, price, cloud, image, hardware, location, pricePerInvocation, memoryPrice, environment);
   }
 
 
@@ -192,11 +332,15 @@ public class NodeCandidate implements Serializable {
     sb.append("class NodeCandidate {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    nodeCandidateType: ").append(toIndentedString(nodeCandidateType)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    cloud: ").append(toIndentedString(cloud)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    hardware: ").append(toIndentedString(hardware)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    pricePerInvocation: ").append(toIndentedString(pricePerInvocation)).append("\n");
+    sb.append("    memoryPrice: ").append(toIndentedString(memoryPrice)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

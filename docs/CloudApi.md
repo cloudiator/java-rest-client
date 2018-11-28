@@ -12,10 +12,12 @@ Method | HTTP request | Description
 [**editLocation**](CloudApi.md#editLocation) | **PUT** /locations/{id} | 
 [**findCloud**](CloudApi.md#findCloud) | **GET** /clouds/{id} | 
 [**findClouds**](CloudApi.md#findClouds) | **GET** /clouds | 
+[**findFunctions**](CloudApi.md#findFunctions) | **GET** /function | 
 [**findHardware**](CloudApi.md#findHardware) | **GET** /hardware | 
 [**findImages**](CloudApi.md#findImages) | **GET** /images | 
 [**findLocations**](CloudApi.md#findLocations) | **GET** /locations | 
 [**findVMs**](CloudApi.md#findVMs) | **GET** /vm | 
+[**getFunction**](CloudApi.md#getFunction) | **GET** /function/{id} | 
 [**getHardware**](CloudApi.md#getHardware) | **GET** /hardware/{id} | 
 [**getImage**](CloudApi.md#getImage) | **GET** /images/{id} | 
 [**getLocation**](CloudApi.md#getLocation) | **GET** /locations/{id} | 
@@ -463,6 +465,57 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="findFunctions"></a>
+# **findFunctions**
+> List&lt;Function&gt; findFunctions()
+
+
+
+Finds all functions the user has access to
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+try {
+    List<Function> result = apiInstance.findFunctions();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#findFunctions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Function&gt;**](Function.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="findHardware"></a>
 # **findHardware**
 > List&lt;Hardware&gt; findHardware(cloudId)
@@ -673,6 +726,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;VirtualMachine&gt;**](VirtualMachine.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getFunction"></a>
+# **getFunction**
+> Function getFunction(id)
+
+
+
+Finds the function identified by the given id parameter
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Function result = apiInstance.getFunction(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#getFunction");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Function**](Function.md)
 
 ### Authorization
 

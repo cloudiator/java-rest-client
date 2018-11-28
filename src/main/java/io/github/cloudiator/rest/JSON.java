@@ -79,10 +79,22 @@ public class JSON {
             public Class getClassForElement(JsonElement readElement) {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("DockerInterface".toUpperCase(), DockerInterface.class);
+                classByDiscriminatorValue.put("FaasInterface".toUpperCase(), FaasInterface.class);
                 classByDiscriminatorValue.put("LanceInterface".toUpperCase(), LanceInterface.class);
                 classByDiscriminatorValue.put("PlatformInterface".toUpperCase(), PlatformInterface.class);
                 classByDiscriminatorValue.put("SparkInterface".toUpperCase(), SparkInterface.class);
                 classByDiscriminatorValue.put("TaskInterface".toUpperCase(), TaskInterface.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "type"));
+            }
+          })
+          .registerTypeSelector(Trigger.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("HttpTrigger".toUpperCase(), HttpTrigger.class);
+                classByDiscriminatorValue.put("Trigger".toUpperCase(), Trigger.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, "type"));
