@@ -15,6 +15,7 @@ package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.ProcessGroup;
 import io.github.cloudiator.rest.model.ProcessNew;
 import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.Schedule;
@@ -96,6 +97,21 @@ public class ProcessApiTest {
     public void findProcessTest() throws ApiException {
         String id = null;
         Process response = api.findProcess(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns all process groups for the current user
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findProcessGroupsTest() throws ApiException {
+        List<ProcessGroup> response = api.findProcessGroups();
 
         // TODO: test validations
     }

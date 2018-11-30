@@ -18,6 +18,7 @@ import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Node;
 import io.github.cloudiator.rest.model.NodeGroup;
 import io.github.cloudiator.rest.model.NodeRequest;
+import io.github.cloudiator.rest.model.ProcessGroup;
 import io.github.cloudiator.rest.model.Queue;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -142,6 +143,22 @@ public class NodeApiTest {
     public void getNodeGroupTest() throws ApiException {
         String id = null;
         NodeGroup response = api.getNodeGroup(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieves a process group, which groups multiple processes that were create during one request
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getProcessGroupTest() throws ApiException {
+        String id = null;
+        ProcessGroup response = api.getProcessGroup(id);
 
         // TODO: test validations
     }

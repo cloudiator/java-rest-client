@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.ProcessNew;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,20 +28,62 @@ import java.io.Serializable;
  * Process
  */
 
+
 public class Process implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("schedule")
-  private String schedule = null;
-
-  @SerializedName("task")
-  private String task = null;
-
-  @SerializedName("node")
-  private String node = null;
-
   @SerializedName("id")
   private String id = null;
+
+  /**
+   * Gets or Sets processType
+   */
+  @JsonAdapter(ProcessTypeEnum.Adapter.class)
+  public enum ProcessTypeEnum {
+    SINGLE("SINGLE"),
+    
+    CLUSTER("CLUSTER");
+
+    private String value;
+
+    ProcessTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ProcessTypeEnum fromValue(String text) {
+      for (ProcessTypeEnum b : ProcessTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ProcessTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProcessTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ProcessTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ProcessTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("processType")
+  private ProcessTypeEnum processType = null;
 
   /**
    * Gets or Sets type
@@ -94,6 +135,66 @@ public class Process implements Serializable {
   @SerializedName("type")
   private TypeEnum type = null;
 
+  @SerializedName("schedule")
+  private String schedule = null;
+
+  @SerializedName("task")
+  private String task = null;
+
+  public Process id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Process processType(ProcessTypeEnum processType) {
+    this.processType = processType;
+    return this;
+  }
+
+   /**
+   * Get processType
+   * @return processType
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public ProcessTypeEnum getProcessType() {
+    return processType;
+  }
+
+  public void setProcessType(ProcessTypeEnum processType) {
+    this.processType = processType;
+  }
+
+  public Process type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
   public Process schedule(String schedule) {
     this.schedule = schedule;
     return this;
@@ -130,60 +231,6 @@ public class Process implements Serializable {
     this.task = task;
   }
 
-  public Process node(String node) {
-    this.node = node;
-    return this;
-  }
-
-   /**
-   * Tne id of the node this process is hosted on.
-   * @return node
-  **/
-  @ApiModelProperty(required = true, value = "Tne id of the node this process is hosted on.")
-  public String getNode() {
-    return node;
-  }
-
-  public void setNode(String node) {
-    this.node = node;
-  }
-
-  public Process id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Process type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -194,16 +241,16 @@ public class Process implements Serializable {
       return false;
     }
     Process process = (Process) o;
-    return Objects.equals(this.schedule, process.schedule) &&
-        Objects.equals(this.task, process.task) &&
-        Objects.equals(this.node, process.node) &&
-        Objects.equals(this.id, process.id) &&
-        Objects.equals(this.type, process.type);
+    return Objects.equals(this.id, process.id) &&
+        Objects.equals(this.processType, process.processType) &&
+        Objects.equals(this.type, process.type) &&
+        Objects.equals(this.schedule, process.schedule) &&
+        Objects.equals(this.task, process.task);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schedule, task, node, id, type);
+    return Objects.hash(id, processType, type, schedule, task);
   }
 
 
@@ -212,11 +259,11 @@ public class Process implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Process {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    processType: ").append(toIndentedString(processType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
-    sb.append("    node: ").append(toIndentedString(node)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -74,6 +74,18 @@ public class JSON {
                                            getDiscriminatorValue(readElement, "type"));
             }
           })
+          .registerTypeSelector(Process.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("ClusterProcess".toUpperCase(), ClusterProcess.class);
+                classByDiscriminatorValue.put("SingleProcess".toUpperCase(), SingleProcess.class);
+                classByDiscriminatorValue.put("Process".toUpperCase(), Process.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "processType"));
+            }
+          })
           .registerTypeSelector(TaskInterface.class, new TypeSelector() {
             @Override
             public Class getClassForElement(JsonElement readElement) {

@@ -19,65 +19,23 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.Process;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * A process represents a task running on a node
+ * ClusterProcess
  */
-@ApiModel(description = "A process represents a task running on a node")
 
-public class ProcessNew implements Serializable {
+public class ClusterProcess extends Process implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("schedule")
-  private String schedule = null;
-
-  @SerializedName("task")
-  private String task = null;
 
   @SerializedName("nodeGroup")
   private String nodeGroup = null;
 
-  public ProcessNew schedule(String schedule) {
-    this.schedule = schedule;
-    return this;
-  }
-
-   /**
-   * The id of the schedule this process belongs to.
-   * @return schedule
-  **/
-  @ApiModelProperty(required = true, value = "The id of the schedule this process belongs to.")
-  public String getSchedule() {
-    return schedule;
-  }
-
-  public void setSchedule(String schedule) {
-    this.schedule = schedule;
-  }
-
-  public ProcessNew task(String task) {
-    this.task = task;
-    return this;
-  }
-
-   /**
-   * The id of the task that is instantiated by this process.
-   * @return task
-  **/
-  @ApiModelProperty(required = true, value = "The id of the task that is instantiated by this process.")
-  public String getTask() {
-    return task;
-  }
-
-  public void setTask(String task) {
-    this.task = task;
-  }
-
-  public ProcessNew nodeGroup(String nodeGroup) {
+  public ClusterProcess nodeGroup(String nodeGroup) {
     this.nodeGroup = nodeGroup;
     return this;
   }
@@ -104,25 +62,22 @@ public class ProcessNew implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProcessNew processNew = (ProcessNew) o;
-    return Objects.equals(this.schedule, processNew.schedule) &&
-        Objects.equals(this.task, processNew.task) &&
-        Objects.equals(this.nodeGroup, processNew.nodeGroup);
+    ClusterProcess clusterProcess = (ClusterProcess) o;
+    return Objects.equals(this.nodeGroup, clusterProcess.nodeGroup) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schedule, task, nodeGroup);
+    return Objects.hash(nodeGroup, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessNew {\n");
-    
-    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
-    sb.append("    task: ").append(toIndentedString(task)).append("\n");
+    sb.append("class ClusterProcess {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    nodeGroup: ").append(toIndentedString(nodeGroup)).append("\n");
     sb.append("}");
     return sb.toString();
