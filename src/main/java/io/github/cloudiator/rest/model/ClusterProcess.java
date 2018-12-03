@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.CloudiatorProcess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import java.io.Serializable;
  * ClusterProcess
  */
 
-public class ClusterProcess extends Process implements Serializable {
+public class ClusterProcess extends CloudiatorProcess implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("nodeGroup")

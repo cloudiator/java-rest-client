@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**processes** | [**List&lt;Process&gt;**](Process.md) |  | 
+**processes** | [**List&lt;CloudiatorProcess&gt;**](CloudiatorProcess.md) |  | 
 
 
 

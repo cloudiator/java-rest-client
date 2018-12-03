@@ -14,9 +14,9 @@
 package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
-import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.CloudiatorProcess;
+import io.github.cloudiator.rest.model.CloudiatorProcessNew;
 import io.github.cloudiator.rest.model.ProcessGroup;
-import io.github.cloudiator.rest.model.ProcessNew;
 import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.Schedule;
 import io.github.cloudiator.rest.model.ScheduleNew;
@@ -63,7 +63,7 @@ public class ProcessApiTest {
      */
     @Test
     public void createProcessTest() throws ApiException {
-        ProcessNew process = null;
+        CloudiatorProcessNew process = null;
         Queue response = api.createProcess(process);
 
         // TODO: test validations
@@ -96,7 +96,7 @@ public class ProcessApiTest {
     @Test
     public void findProcessTest() throws ApiException {
         String id = null;
-        Process response = api.findProcess(id);
+        CloudiatorProcess response = api.findProcess(id);
 
         // TODO: test validations
     }
@@ -143,7 +143,7 @@ public class ProcessApiTest {
     @Test
     public void getProcessesTest() throws ApiException {
         String scheduleId = null;
-        List<Process> response = api.getProcesses(scheduleId);
+        List<CloudiatorProcess> response = api.getProcesses(scheduleId);
 
         // TODO: test validations
     }

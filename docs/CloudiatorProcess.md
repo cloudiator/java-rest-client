@@ -1,5 +1,5 @@
 
-# Process
+# CloudiatorProcess
 
 ## Properties
 Name | Type | Description | Notes

@@ -74,13 +74,13 @@ public class JSON {
                                            getDiscriminatorValue(readElement, "type"));
             }
           })
-          .registerTypeSelector(Process.class, new TypeSelector() {
+          .registerTypeSelector(CloudiatorProcess.class, new TypeSelector() {
             @Override
             public Class getClassForElement(JsonElement readElement) {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("ClusterProcess".toUpperCase(), ClusterProcess.class);
                 classByDiscriminatorValue.put("SingleProcess".toUpperCase(), SingleProcess.class);
-                classByDiscriminatorValue.put("Process".toUpperCase(), Process.class);
+                classByDiscriminatorValue.put("CloudiatorProcess".toUpperCase(), CloudiatorProcess.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, "processType"));

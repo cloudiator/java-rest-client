@@ -95,7 +95,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 //ApiKeyAuth.setApiKeyPrefix("Token");
 
 ProcessApi apiInstance = new ProcessApi();
-ProcessNew process = new ProcessNew(); // ProcessNew | Process to be created 
+CloudiatorProcessNew process = new CloudiatorProcessNew(); // CloudiatorProcessNew | Process to be created 
 try {
     Queue result = apiInstance.createProcess(process);
     System.out.println(result);
@@ -109,7 +109,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **process** | [**ProcessNew**](ProcessNew.md)| Process to be created  |
+ **process** | [**CloudiatorProcessNew**](CloudiatorProcessNew.md)| Process to be created  |
 
 ### Return type
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 <a name="findProcess"></a>
 # **findProcess**
-> Process findProcess(id)
+> CloudiatorProcess findProcess(id)
 
 
 
@@ -207,7 +207,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 ProcessApi apiInstance = new ProcessApi();
 String id = "id_example"; // String | Unique identifier of the resource
 try {
-    Process result = apiInstance.findProcess(id);
+    CloudiatorProcess result = apiInstance.findProcess(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProcessApi#findProcess");
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Process**](Process.md)
+[**CloudiatorProcess**](CloudiatorProcess.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 <a name="getProcesses"></a>
 # **getProcesses**
-> List&lt;Process&gt; getProcesses(scheduleId)
+> List&lt;CloudiatorProcess&gt; getProcesses(scheduleId)
 
 
 
@@ -368,7 +368,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 ProcessApi apiInstance = new ProcessApi();
 String scheduleId = "scheduleId_example"; // String | Id of the schedule. 
 try {
-    List<Process> result = apiInstance.getProcesses(scheduleId);
+    List<CloudiatorProcess> result = apiInstance.getProcesses(scheduleId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProcessApi#getProcesses");
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Process&gt;**](Process.md)
+[**List&lt;CloudiatorProcess&gt;**](CloudiatorProcess.md)
 
 ### Authorization
 

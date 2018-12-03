@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.CloudiatorProcess;
 import io.github.cloudiator.rest.model.ScheduleNew;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -92,7 +92,7 @@ public class Schedule implements Serializable {
   private String id = null;
 
   @SerializedName("processes")
-  private List<Process> processes = null;
+  private List<CloudiatorProcess> processes = null;
 
   public Schedule job(String job) {
     this.job = job;
@@ -148,14 +148,14 @@ public class Schedule implements Serializable {
     this.id = id;
   }
 
-  public Schedule processes(List<Process> processes) {
+  public Schedule processes(List<CloudiatorProcess> processes) {
     this.processes = processes;
     return this;
   }
 
-  public Schedule addProcessesItem(Process processesItem) {
+  public Schedule addProcessesItem(CloudiatorProcess processesItem) {
     if (this.processes == null) {
-      this.processes = new ArrayList<Process>();
+      this.processes = new ArrayList<CloudiatorProcess>();
     }
     this.processes.add(processesItem);
     return this;
@@ -166,11 +166,11 @@ public class Schedule implements Serializable {
    * @return processes
   **/
   @ApiModelProperty(value = "")
-  public List<Process> getProcesses() {
+  public List<CloudiatorProcess> getProcesses() {
     return processes;
   }
 
-  public void setProcesses(List<Process> processes) {
+  public void setProcesses(List<CloudiatorProcess> processes) {
     this.processes = processes;
   }
 

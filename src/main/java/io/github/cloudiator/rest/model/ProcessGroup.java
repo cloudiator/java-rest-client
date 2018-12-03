@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.CloudiatorProcess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class ProcessGroup implements Serializable {
   private String id = null;
 
   @SerializedName("processes")
-  private List<Process> processes = new ArrayList<Process>();
+  private List<CloudiatorProcess> processes = new ArrayList<CloudiatorProcess>();
 
   public ProcessGroup id(String id) {
     this.id = id;
@@ -59,12 +59,12 @@ public class ProcessGroup implements Serializable {
     this.id = id;
   }
 
-  public ProcessGroup processes(List<Process> processes) {
+  public ProcessGroup processes(List<CloudiatorProcess> processes) {
     this.processes = processes;
     return this;
   }
 
-  public ProcessGroup addProcessesItem(Process processesItem) {
+  public ProcessGroup addProcessesItem(CloudiatorProcess processesItem) {
     this.processes.add(processesItem);
     return this;
   }
@@ -74,11 +74,11 @@ public class ProcessGroup implements Serializable {
    * @return processes
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<Process> getProcesses() {
+  public List<CloudiatorProcess> getProcesses() {
     return processes;
   }
 
-  public void setProcesses(List<Process> processes) {
+  public void setProcesses(List<CloudiatorProcess> processes) {
     this.processes = processes;
   }
 

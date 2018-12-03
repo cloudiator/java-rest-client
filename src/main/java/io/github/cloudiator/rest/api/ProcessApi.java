@@ -27,9 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.github.cloudiator.rest.model.Process;
+import io.github.cloudiator.rest.model.CloudiatorProcess;
+import io.github.cloudiator.rest.model.CloudiatorProcessNew;
 import io.github.cloudiator.rest.model.ProcessGroup;
-import io.github.cloudiator.rest.model.ProcessNew;
 import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.Schedule;
 import io.github.cloudiator.rest.model.ScheduleNew;
@@ -189,7 +189,7 @@ public class ProcessApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createProcessCall(ProcessNew process, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createProcessCall(CloudiatorProcessNew process, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = process;
 
         // create path and map variables
@@ -231,7 +231,7 @@ public class ProcessApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createProcessValidateBeforeCall(ProcessNew process, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createProcessValidateBeforeCall(CloudiatorProcessNew process, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'process' is set
         if (process == null) {
@@ -251,7 +251,7 @@ public class ProcessApi {
      * @return Queue
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Queue createProcess(ProcessNew process) throws ApiException {
+    public Queue createProcess(CloudiatorProcessNew process) throws ApiException {
         ApiResponse<Queue> resp = createProcessWithHttpInfo(process);
         return resp.getData();
     }
@@ -263,7 +263,7 @@ public class ProcessApi {
      * @return ApiResponse&lt;Queue&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Queue> createProcessWithHttpInfo(ProcessNew process) throws ApiException {
+    public ApiResponse<Queue> createProcessWithHttpInfo(CloudiatorProcessNew process) throws ApiException {
         com.squareup.okhttp.Call call = createProcessValidateBeforeCall(process, null, null);
         Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -277,7 +277,7 @@ public class ProcessApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createProcessAsync(ProcessNew process, final ApiCallback<Queue> callback) throws ApiException {
+    public com.squareup.okhttp.Call createProcessAsync(CloudiatorProcessNew process, final ApiCallback<Queue> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -494,11 +494,11 @@ public class ProcessApi {
      * 
      * Finds the process corresponding to the given id. 
      * @param id Unique identifier of the resource (required)
-     * @return Process
+     * @return CloudiatorProcess
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Process findProcess(String id) throws ApiException {
-        ApiResponse<Process> resp = findProcessWithHttpInfo(id);
+    public CloudiatorProcess findProcess(String id) throws ApiException {
+        ApiResponse<CloudiatorProcess> resp = findProcessWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -506,12 +506,12 @@ public class ProcessApi {
      * 
      * Finds the process corresponding to the given id. 
      * @param id Unique identifier of the resource (required)
-     * @return ApiResponse&lt;Process&gt;
+     * @return ApiResponse&lt;CloudiatorProcess&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Process> findProcessWithHttpInfo(String id) throws ApiException {
+    public ApiResponse<CloudiatorProcess> findProcessWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = findProcessValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<Process>(){}.getType();
+        Type localVarReturnType = new TypeToken<CloudiatorProcess>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -523,7 +523,7 @@ public class ProcessApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call findProcessAsync(String id, final ApiCallback<Process> callback) throws ApiException {
+    public com.squareup.okhttp.Call findProcessAsync(String id, final ApiCallback<CloudiatorProcess> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -545,7 +545,7 @@ public class ProcessApi {
         }
 
         com.squareup.okhttp.Call call = findProcessValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Process>(){}.getType();
+        Type localVarReturnType = new TypeToken<CloudiatorProcess>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -849,11 +849,11 @@ public class ProcessApi {
      * 
      * Retrieves all process of the current user matching the parameters. 
      * @param scheduleId Id of the schedule.  (optional)
-     * @return List&lt;Process&gt;
+     * @return List&lt;CloudiatorProcess&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Process> getProcesses(String scheduleId) throws ApiException {
-        ApiResponse<List<Process>> resp = getProcessesWithHttpInfo(scheduleId);
+    public List<CloudiatorProcess> getProcesses(String scheduleId) throws ApiException {
+        ApiResponse<List<CloudiatorProcess>> resp = getProcessesWithHttpInfo(scheduleId);
         return resp.getData();
     }
 
@@ -861,12 +861,12 @@ public class ProcessApi {
      * 
      * Retrieves all process of the current user matching the parameters. 
      * @param scheduleId Id of the schedule.  (optional)
-     * @return ApiResponse&lt;List&lt;Process&gt;&gt;
+     * @return ApiResponse&lt;List&lt;CloudiatorProcess&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Process>> getProcessesWithHttpInfo(String scheduleId) throws ApiException {
+    public ApiResponse<List<CloudiatorProcess>> getProcessesWithHttpInfo(String scheduleId) throws ApiException {
         com.squareup.okhttp.Call call = getProcessesValidateBeforeCall(scheduleId, null, null);
-        Type localVarReturnType = new TypeToken<List<Process>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CloudiatorProcess>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -878,7 +878,7 @@ public class ProcessApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProcessesAsync(String scheduleId, final ApiCallback<List<Process>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProcessesAsync(String scheduleId, final ApiCallback<List<CloudiatorProcess>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -900,7 +900,7 @@ public class ProcessApi {
         }
 
         com.squareup.okhttp.Call call = getProcessesValidateBeforeCall(scheduleId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Process>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CloudiatorProcess>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
