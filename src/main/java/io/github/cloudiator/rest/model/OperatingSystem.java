@@ -24,6 +24,7 @@ import io.github.cloudiator.rest.model.OperatingSystemFamily;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.io.Serializable;
 
 /**
@@ -41,7 +42,7 @@ public class OperatingSystem implements Serializable {
   private OperatingSystemArchitecture operatingSystemArchitecture = null;
 
   @SerializedName("operatingSystemVersion")
-  private String operatingSystemVersion = null;
+  private BigDecimal operatingSystemVersion = null;
 
   public OperatingSystem operatingSystemFamily(OperatingSystemFamily operatingSystemFamily) {
     this.operatingSystemFamily = operatingSystemFamily;
@@ -79,7 +80,7 @@ public class OperatingSystem implements Serializable {
     this.operatingSystemArchitecture = operatingSystemArchitecture;
   }
 
-  public OperatingSystem operatingSystemVersion(String operatingSystemVersion) {
+  public OperatingSystem operatingSystemVersion(BigDecimal operatingSystemVersion) {
     this.operatingSystemVersion = operatingSystemVersion;
     return this;
   }
@@ -88,12 +89,12 @@ public class OperatingSystem implements Serializable {
    * Version of the OS
    * @return operatingSystemVersion
   **/
-  @ApiModelProperty(example = "16.04 LTS", value = "Version of the OS")
-  public String getOperatingSystemVersion() {
+  @ApiModelProperty(example = "1604.0", value = "Version of the OS")
+  public BigDecimal getOperatingSystemVersion() {
     return operatingSystemVersion;
   }
 
-  public void setOperatingSystemVersion(String operatingSystemVersion) {
+  public void setOperatingSystemVersion(BigDecimal operatingSystemVersion) {
     this.operatingSystemVersion = operatingSystemVersion;
   }
 
