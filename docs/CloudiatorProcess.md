@@ -5,18 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**processType** | [**ProcessTypeEnum**](#ProcessTypeEnum) |  | 
+**processType** | **String** |  | 
+**state** | [**StateEnum**](#StateEnum) |  |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) |  | 
 **schedule** | **String** | The id of the schedule this process belongs to. | 
 **task** | **String** | The id of the task that is instantiated by this process. | 
 
 
-<a name="ProcessTypeEnum"></a>
-## Enum: ProcessTypeEnum
+<a name="StateEnum"></a>
+## Enum: StateEnum
 Name | Value
 ---- | -----
-SINGLE | &quot;SINGLE&quot;
-CLUSTER | &quot;CLUSTER&quot;
+CREATED | &quot;CREATED&quot;
+FAILED | &quot;FAILED&quot;
+RUNNING | &quot;RUNNING&quot;
+ERROR | &quot;ERROR&quot;
+DELETED | &quot;DELETED&quot;
 
 
 <a name="TypeEnum"></a>

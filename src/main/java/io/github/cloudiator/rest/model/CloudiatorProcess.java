@@ -35,18 +35,27 @@ public class CloudiatorProcess implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("processType")
+  private String processType = null;
+
   /**
-   * Gets or Sets processType
+   * Gets or Sets state
    */
-  @JsonAdapter(ProcessTypeEnum.Adapter.class)
-  public enum ProcessTypeEnum {
-    SINGLE("SINGLE"),
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    CREATED("CREATED"),
     
-    CLUSTER("CLUSTER");
+    FAILED("FAILED"),
+    
+    RUNNING("RUNNING"),
+    
+    ERROR("ERROR"),
+    
+    DELETED("DELETED");
 
     private String value;
 
-    ProcessTypeEnum(String value) {
+    StateEnum(String value) {
       this.value = value;
     }
 
@@ -59,8 +68,8 @@ public class CloudiatorProcess implements Serializable {
       return String.valueOf(value);
     }
 
-    public static ProcessTypeEnum fromValue(String text) {
-      for (ProcessTypeEnum b : ProcessTypeEnum.values()) {
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -68,22 +77,22 @@ public class CloudiatorProcess implements Serializable {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<ProcessTypeEnum> {
+    public static class Adapter extends TypeAdapter<StateEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final ProcessTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public ProcessTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return ProcessTypeEnum.fromValue(String.valueOf(value));
+        return StateEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName("processType")
-  private ProcessTypeEnum processType = null;
+  @SerializedName("state")
+  private StateEnum state = null;
 
   /**
    * Gets or Sets type
@@ -159,7 +168,7 @@ public class CloudiatorProcess implements Serializable {
     this.id = id;
   }
 
-  public CloudiatorProcess processType(ProcessTypeEnum processType) {
+  public CloudiatorProcess processType(String processType) {
     this.processType = processType;
     return this;
   }
@@ -169,12 +178,30 @@ public class CloudiatorProcess implements Serializable {
    * @return processType
   **/
   @ApiModelProperty(required = true, value = "")
-  public ProcessTypeEnum getProcessType() {
+  public String getProcessType() {
     return processType;
   }
 
-  public void setProcessType(ProcessTypeEnum processType) {
+  public void setProcessType(String processType) {
     this.processType = processType;
+  }
+
+  public CloudiatorProcess state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
   public CloudiatorProcess type(TypeEnum type) {
@@ -243,6 +270,7 @@ public class CloudiatorProcess implements Serializable {
     CloudiatorProcess cloudiatorProcess = (CloudiatorProcess) o;
     return Objects.equals(this.id, cloudiatorProcess.id) &&
         Objects.equals(this.processType, cloudiatorProcess.processType) &&
+        Objects.equals(this.state, cloudiatorProcess.state) &&
         Objects.equals(this.type, cloudiatorProcess.type) &&
         Objects.equals(this.schedule, cloudiatorProcess.schedule) &&
         Objects.equals(this.task, cloudiatorProcess.task);
@@ -250,7 +278,7 @@ public class CloudiatorProcess implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, processType, type, schedule, task);
+    return Objects.hash(id, processType, state, type, schedule, task);
   }
 
 
@@ -261,6 +289,7 @@ public class CloudiatorProcess implements Serializable {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    processType: ").append(toIndentedString(processType)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");

@@ -55,6 +55,9 @@ public class Cloud implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("userId")
+  private String userId = null;
+
   /**
    * State of the cloud
    */
@@ -216,6 +219,24 @@ public class Cloud implements Serializable {
     this.id = id;
   }
 
+  public Cloud userId(String userId) {
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Id of the user owning this cloud. 
+   * @return userId
+  **/
+  @ApiModelProperty(value = "Id of the user owning this cloud. ")
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
   public Cloud state(StateEnum state) {
     this.state = state;
     return this;
@@ -268,13 +289,14 @@ public class Cloud implements Serializable {
         Objects.equals(this.credential, cloud.credential) &&
         Objects.equals(this.cloudConfiguration, cloud.cloudConfiguration) &&
         Objects.equals(this.id, cloud.id) &&
+        Objects.equals(this.userId, cloud.userId) &&
         Objects.equals(this.state, cloud.state) &&
         Objects.equals(this.diagnostic, cloud.diagnostic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpoint, cloudType, api, credential, cloudConfiguration, id, state, diagnostic);
+    return Objects.hash(endpoint, cloudType, api, credential, cloudConfiguration, id, userId, state, diagnostic);
   }
 
 
@@ -289,6 +311,7 @@ public class Cloud implements Serializable {
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    cloudConfiguration: ").append(toIndentedString(cloudConfiguration)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    diagnostic: ").append(toIndentedString(diagnostic)).append("\n");
     sb.append("}");

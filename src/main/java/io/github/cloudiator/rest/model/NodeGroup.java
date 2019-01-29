@@ -28,8 +28,9 @@ import java.util.List;
 import java.io.Serializable;
 
 /**
- * NodeGroup
+ * A logical group of multiple nodes. 
  */
+@ApiModel(description = "A logical group of multiple nodes. ")
 
 public class NodeGroup implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -46,10 +47,10 @@ public class NodeGroup implements Serializable {
   }
 
    /**
-   * Get id
+   * Unique identifier of the node group. 
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier of the node group. ")
   public String getId() {
     return id;
   }
@@ -72,10 +73,10 @@ public class NodeGroup implements Serializable {
   }
 
    /**
-   * Get nodes
+   * An array of multiple nodes belonging to this group. 
    * @return nodes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of multiple nodes belonging to this group. ")
   public List<Node> getNodes() {
     return nodes;
   }

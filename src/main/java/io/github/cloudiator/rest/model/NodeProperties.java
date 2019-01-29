@@ -27,9 +27,9 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * attributes defining a node
+ * Attributes defining this node
  */
-@ApiModel(description = "attributes defining a node")
+@ApiModel(description = "Attributes defining this node")
 
 public class NodeProperties implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -58,10 +58,10 @@ public class NodeProperties implements Serializable {
   }
 
    /**
-   * Get providerId
+   * Id of the provider where this node is managed. For virtual machines this e.g. the id of the cloud. 
    * @return providerId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Id of the provider where this node is managed. For virtual machines this e.g. the id of the cloud. ")
   public String getProviderId() {
     return providerId;
   }
@@ -76,10 +76,10 @@ public class NodeProperties implements Serializable {
   }
 
    /**
-   * Get numberOfCores
+   * Number of cores the node has. 
    * @return numberOfCores
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of cores the node has. ")
   public Integer getNumberOfCores() {
     return numberOfCores;
   }
@@ -94,10 +94,10 @@ public class NodeProperties implements Serializable {
   }
 
    /**
-   * Get memory
+   * Amount of RAM this node has (in MB). 
    * @return memory
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Amount of RAM this node has (in MB). ")
   public Long getMemory() {
     return memory;
   }
@@ -112,10 +112,10 @@ public class NodeProperties implements Serializable {
   }
 
    /**
-   * Get disk
+   * Amount of disk space this node has (in GB). 
    * @return disk
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Amount of disk space this node has (in GB). ")
   public Float getDisk() {
     return disk;
   }
@@ -130,10 +130,10 @@ public class NodeProperties implements Serializable {
   }
 
    /**
-   * Get operatingSystem
+   * Operating system of this node. 
    * @return operatingSystem
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Operating system of this node. ")
   public OperatingSystem getOperatingSystem() {
     return operatingSystem;
   }
@@ -148,10 +148,10 @@ public class NodeProperties implements Serializable {
   }
 
    /**
-   * Get geoLocation
+   * Geographical location this node resides in. 
    * @return geoLocation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Geographical location this node resides in. ")
   public GeoLocation getGeoLocation() {
     return geoLocation;
   }

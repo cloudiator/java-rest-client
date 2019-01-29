@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.Runtime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -41,7 +42,10 @@ public class Function implements Serializable {
   private String locationId = null;
 
   @SerializedName("memory")
-  private Integer memory = 1024;
+  private Integer memory = null;
+
+  @SerializedName("runtime")
+  private Runtime runtime = null;
 
   @SerializedName("stackId")
   private String stackId = null;
@@ -106,18 +110,34 @@ public class Function implements Serializable {
   }
 
    /**
-   * Memory (in megabytes) available to function. CPU is allocated proportionally. 
-   * minimum: 128
-   * maximum: 3008
+   * Get memory
    * @return memory
   **/
-  @ApiModelProperty(value = "Memory (in megabytes) available to function. CPU is allocated proportionally. ")
+  @ApiModelProperty(value = "")
   public Integer getMemory() {
     return memory;
   }
 
   public void setMemory(Integer memory) {
     this.memory = memory;
+  }
+
+  public Function runtime(Runtime runtime) {
+    this.runtime = runtime;
+    return this;
+  }
+
+   /**
+   * Get runtime
+   * @return runtime
+  **/
+  @ApiModelProperty(value = "")
+  public Runtime getRuntime() {
+    return runtime;
+  }
+
+  public void setRuntime(Runtime runtime) {
+    this.runtime = runtime;
   }
 
   public Function stackId(String stackId) {
@@ -152,12 +172,13 @@ public class Function implements Serializable {
         Objects.equals(this.cloudId, function.cloudId) &&
         Objects.equals(this.locationId, function.locationId) &&
         Objects.equals(this.memory, function.memory) &&
+        Objects.equals(this.runtime, function.runtime) &&
         Objects.equals(this.stackId, function.stackId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, cloudId, locationId, memory, stackId);
+    return Objects.hash(id, cloudId, locationId, memory, runtime, stackId);
   }
 
 
@@ -170,6 +191,7 @@ public class Function implements Serializable {
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    stackId: ").append(toIndentedString(stackId)).append("\n");
     sb.append("}");
     return sb.toString();
