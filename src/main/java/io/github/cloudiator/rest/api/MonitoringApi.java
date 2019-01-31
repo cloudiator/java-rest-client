@@ -531,4 +531,136 @@ public class MonitoringApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+    /**
+     * Build call for updateMonitor
+     * @param metric Unique identifier of a monitor (required)
+     * @param monitor Monitor to be updated  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateMonitorCall(String metric, Monitor monitor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = monitor;
+
+        // create path and map variables
+        String localVarPath = "/monitors/{metric}"
+            .replaceAll("\\{" + "metric" + "\\}", apiClient.escapeString(metric.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateMonitorValidateBeforeCall(String metric, Monitor monitor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'metric' is set
+        if (metric == null) {
+            throw new ApiException("Missing the required parameter 'metric' when calling updateMonitor(Async)");
+        }
+        
+        // verify the required parameter 'monitor' is set
+        if (monitor == null) {
+            throw new ApiException("Missing the required parameter 'monitor' when calling updateMonitor(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateMonitorCall(metric, monitor, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Updating a monitor 
+     * @param metric Unique identifier of a monitor (required)
+     * @param monitor Monitor to be updated  (required)
+     * @return Monitor
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Monitor updateMonitor(String metric, Monitor monitor) throws ApiException {
+        ApiResponse<Monitor> resp = updateMonitorWithHttpInfo(metric, monitor);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Updating a monitor 
+     * @param metric Unique identifier of a monitor (required)
+     * @param monitor Monitor to be updated  (required)
+     * @return ApiResponse&lt;Monitor&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Monitor> updateMonitorWithHttpInfo(String metric, Monitor monitor) throws ApiException {
+        com.squareup.okhttp.Call call = updateMonitorValidateBeforeCall(metric, monitor, null, null);
+        Type localVarReturnType = new TypeToken<Monitor>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Updating a monitor 
+     * @param metric Unique identifier of a monitor (required)
+     * @param monitor Monitor to be updated  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateMonitorAsync(String metric, Monitor monitor, final ApiCallback<Monitor> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateMonitorValidateBeforeCall(metric, monitor, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Monitor>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
 }

@@ -95,4 +95,21 @@ public class MonitoringApiTest {
         // TODO: test validations
     }
     
+    /**
+     * 
+     *
+     * Updating a monitor 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateMonitorTest() throws ApiException {
+        String metric = null;
+        Monitor monitor = null;
+        Monitor response = api.updateMonitor(metric, monitor);
+
+        // TODO: test validations
+    }
+    
 }

@@ -14,6 +14,8 @@ Name | Value
 ---- | -----
 KAIROS_DB | &quot;KAIROS_DB&quot;
 INFLUX | &quot;INFLUX&quot;
+CLI | &quot;CLI&quot;
+JMS | &quot;JMS&quot;
 
 
 

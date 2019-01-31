@@ -38,6 +38,12 @@ public class ProcessGroup implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("schedule")
+  private String schedule = null;
+
+  @SerializedName("owner")
+  private String owner = null;
+
   @SerializedName("processes")
   private List<CloudiatorProcess> processes = new ArrayList<CloudiatorProcess>();
 
@@ -47,16 +53,52 @@ public class ProcessGroup implements Serializable {
   }
 
    /**
-   * Get id
+   * Unique identifier of the group
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Unique identifier of the group")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ProcessGroup schedule(String schedule) {
+    this.schedule = schedule;
+    return this;
+  }
+
+   /**
+   * The schedule this group was created for
+   * @return schedule
+  **/
+  @ApiModelProperty(required = true, value = "The schedule this group was created for")
+  public String getSchedule() {
+    return schedule;
+  }
+
+  public void setSchedule(String schedule) {
+    this.schedule = schedule;
+  }
+
+  public ProcessGroup owner(String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * The user this group was created for
+   * @return owner
+  **/
+  @ApiModelProperty(value = "The user this group was created for")
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
   }
 
   public ProcessGroup processes(List<CloudiatorProcess> processes) {
@@ -93,12 +135,14 @@ public class ProcessGroup implements Serializable {
     }
     ProcessGroup processGroup = (ProcessGroup) o;
     return Objects.equals(this.id, processGroup.id) &&
+        Objects.equals(this.schedule, processGroup.schedule) &&
+        Objects.equals(this.owner, processGroup.owner) &&
         Objects.equals(this.processes, processGroup.processes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, processes);
+    return Objects.hash(id, schedule, owner, processes);
   }
 
 
@@ -108,6 +152,8 @@ public class ProcessGroup implements Serializable {
     sb.append("class ProcessGroup {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    processes: ").append(toIndentedString(processes)).append("\n");
     sb.append("}");
     return sb.toString();

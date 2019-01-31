@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteMonitor**](MonitoringApi.md#deleteMonitor) | **DELETE** /monitors/{metric} | 
 [**findMonitors**](MonitoringApi.md#findMonitors) | **GET** /monitors | 
 [**getMonitor**](MonitoringApi.md#getMonitor) | **GET** /monitors/{metric} | 
+[**updateMonitor**](MonitoringApi.md#updateMonitor) | **PUT** /monitors/{metric} | 
 
 
 <a name="addMonitor"></a>
@@ -223,5 +224,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="updateMonitor"></a>
+# **updateMonitor**
+> Monitor updateMonitor(metric, monitor)
+
+
+
+Updating a monitor 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.MonitoringApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+MonitoringApi apiInstance = new MonitoringApi();
+String metric = "metric_example"; // String | Unique identifier of a monitor
+Monitor monitor = new Monitor(); // Monitor | Monitor to be updated 
+try {
+    Monitor result = apiInstance.updateMonitor(metric, monitor);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MonitoringApi#updateMonitor");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metric** | **String**| Unique identifier of a monitor |
+ **monitor** | [**Monitor**](Monitor.md)| Monitor to be updated  |
+
+### Return type
+
+[**Monitor**](Monitor.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
