@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **targets** | [**List&lt;MonitoringTarget&gt;**](MonitoringTarget.md) |  |  [optional]
 **sensor** | [**Sensor**](Sensor.md) |  |  [optional]
 **sinks** | [**List&lt;DataSink&gt;**](DataSink.md) |  |  [optional]
-**tags** | [**List&lt;MonitoringTag&gt;**](MonitoringTag.md) |  |  [optional]
+**tags** | [**java.util.Map**](java.util.Map.md) | MonitoringTags as key-value map |  [optional]
 
 
 

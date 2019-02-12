@@ -7,11 +7,13 @@ Method | HTTP request | Description
 [**addSchedule**](ProcessApi.md#addSchedule) | **POST** /schedule | 
 [**createProcess**](ProcessApi.md#createProcess) | **POST** /process | 
 [**deleteProcess**](ProcessApi.md#deleteProcess) | **DELETE** /process/{id} | 
+[**deleteSchedule**](ProcessApi.md#deleteSchedule) | **DELETE** /schedule/{id} | 
 [**findProcess**](ProcessApi.md#findProcess) | **GET** /process/{id} | 
 [**findProcessGroups**](ProcessApi.md#findProcessGroups) | **GET** /processGroup | 
 [**findSchedule**](ProcessApi.md#findSchedule) | **GET** /schedule/{id} | 
 [**getProcesses**](ProcessApi.md#getProcesses) | **GET** /process | 
 [**getSchedules**](ProcessApi.md#getSchedules) | **GET** /schedule | 
+[**scheduleGraph**](ProcessApi.md#scheduleGraph) | **GET** /schedule/{id}/graph | 
 
 
 <a name="addSchedule"></a>
@@ -156,6 +158,61 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProcessApi#deleteProcess");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+[**Queue**](Queue.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="deleteSchedule"></a>
+# **deleteSchedule**
+> Queue deleteSchedule(id)
+
+
+
+Deletes the schedule identified by the given id and all corresponding processes and nodes. 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.ProcessApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+ProcessApi apiInstance = new ProcessApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Queue result = apiInstance.deleteSchedule(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProcessApi#deleteSchedule");
     e.printStackTrace();
 }
 ```
@@ -436,6 +493,61 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Schedule&gt;**](Schedule.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="scheduleGraph"></a>
+# **scheduleGraph**
+> Object scheduleGraph(id)
+
+
+
+Returns a json graph representation usable by cyctoscape.js 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.ProcessApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+ProcessApi apiInstance = new ProcessApi();
+String id = "id_example"; // String | Unique identifier of the resource
+try {
+    Object result = apiInstance.scheduleGraph(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProcessApi#scheduleGraph");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the resource |
+
+### Return type
+
+**Object**
 
 ### Authorization
 

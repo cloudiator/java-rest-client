@@ -53,6 +53,9 @@ public class Job implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("owner")
+  private String owner = null;
+
   public Job name(String name) {
     this.name = name;
     return this;
@@ -167,6 +170,24 @@ public class Job implements Serializable {
     this.id = id;
   }
 
+  public Job owner(String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * Get owner
+   * @return owner
+  **/
+  @ApiModelProperty(value = "")
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -181,12 +202,13 @@ public class Job implements Serializable {
         Objects.equals(this.tasks, job.tasks) &&
         Objects.equals(this.communications, job.communications) &&
         Objects.equals(this.requirements, job.requirements) &&
-        Objects.equals(this.id, job.id);
+        Objects.equals(this.id, job.id) &&
+        Objects.equals(this.owner, job.owner);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tasks, communications, requirements, id);
+    return Objects.hash(name, tasks, communications, requirements, id, owner);
   }
 
 
@@ -200,6 +222,7 @@ public class Job implements Serializable {
     sb.append("    communications: ").append(toIndentedString(communications)).append("\n");
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("}");
     return sb.toString();
   }

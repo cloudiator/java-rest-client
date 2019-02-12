@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.cloudiator.rest.model.DataSink;
-import io.github.cloudiator.rest.model.MonitoringTag;
 import io.github.cloudiator.rest.model.MonitoringTarget;
 import io.github.cloudiator.rest.model.Sensor;
 import io.swagger.annotations.ApiModel;
@@ -50,7 +49,7 @@ public class Monitor implements Serializable {
   private List<DataSink> sinks = null;
 
   @SerializedName("tags")
-  private List<MonitoringTag> tags = null;
+  private java.util.Map tags = null;
 
   public Monitor metric(String metric) {
     this.metric = metric;
@@ -140,29 +139,21 @@ public class Monitor implements Serializable {
     this.sinks = sinks;
   }
 
-  public Monitor tags(List<MonitoringTag> tags) {
+  public Monitor tags(java.util.Map tags) {
     this.tags = tags;
     return this;
   }
 
-  public Monitor addTagsItem(MonitoringTag tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<MonitoringTag>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
    /**
-   * Get tags
+   * MonitoringTags as key-value map
    * @return tags
   **/
-  @ApiModelProperty(value = "")
-  public List<MonitoringTag> getTags() {
+  @ApiModelProperty(value = "MonitoringTags as key-value map")
+  public java.util.Map getTags() {
     return tags;
   }
 
-  public void setTags(List<MonitoringTag> tags) {
+  public void setTags(java.util.Map tags) {
     this.tags = tags;
   }
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **communications** | [**List&lt;Communication&gt;**](Communication.md) |  |  [optional]
 **requirements** | [**List&lt;Requirement&gt;**](Requirement.md) |  |  [optional]
 **id** | **String** |  |  [optional]
+**owner** | **String** |  |  [optional]
 
 
 
