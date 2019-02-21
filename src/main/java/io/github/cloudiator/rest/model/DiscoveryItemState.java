@@ -14,7 +14,6 @@
 package io.github.cloudiator.rest.model;
 
 import java.util.Objects;
-import io.swagger.annotations.ApiModel;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
@@ -25,32 +24,26 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * a Cloudiator tool to be installed on a node
+ * Gets or Sets DiscoveryItemState
  */
-@JsonAdapter(Tool.Adapter.class)
-public enum Tool {
+@JsonAdapter(DiscoveryItemState.Adapter.class)
+public enum DiscoveryItemState {
   
-  DOCKER("DOCKER"),
+  NEW("NEW"),
   
-  KAIROSDB("KAIROSDB"),
+  OK("OK"),
   
-  LANCE("LANCE"),
+  REMOTELY_DELETED("REMOTELY_DELETED"),
   
-  VISOR("VISOR"),
+  LOCALLY_DELETED("LOCALLY_DELETED"),
   
-  AXE("AXE"),
+  DISABLED("DISABLED"),
   
-  SPARK_WORKER("SPARK_WORKER"),
-  
-  DLMS_AGENT("DLMS_AGENT"),
-  
-  ALLUXIO_CLIENT("ALLUXIO_CLIENT"),
-  
-  EMS_CLIENT("EMS_CLIENT");
+  UNKNOWN("UNKNOWN");
 
   private String value;
 
-  Tool(String value) {
+  DiscoveryItemState(String value) {
     this.value = value;
   }
 
@@ -63,8 +56,8 @@ public enum Tool {
     return String.valueOf(value);
   }
 
-  public static Tool fromValue(String text) {
-    for (Tool b : Tool.values()) {
+  public static DiscoveryItemState fromValue(String text) {
+    for (DiscoveryItemState b : DiscoveryItemState.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }
@@ -72,16 +65,16 @@ public enum Tool {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<Tool> {
+  public static class Adapter extends TypeAdapter<DiscoveryItemState> {
     @Override
-    public void write(final JsonWriter jsonWriter, final Tool enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final DiscoveryItemState enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public Tool read(final JsonReader jsonReader) throws IOException {
+    public DiscoveryItemState read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return Tool.fromValue(String.valueOf(value));
+      return DiscoveryItemState.fromValue(String.valueOf(value));
     }
   }
 }

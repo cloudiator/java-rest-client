@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **providerId** | **String** | Original id issued by provider | 
 **operatingSystem** | [**OperatingSystem**](OperatingSystem.md) |  | 
 **location** | [**Location**](Location.md) |  |  [optional]
+**state** | [**DiscoveryItemState**](DiscoveryItemState.md) |  |  [optional]
 
 
 

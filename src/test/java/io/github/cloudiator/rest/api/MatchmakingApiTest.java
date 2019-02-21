@@ -16,7 +16,9 @@ package io.github.cloudiator.rest.api;
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.NodeCandidate;
 import io.github.cloudiator.rest.model.NodeRequirements;
+import io.github.cloudiator.rest.model.Queue;
 import io.github.cloudiator.rest.model.Requirement;
+import io.github.cloudiator.rest.model.Solution;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -53,6 +55,38 @@ public class MatchmakingApiTest {
     /**
      * 
      *
+     * Returns the node candidate with the given id if it exists. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNodeCandidateTest() throws ApiException {
+        String id = null;
+        NodeCandidate response = api.getNodeCandidate(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns a solution of the matchmaking process (if it is still available) 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSolutionTest() throws ApiException {
+        String id = null;
+        Solution response = api.getSolution(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Solves a matchmaking problem
      *
      * @throws ApiException
@@ -61,7 +95,7 @@ public class MatchmakingApiTest {
     @Test
     public void solveMatchmakingTest() throws ApiException {
         NodeRequirements nodeRequirements = null;
-        List<NodeCandidate> response = api.solveMatchmaking(nodeRequirements);
+        Queue response = api.solveMatchmaking(nodeRequirements);
 
         // TODO: test validations
     }

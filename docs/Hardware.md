@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ram** | **Long** | Amount of RAM (in MB) | 
 **disk** | **Double** | Amount of disk space (in GB) |  [optional]
 **location** | [**Location**](Location.md) |  |  [optional]
+**state** | [**DiscoveryItemState**](DiscoveryItemState.md) |  | 
 
 
 

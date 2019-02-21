@@ -17,7 +17,6 @@ import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Error;
 import io.github.cloudiator.rest.model.Job;
 import io.github.cloudiator.rest.model.JobNew;
-import io.github.cloudiator.rest.model.Queue;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,22 +46,6 @@ public class JobApiTest {
     public void addJobTest() throws ApiException {
         JobNew job = null;
         Job response = api.addJob(job);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Deletes the schedule identified by the given id and all corresponding processes and nodes. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteScheduleTest() throws ApiException {
-        String id = null;
-        Queue response = api.deleteSchedule(id);
 
         // TODO: test validations
     }

@@ -20,5 +20,7 @@
 
 * `ALLUXIO_CLIENT` (value: `"ALLUXIO_CLIENT"`)
 
+* `EMS_CLIENT` (value: `"EMS_CLIENT"`)
+
 
 

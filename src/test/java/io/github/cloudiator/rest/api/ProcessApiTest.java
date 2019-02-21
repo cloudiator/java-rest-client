@@ -88,6 +88,22 @@ public class ProcessApiTest {
     /**
      * 
      *
+     * Deletes the schedule identified by the given id and all corresponding processes and nodes. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteScheduleTest() throws ApiException {
+        String id = null;
+        Queue response = api.deleteSchedule(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Finds the process corresponding to the given id. 
      *
      * @throws ApiException
@@ -159,6 +175,22 @@ public class ProcessApiTest {
     @Test
     public void getSchedulesTest() throws ApiException {
         List<Schedule> response = api.getSchedules();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns a json graph representation usable by cyctoscape.js 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scheduleGraphTest() throws ApiException {
+        String id = null;
+        Object response = api.scheduleGraph(id);
 
         // TODO: test validations
     }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **isAssignable** | **Boolean** | True of the location can be used to start virtual machines, false if not | 
 **geoLocation** | [**GeoLocation**](GeoLocation.md) |  |  [optional]
 **parent** | [**Location**](Location.md) |  |  [optional]
+**state** | [**DiscoveryItemState**](DiscoveryItemState.md) |  |  [optional]
 
 
 <a name="LocationScopeEnum"></a>
