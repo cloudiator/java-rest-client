@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **credential** | [**CloudCredential**](CloudCredential.md) |  | 
 **cloudConfiguration** | [**CloudConfiguration**](CloudConfiguration.md) |  |  [optional]
 **id** | **String** | Unique identifier for the cloud |  [optional]
-**userId** | **String** | Id of the user owning this cloud.  |  [optional]
+**owner** | **String** | Id of the user owning this cloud.  |  [optional]
 **state** | [**StateEnum**](#StateEnum) | State of the cloud |  [optional]
 **diagnostic** | **String** | Diagnostic information for the cloud |  [optional]
 
