@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **geoLocation** | [**GeoLocation**](GeoLocation.md) |  |  [optional]
 **parent** | [**Location**](Location.md) |  |  [optional]
 **state** | [**DiscoveryItemState**](DiscoveryItemState.md) |  |  [optional]
+**owner** | **String** |  |  [optional]
 
 
 <a name="LocationScopeEnum"></a>

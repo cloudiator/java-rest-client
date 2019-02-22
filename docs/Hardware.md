@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **disk** | **Double** | Amount of disk space (in GB) |  [optional]
 **location** | [**Location**](Location.md) |  |  [optional]
 **state** | [**DiscoveryItemState**](DiscoveryItemState.md) |  | 
+**owner** | **String** |  |  [optional]
 
 
 

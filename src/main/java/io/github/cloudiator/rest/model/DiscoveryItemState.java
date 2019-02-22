@@ -39,6 +39,8 @@ public enum DiscoveryItemState {
   
   DISABLED("DISABLED"),
   
+  DELETED("DELETED"),
+  
   UNKNOWN("UNKNOWN");
 
   private String value;

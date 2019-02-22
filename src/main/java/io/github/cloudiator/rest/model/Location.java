@@ -110,6 +110,9 @@ public class Location implements Serializable {
   @SerializedName("state")
   private DiscoveryItemState state = null;
 
+  @SerializedName("owner")
+  private String owner = null;
+
   public Location id(String id) {
     this.id = id;
     return this;
@@ -254,6 +257,24 @@ public class Location implements Serializable {
     this.state = state;
   }
 
+  public Location owner(String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * Get owner
+   * @return owner
+  **/
+  @ApiModelProperty(value = "")
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -271,12 +292,13 @@ public class Location implements Serializable {
         Objects.equals(this.isAssignable, location.isAssignable) &&
         Objects.equals(this.geoLocation, location.geoLocation) &&
         Objects.equals(this.parent, location.parent) &&
-        Objects.equals(this.state, location.state);
+        Objects.equals(this.state, location.state) &&
+        Objects.equals(this.owner, location.owner);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, providerId, locationScope, isAssignable, geoLocation, parent, state);
+    return Objects.hash(id, name, providerId, locationScope, isAssignable, geoLocation, parent, state, owner);
   }
 
 
@@ -293,6 +315,7 @@ public class Location implements Serializable {
     sb.append("    geoLocation: ").append(toIndentedString(geoLocation)).append("\n");
     sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("}");
     return sb.toString();
   }

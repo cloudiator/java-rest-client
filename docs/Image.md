@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **operatingSystem** | [**OperatingSystem**](OperatingSystem.md) |  | 
 **location** | [**Location**](Location.md) |  |  [optional]
 **state** | [**DiscoveryItemState**](DiscoveryItemState.md) |  |  [optional]
+**owner** | **String** |  |  [optional]
 
 
 

@@ -56,6 +56,9 @@ public class VirtualMachine implements Serializable {
   @SerializedName("logincredential")
   private LoginCredential logincredential = null;
 
+  @SerializedName("owner")
+  private String owner = null;
+
   public VirtualMachine image(Image image) {
     this.image = image;
     return this;
@@ -172,6 +175,24 @@ public class VirtualMachine implements Serializable {
     this.logincredential = logincredential;
   }
 
+  public VirtualMachine owner(String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * Get owner
+   * @return owner
+  **/
+  @ApiModelProperty(value = "")
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,12 +208,13 @@ public class VirtualMachine implements Serializable {
         Objects.equals(this.location, virtualMachine.location) &&
         Objects.equals(this.id, virtualMachine.id) &&
         Objects.equals(this.ipaddresses, virtualMachine.ipaddresses) &&
-        Objects.equals(this.logincredential, virtualMachine.logincredential);
+        Objects.equals(this.logincredential, virtualMachine.logincredential) &&
+        Objects.equals(this.owner, virtualMachine.owner);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(image, hardware, location, id, ipaddresses, logincredential);
+    return Objects.hash(image, hardware, location, id, ipaddresses, logincredential, owner);
   }
 
 
@@ -207,6 +229,7 @@ public class VirtualMachine implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ipaddresses: ").append(toIndentedString(ipaddresses)).append("\n");
     sb.append("    logincredential: ").append(toIndentedString(logincredential)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("}");
     return sb.toString();
   }

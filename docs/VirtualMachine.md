@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **String** |  |  [optional]
 **ipaddresses** | [**List&lt;IpAddress&gt;**](IpAddress.md) |  |  [optional]
 **logincredential** | [**LoginCredential**](LoginCredential.md) |  |  [optional]
+**owner** | **String** |  |  [optional]
 
 
 

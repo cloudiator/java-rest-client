@@ -14,6 +14,8 @@
 
 * `DISABLED` (value: `"DISABLED"`)
 
+* `DELETED` (value: `"DELETED"`)
+
 * `UNKNOWN` (value: `"UNKNOWN"`)
 
 
