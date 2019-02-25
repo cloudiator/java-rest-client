@@ -22,8 +22,7 @@ Name | Type | Description | Notes
 ## Enum: StateEnum
 Name | Value
 ---- | -----
-CREATED | &quot;CREATED&quot;
-FAILED | &quot;FAILED&quot;
+PENDING | &quot;PENDING&quot;
 RUNNING | &quot;RUNNING&quot;
 ERROR | &quot;ERROR&quot;
 DELETED | &quot;DELETED&quot;

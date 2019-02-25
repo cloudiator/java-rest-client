@@ -53,9 +53,7 @@ public class Node implements Serializable {
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
-    CREATED("CREATED"),
-    
-    FAILED("FAILED"),
+    PENDING("PENDING"),
     
     RUNNING("RUNNING"),
     
