@@ -15,6 +15,7 @@ package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
 import io.github.cloudiator.rest.model.Monitor;
+import io.github.cloudiator.rest.model.MonitoringTarget;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -59,7 +60,8 @@ public class MonitoringApiTest {
     @Test
     public void deleteMonitorTest() throws ApiException {
         String metric = null;
-        api.deleteMonitor(metric);
+        MonitoringTarget target = null;
+        api.deleteMonitor(metric, target);
 
         // TODO: test validations
     }
@@ -90,7 +92,8 @@ public class MonitoringApiTest {
     @Test
     public void getMonitorTest() throws ApiException {
         String metric = null;
-        List<Monitor> response = api.getMonitor(metric);
+        MonitoringTarget target = null;
+        Monitor response = api.getMonitor(metric, target);
 
         // TODO: test validations
     }
