@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteMonitor"></a>
 # **deleteMonitor**
-> deleteMonitor(metric)
+> deleteMonitor(metric, target)
 
 
 
@@ -93,8 +93,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 
 MonitoringApi apiInstance = new MonitoringApi();
 String metric = "metric_example"; // String | Unique identifier of a monitor
+MonitoringTarget target = new MonitoringTarget(); // MonitoringTarget | Target of the Monitor 
 try {
-    apiInstance.deleteMonitor(metric);
+    apiInstance.deleteMonitor(metric, target);
 } catch (ApiException e) {
     System.err.println("Exception when calling MonitoringApi#deleteMonitor");
     e.printStackTrace();
@@ -106,6 +107,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **metric** | **String**| Unique identifier of a monitor |
+ **target** | [**MonitoringTarget**](MonitoringTarget.md)| Target of the Monitor  |
 
 ### Return type
 
@@ -173,7 +175,7 @@ This endpoint does not need any parameter.
 
 <a name="getMonitor"></a>
 # **getMonitor**
-> List&lt;Monitor&gt; getMonitor(metric)
+> Monitor getMonitor(metric, target)
 
 
 
@@ -198,8 +200,9 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 
 MonitoringApi apiInstance = new MonitoringApi();
 String metric = "metric_example"; // String | Unique identifier of a monitor
+MonitoringTarget target = new MonitoringTarget(); // MonitoringTarget | Target of the Monitor 
 try {
-    List<Monitor> result = apiInstance.getMonitor(metric);
+    Monitor result = apiInstance.getMonitor(metric, target);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MonitoringApi#getMonitor");
@@ -212,10 +215,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **metric** | **String**| Unique identifier of a monitor |
+ **target** | [**MonitoringTarget**](MonitoringTarget.md)| Target of the Monitor  |
 
 ### Return type
 
-[**List&lt;Monitor&gt;**](Monitor.md)
+[**Monitor**](Monitor.md)
 
 ### Authorization
 

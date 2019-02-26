@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import io.github.cloudiator.rest.model.Monitor;
+import io.github.cloudiator.rest.model.MonitoringTarget;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -179,13 +180,14 @@ public class MonitoringApi {
     /**
      * Build call for deleteMonitor
      * @param metric Unique identifier of a monitor (required)
+     * @param target Target of the Monitor  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteMonitorCall(String metric, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call deleteMonitorCall(String metric, MonitoringTarget target, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = target;
 
         // create path and map variables
         String localVarPath = "/monitors/{metric}"
@@ -227,15 +229,20 @@ public class MonitoringApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteMonitorValidateBeforeCall(String metric, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteMonitorValidateBeforeCall(String metric, MonitoringTarget target, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'metric' is set
         if (metric == null) {
             throw new ApiException("Missing the required parameter 'metric' when calling deleteMonitor(Async)");
         }
         
+        // verify the required parameter 'target' is set
+        if (target == null) {
+            throw new ApiException("Missing the required parameter 'target' when calling deleteMonitor(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = deleteMonitorCall(metric, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteMonitorCall(metric, target, progressListener, progressRequestListener);
         return call;
 
     }
@@ -244,21 +251,23 @@ public class MonitoringApi {
      * 
      * Deletes the monitor identified by the given metric name. 
      * @param metric Unique identifier of a monitor (required)
+     * @param target Target of the Monitor  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteMonitor(String metric) throws ApiException {
-        deleteMonitorWithHttpInfo(metric);
+    public void deleteMonitor(String metric, MonitoringTarget target) throws ApiException {
+        deleteMonitorWithHttpInfo(metric, target);
     }
 
     /**
      * 
      * Deletes the monitor identified by the given metric name. 
      * @param metric Unique identifier of a monitor (required)
+     * @param target Target of the Monitor  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteMonitorWithHttpInfo(String metric) throws ApiException {
-        com.squareup.okhttp.Call call = deleteMonitorValidateBeforeCall(metric, null, null);
+    public ApiResponse<Void> deleteMonitorWithHttpInfo(String metric, MonitoringTarget target) throws ApiException {
+        com.squareup.okhttp.Call call = deleteMonitorValidateBeforeCall(metric, target, null, null);
         return apiClient.execute(call);
     }
 
@@ -266,11 +275,12 @@ public class MonitoringApi {
      *  (asynchronously)
      * Deletes the monitor identified by the given metric name. 
      * @param metric Unique identifier of a monitor (required)
+     * @param target Target of the Monitor  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteMonitorAsync(String metric, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteMonitorAsync(String metric, MonitoringTarget target, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -291,7 +301,7 @@ public class MonitoringApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteMonitorValidateBeforeCall(metric, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteMonitorValidateBeforeCall(metric, target, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -411,13 +421,14 @@ public class MonitoringApi {
     /**
      * Build call for getMonitor
      * @param metric Unique identifier of a monitor (required)
+     * @param target Target of the Monitor  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getMonitorCall(String metric, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call getMonitorCall(String metric, MonitoringTarget target, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = target;
 
         // create path and map variables
         String localVarPath = "/monitors/{metric}"
@@ -459,15 +470,20 @@ public class MonitoringApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getMonitorValidateBeforeCall(String metric, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMonitorValidateBeforeCall(String metric, MonitoringTarget target, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'metric' is set
         if (metric == null) {
             throw new ApiException("Missing the required parameter 'metric' when calling getMonitor(Async)");
         }
         
+        // verify the required parameter 'target' is set
+        if (target == null) {
+            throw new ApiException("Missing the required parameter 'target' when calling getMonitor(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = getMonitorCall(metric, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMonitorCall(metric, target, progressListener, progressRequestListener);
         return call;
 
     }
@@ -476,11 +492,12 @@ public class MonitoringApi {
      * 
      * Retrieves the monitor with the given metric name 
      * @param metric Unique identifier of a monitor (required)
-     * @return List&lt;Monitor&gt;
+     * @param target Target of the Monitor  (required)
+     * @return Monitor
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Monitor> getMonitor(String metric) throws ApiException {
-        ApiResponse<List<Monitor>> resp = getMonitorWithHttpInfo(metric);
+    public Monitor getMonitor(String metric, MonitoringTarget target) throws ApiException {
+        ApiResponse<Monitor> resp = getMonitorWithHttpInfo(metric, target);
         return resp.getData();
     }
 
@@ -488,12 +505,13 @@ public class MonitoringApi {
      * 
      * Retrieves the monitor with the given metric name 
      * @param metric Unique identifier of a monitor (required)
-     * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
+     * @param target Target of the Monitor  (required)
+     * @return ApiResponse&lt;Monitor&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Monitor>> getMonitorWithHttpInfo(String metric) throws ApiException {
-        com.squareup.okhttp.Call call = getMonitorValidateBeforeCall(metric, null, null);
-        Type localVarReturnType = new TypeToken<List<Monitor>>(){}.getType();
+    public ApiResponse<Monitor> getMonitorWithHttpInfo(String metric, MonitoringTarget target) throws ApiException {
+        com.squareup.okhttp.Call call = getMonitorValidateBeforeCall(metric, target, null, null);
+        Type localVarReturnType = new TypeToken<Monitor>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -501,11 +519,12 @@ public class MonitoringApi {
      *  (asynchronously)
      * Retrieves the monitor with the given metric name 
      * @param metric Unique identifier of a monitor (required)
+     * @param target Target of the Monitor  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMonitorAsync(String metric, final ApiCallback<List<Monitor>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMonitorAsync(String metric, MonitoringTarget target, final ApiCallback<Monitor> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -526,8 +545,8 @@ public class MonitoringApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getMonitorValidateBeforeCall(metric, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Monitor>>(){}.getType();
+        com.squareup.okhttp.Call call = getMonitorValidateBeforeCall(metric, target, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Monitor>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
