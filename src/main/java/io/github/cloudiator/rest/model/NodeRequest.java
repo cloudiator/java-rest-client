@@ -20,25 +20,21 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.cloudiator.rest.model.NodeCandidate;
-import io.github.cloudiator.rest.model.NodeRequirements;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * A request to start a node. May either contain requirements or a candidate. If requirements are passed, the matchmaking logic is used to derive the most suitable node candidate otherwise the given node candidate is used. If a node candidate is given, this one will be always prefered above the requirements. 
+ * A request to start a node. 
  */
-@ApiModel(description = "A request to start a node. May either contain requirements or a candidate. If requirements are passed, the matchmaking logic is used to derive the most suitable node candidate otherwise the given node candidate is used. If a node candidate is given, this one will be always prefered above the requirements. ")
+@ApiModel(description = "A request to start a node. ")
 
 public class NodeRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("groupName")
   private String groupName = null;
-
-  @SerializedName("requirements")
-  private NodeRequirements requirements = null;
 
   @SerializedName("nodeCandidate")
   private NodeCandidate nodeCandidate = null;
@@ -59,24 +55,6 @@ public class NodeRequest implements Serializable {
 
   public void setGroupName(String groupName) {
     this.groupName = groupName;
-  }
-
-  public NodeRequest requirements(NodeRequirements requirements) {
-    this.requirements = requirements;
-    return this;
-  }
-
-   /**
-   * Get requirements
-   * @return requirements
-  **/
-  @ApiModelProperty(value = "")
-  public NodeRequirements getRequirements() {
-    return requirements;
-  }
-
-  public void setRequirements(NodeRequirements requirements) {
-    this.requirements = requirements;
   }
 
   public NodeRequest nodeCandidate(NodeCandidate nodeCandidate) {
@@ -108,13 +86,12 @@ public class NodeRequest implements Serializable {
     }
     NodeRequest nodeRequest = (NodeRequest) o;
     return Objects.equals(this.groupName, nodeRequest.groupName) &&
-        Objects.equals(this.requirements, nodeRequest.requirements) &&
         Objects.equals(this.nodeCandidate, nodeRequest.nodeCandidate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupName, requirements, nodeCandidate);
+    return Objects.hash(groupName, nodeCandidate);
   }
 
 
@@ -124,7 +101,6 @@ public class NodeRequest implements Serializable {
     sb.append("class NodeRequest {\n");
     
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
-    sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    nodeCandidate: ").append(toIndentedString(nodeCandidate)).append("\n");
     sb.append("}");
     return sb.toString();

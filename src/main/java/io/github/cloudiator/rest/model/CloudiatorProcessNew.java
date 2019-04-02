@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -38,8 +40,8 @@ public class CloudiatorProcessNew implements Serializable {
   @SerializedName("task")
   private String task = null;
 
-  @SerializedName("nodeGroup")
-  private String nodeGroup = null;
+  @SerializedName("nodes")
+  private List<String> nodes = null;
 
   public CloudiatorProcessNew schedule(String schedule) {
     this.schedule = schedule;
@@ -77,22 +79,30 @@ public class CloudiatorProcessNew implements Serializable {
     this.task = task;
   }
 
-  public CloudiatorProcessNew nodeGroup(String nodeGroup) {
-    this.nodeGroup = nodeGroup;
+  public CloudiatorProcessNew nodes(List<String> nodes) {
+    this.nodes = nodes;
+    return this;
+  }
+
+  public CloudiatorProcessNew addNodesItem(String nodesItem) {
+    if (this.nodes == null) {
+      this.nodes = new ArrayList<String>();
+    }
+    this.nodes.add(nodesItem);
     return this;
   }
 
    /**
-   * The id of the nodeGroup this process is hosted on.
-   * @return nodeGroup
+   * A list of node identifiers this process is hosted on.
+   * @return nodes
   **/
-  @ApiModelProperty(required = true, value = "The id of the nodeGroup this process is hosted on.")
-  public String getNodeGroup() {
-    return nodeGroup;
+  @ApiModelProperty(value = "A list of node identifiers this process is hosted on.")
+  public List<String> getNodes() {
+    return nodes;
   }
 
-  public void setNodeGroup(String nodeGroup) {
-    this.nodeGroup = nodeGroup;
+  public void setNodes(List<String> nodes) {
+    this.nodes = nodes;
   }
 
 
@@ -107,12 +117,12 @@ public class CloudiatorProcessNew implements Serializable {
     CloudiatorProcessNew cloudiatorProcessNew = (CloudiatorProcessNew) o;
     return Objects.equals(this.schedule, cloudiatorProcessNew.schedule) &&
         Objects.equals(this.task, cloudiatorProcessNew.task) &&
-        Objects.equals(this.nodeGroup, cloudiatorProcessNew.nodeGroup);
+        Objects.equals(this.nodes, cloudiatorProcessNew.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schedule, task, nodeGroup);
+    return Objects.hash(schedule, task, nodes);
   }
 
 
@@ -123,7 +133,7 @@ public class CloudiatorProcessNew implements Serializable {
     
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
-    sb.append("    nodeGroup: ").append(toIndentedString(nodeGroup)).append("\n");
+    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

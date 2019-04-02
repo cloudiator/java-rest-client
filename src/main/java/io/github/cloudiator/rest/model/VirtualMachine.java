@@ -59,6 +59,56 @@ public class VirtualMachine implements Serializable {
   @SerializedName("owner")
   private String owner = null;
 
+  /**
+   * Gets or Sets state
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    RUNNING("RUNNING"),
+    
+    ERROR("ERROR");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("state")
+  private StateEnum state = null;
+
   public VirtualMachine image(Image image) {
     this.image = image;
     return this;
@@ -193,6 +243,24 @@ public class VirtualMachine implements Serializable {
     this.owner = owner;
   }
 
+  public VirtualMachine state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -209,12 +277,13 @@ public class VirtualMachine implements Serializable {
         Objects.equals(this.id, virtualMachine.id) &&
         Objects.equals(this.ipaddresses, virtualMachine.ipaddresses) &&
         Objects.equals(this.logincredential, virtualMachine.logincredential) &&
-        Objects.equals(this.owner, virtualMachine.owner);
+        Objects.equals(this.owner, virtualMachine.owner) &&
+        Objects.equals(this.state, virtualMachine.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(image, hardware, location, id, ipaddresses, logincredential, owner);
+    return Objects.hash(image, hardware, location, id, ipaddresses, logincredential, owner, state);
   }
 
 
@@ -230,6 +299,7 @@ public class VirtualMachine implements Serializable {
     sb.append("    ipaddresses: ").append(toIndentedString(ipaddresses)).append("\n");
     sb.append("    logincredential: ").append(toIndentedString(logincredential)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }

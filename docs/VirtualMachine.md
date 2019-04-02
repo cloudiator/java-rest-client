@@ -11,6 +11,15 @@ Name | Type | Description | Notes
 **ipaddresses** | [**List&lt;IpAddress&gt;**](IpAddress.md) |  |  [optional]
 **logincredential** | [**LoginCredential**](LoginCredential.md) |  |  [optional]
 **owner** | **String** |  |  [optional]
+**state** | [**StateEnum**](#StateEnum) |  |  [optional]
+
+
+<a name="StateEnum"></a>
+## Enum: StateEnum
+Name | Value
+---- | -----
+RUNNING | &quot;RUNNING&quot;
+ERROR | &quot;ERROR&quot;
 
 
 
