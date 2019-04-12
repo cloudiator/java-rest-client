@@ -50,6 +50,56 @@ public class SparkInterface extends TaskInterface implements Serializable {
   @SerializedName("sparkConfiguration")
   private java.util.Map sparkConfiguration = null;
 
+  /**
+   * Gets or Sets processMapping
+   */
+  @JsonAdapter(ProcessMappingEnum.Adapter.class)
+  public enum ProcessMappingEnum {
+    SINGLE("SINGLE"),
+    
+    CLUSTER("CLUSTER");
+
+    private String value;
+
+    ProcessMappingEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ProcessMappingEnum fromValue(String text) {
+      for (ProcessMappingEnum b : ProcessMappingEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ProcessMappingEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProcessMappingEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ProcessMappingEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ProcessMappingEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("processMapping")
+  private ProcessMappingEnum processMapping = null;
+
   public SparkInterface file(String file) {
     this.file = file;
     return this;
@@ -148,6 +198,24 @@ public class SparkInterface extends TaskInterface implements Serializable {
     this.sparkConfiguration = sparkConfiguration;
   }
 
+  public SparkInterface processMapping(ProcessMappingEnum processMapping) {
+    this.processMapping = processMapping;
+    return this;
+  }
+
+   /**
+   * Get processMapping
+   * @return processMapping
+  **/
+  @ApiModelProperty(value = "")
+  public ProcessMappingEnum getProcessMapping() {
+    return processMapping;
+  }
+
+  public void setProcessMapping(ProcessMappingEnum processMapping) {
+    this.processMapping = processMapping;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -163,12 +231,13 @@ public class SparkInterface extends TaskInterface implements Serializable {
         Objects.equals(this.arguments, sparkInterface.arguments) &&
         Objects.equals(this.sparkArguments, sparkInterface.sparkArguments) &&
         Objects.equals(this.sparkConfiguration, sparkInterface.sparkConfiguration) &&
+        Objects.equals(this.processMapping, sparkInterface.processMapping) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(file, className, arguments, sparkArguments, sparkConfiguration, super.hashCode());
+    return Objects.hash(file, className, arguments, sparkArguments, sparkConfiguration, processMapping, super.hashCode());
   }
 
 
@@ -182,6 +251,7 @@ public class SparkInterface extends TaskInterface implements Serializable {
     sb.append("    arguments: ").append(toIndentedString(arguments)).append("\n");
     sb.append("    sparkArguments: ").append(toIndentedString(sparkArguments)).append("\n");
     sb.append("    sparkConfiguration: ").append(toIndentedString(sparkConfiguration)).append("\n");
+    sb.append("    processMapping: ").append(toIndentedString(processMapping)).append("\n");
     sb.append("}");
     return sb.toString();
   }

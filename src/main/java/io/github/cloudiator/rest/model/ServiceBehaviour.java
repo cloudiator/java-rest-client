@@ -19,38 +19,39 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.CloudiatorProcess;
+import io.github.cloudiator.rest.model.Behaviour;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * SingleProcess
+ * Subtype of Behaviour Represents a service runtime behaviour 
  */
+@ApiModel(description = "Subtype of Behaviour Represents a service runtime behaviour ")
 
-public class SingleProcess extends CloudiatorProcess implements Serializable {
+public class ServiceBehaviour extends Behaviour implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("node")
-  private String node = null;
+  @SerializedName("restart")
+  private Boolean restart = null;
 
-  public SingleProcess node(String node) {
-    this.node = node;
+  public ServiceBehaviour restart(Boolean restart) {
+    this.restart = restart;
     return this;
   }
 
    /**
-   * The id of the node this process is hosted on.
-   * @return node
+   * True if the service should be restarted failure, false if not 
+   * @return restart
   **/
-  @ApiModelProperty(value = "The id of the node this process is hosted on.")
-  public String getNode() {
-    return node;
+  @ApiModelProperty(value = "True if the service should be restarted failure, false if not ")
+  public Boolean isRestart() {
+    return restart;
   }
 
-  public void setNode(String node) {
-    this.node = node;
+  public void setRestart(Boolean restart) {
+    this.restart = restart;
   }
 
 
@@ -62,23 +63,23 @@ public class SingleProcess extends CloudiatorProcess implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SingleProcess singleProcess = (SingleProcess) o;
-    return Objects.equals(this.node, singleProcess.node) &&
+    ServiceBehaviour serviceBehaviour = (ServiceBehaviour) o;
+    return Objects.equals(this.restart, serviceBehaviour.restart) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(node, super.hashCode());
+    return Objects.hash(restart, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SingleProcess {\n");
+    sb.append("class ServiceBehaviour {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    node: ").append(toIndentedString(node)).append("\n");
+    sb.append("    restart: ").append(toIndentedString(restart)).append("\n");
     sb.append("}");
     return sb.toString();
   }

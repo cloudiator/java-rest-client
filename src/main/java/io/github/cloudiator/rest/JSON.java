@@ -86,6 +86,18 @@ public class JSON {
                                            getDiscriminatorValue(readElement, "processType"));
             }
           })
+          .registerTypeSelector(CloudiatorProcessNew.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("ClusterProcessNew".toUpperCase(), ClusterProcessNew.class);
+                classByDiscriminatorValue.put("SingleProcessNew".toUpperCase(), SingleProcessNew.class);
+                classByDiscriminatorValue.put("CloudiatorProcessNew".toUpperCase(), CloudiatorProcessNew.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "processType"));
+            }
+          })
           .registerTypeSelector(TaskInterface.class, new TypeSelector() {
             @Override
             public Class getClassForElement(JsonElement readElement) {
@@ -107,6 +119,18 @@ public class JSON {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("HttpTrigger".toUpperCase(), HttpTrigger.class);
                 classByDiscriminatorValue.put("Trigger".toUpperCase(), Trigger.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "type"));
+            }
+          })
+          .registerTypeSelector(Behaviour.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("PeriodicBehaviour".toUpperCase(), PeriodicBehaviour.class);
+                classByDiscriminatorValue.put("ServiceBehaviour".toUpperCase(), ServiceBehaviour.class);
+                classByDiscriminatorValue.put("Behaviour".toUpperCase(), Behaviour.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, "type"));

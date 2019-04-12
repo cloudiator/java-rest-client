@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -31,8 +29,12 @@ import java.io.Serializable;
  */
 @ApiModel(description = "A process represents a task running on a node")
 
+
 public class CloudiatorProcessNew implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  @SerializedName("processType")
+  private String processType = null;
 
   @SerializedName("schedule")
   private String schedule = null;
@@ -40,8 +42,26 @@ public class CloudiatorProcessNew implements Serializable {
   @SerializedName("task")
   private String task = null;
 
-  @SerializedName("nodes")
-  private List<String> nodes = null;
+  @SerializedName("taskInterface")
+  private String taskInterface = null;
+
+  public CloudiatorProcessNew processType(String processType) {
+    this.processType = processType;
+    return this;
+  }
+
+   /**
+   * Get processType
+   * @return processType
+  **/
+  @ApiModelProperty(value = "")
+  public String getProcessType() {
+    return processType;
+  }
+
+  public void setProcessType(String processType) {
+    this.processType = processType;
+  }
 
   public CloudiatorProcessNew schedule(String schedule) {
     this.schedule = schedule;
@@ -79,30 +99,22 @@ public class CloudiatorProcessNew implements Serializable {
     this.task = task;
   }
 
-  public CloudiatorProcessNew nodes(List<String> nodes) {
-    this.nodes = nodes;
-    return this;
-  }
-
-  public CloudiatorProcessNew addNodesItem(String nodesItem) {
-    if (this.nodes == null) {
-      this.nodes = new ArrayList<String>();
-    }
-    this.nodes.add(nodesItem);
+  public CloudiatorProcessNew taskInterface(String taskInterface) {
+    this.taskInterface = taskInterface;
     return this;
   }
 
    /**
-   * A list of node identifiers this process is hosted on.
-   * @return nodes
+   * The task interface used for running the process.
+   * @return taskInterface
   **/
-  @ApiModelProperty(value = "A list of node identifiers this process is hosted on.")
-  public List<String> getNodes() {
-    return nodes;
+  @ApiModelProperty(required = true, value = "The task interface used for running the process.")
+  public String getTaskInterface() {
+    return taskInterface;
   }
 
-  public void setNodes(List<String> nodes) {
-    this.nodes = nodes;
+  public void setTaskInterface(String taskInterface) {
+    this.taskInterface = taskInterface;
   }
 
 
@@ -115,14 +127,15 @@ public class CloudiatorProcessNew implements Serializable {
       return false;
     }
     CloudiatorProcessNew cloudiatorProcessNew = (CloudiatorProcessNew) o;
-    return Objects.equals(this.schedule, cloudiatorProcessNew.schedule) &&
+    return Objects.equals(this.processType, cloudiatorProcessNew.processType) &&
+        Objects.equals(this.schedule, cloudiatorProcessNew.schedule) &&
         Objects.equals(this.task, cloudiatorProcessNew.task) &&
-        Objects.equals(this.nodes, cloudiatorProcessNew.nodes);
+        Objects.equals(this.taskInterface, cloudiatorProcessNew.taskInterface);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schedule, task, nodes);
+    return Objects.hash(processType, schedule, task, taskInterface);
   }
 
 
@@ -131,9 +144,10 @@ public class CloudiatorProcessNew implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudiatorProcessNew {\n");
     
+    sb.append("    processType: ").append(toIndentedString(processType)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
-    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    taskInterface: ").append(toIndentedString(taskInterface)).append("\n");
     sb.append("}");
     return sb.toString();
   }

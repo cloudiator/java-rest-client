@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**deleteProcess**](ProcessApi.md#deleteProcess) | **DELETE** /process/{id} | 
 [**deleteSchedule**](ProcessApi.md#deleteSchedule) | **DELETE** /schedule/{id} | 
 [**findProcess**](ProcessApi.md#findProcess) | **GET** /process/{id} | 
-[**findProcessGroups**](ProcessApi.md#findProcessGroups) | **GET** /processGroup | 
 [**findSchedule**](ProcessApi.md#findSchedule) | **GET** /schedule/{id} | 
 [**getProcesses**](ProcessApi.md#getProcesses) | **GET** /process | 
 [**getSchedules**](ProcessApi.md#getSchedules) | **GET** /schedule | 
@@ -281,57 +280,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CloudiatorProcess**](CloudiatorProcess.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="findProcessGroups"></a>
-# **findProcessGroups**
-> List&lt;ProcessGroup&gt; findProcessGroups()
-
-
-
-Returns all process groups for the current user
-
-### Example
-```java
-// Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.ProcessApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-ProcessApi apiInstance = new ProcessApi();
-try {
-    List<ProcessGroup> result = apiInstance.findProcessGroups();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProcessApi#findProcessGroups");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;ProcessGroup&gt;**](ProcessGroup.md)
 
 ### Authorization
 

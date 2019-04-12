@@ -19,23 +19,23 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.CloudiatorProcess;
+import io.github.cloudiator.rest.model.CloudiatorProcessNew;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * SingleProcess
+ * SingleProcessNew
  */
 
-public class SingleProcess extends CloudiatorProcess implements Serializable {
+public class SingleProcessNew extends CloudiatorProcessNew implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("node")
   private String node = null;
 
-  public SingleProcess node(String node) {
+  public SingleProcessNew node(String node) {
     this.node = node;
     return this;
   }
@@ -44,7 +44,7 @@ public class SingleProcess extends CloudiatorProcess implements Serializable {
    * The id of the node this process is hosted on.
    * @return node
   **/
-  @ApiModelProperty(value = "The id of the node this process is hosted on.")
+  @ApiModelProperty(required = true, value = "The id of the node this process is hosted on.")
   public String getNode() {
     return node;
   }
@@ -62,8 +62,8 @@ public class SingleProcess extends CloudiatorProcess implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SingleProcess singleProcess = (SingleProcess) o;
-    return Objects.equals(this.node, singleProcess.node) &&
+    SingleProcessNew singleProcessNew = (SingleProcessNew) o;
+    return Objects.equals(this.node, singleProcessNew.node) &&
         super.equals(o);
   }
 
@@ -76,7 +76,7 @@ public class SingleProcess extends CloudiatorProcess implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SingleProcess {\n");
+    sb.append("class SingleProcessNew {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    node: ").append(toIndentedString(node)).append("\n");
     sb.append("}");

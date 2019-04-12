@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **tasks** | [**List&lt;Task&gt;**](Task.md) | An array of tasks that form this application.  |  [optional]
 **communications** | [**List&lt;Communication&gt;**](Communication.md) |  |  [optional]
 **requirements** | [**List&lt;Requirement&gt;**](Requirement.md) |  |  [optional]
+**optimization** | [**Optimization**](Optimization.md) |  |  [optional]
 
 
 

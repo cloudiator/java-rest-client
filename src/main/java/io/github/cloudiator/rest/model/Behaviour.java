@@ -19,38 +19,39 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.CloudiatorProcess;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * SingleProcess
+ * Represents the runtime behaviour of a task 
  */
+@ApiModel(description = "Represents the runtime behaviour of a task ")
 
-public class SingleProcess extends CloudiatorProcess implements Serializable {
+
+public class Behaviour implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("node")
-  private String node = null;
+  @SerializedName("type")
+  private String type = null;
 
-  public SingleProcess node(String node) {
-    this.node = node;
+  public Behaviour type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * The id of the node this process is hosted on.
-   * @return node
+   * Discriminator for polymorphism 
+   * @return type
   **/
-  @ApiModelProperty(value = "The id of the node this process is hosted on.")
-  public String getNode() {
-    return node;
+  @ApiModelProperty(required = true, value = "Discriminator for polymorphism ")
+  public String getType() {
+    return type;
   }
 
-  public void setNode(String node) {
-    this.node = node;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -62,23 +63,22 @@ public class SingleProcess extends CloudiatorProcess implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SingleProcess singleProcess = (SingleProcess) o;
-    return Objects.equals(this.node, singleProcess.node) &&
-        super.equals(o);
+    Behaviour behaviour = (Behaviour) o;
+    return Objects.equals(this.type, behaviour.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(node, super.hashCode());
+    return Objects.hash(type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SingleProcess {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    node: ").append(toIndentedString(node)).append("\n");
+    sb.append("class Behaviour {\n");
+    
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

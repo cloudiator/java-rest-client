@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **interfaces** | [**List&lt;TaskInterface&gt;**](TaskInterface.md) | Interfaces of this task |  [optional]
 **optimization** | [**Optimization**](Optimization.md) |  |  [optional]
 **requirements** | [**List&lt;Requirement&gt;**](Requirement.md) |  |  [optional]
-**taskType** | [**TaskType**](TaskType.md) |  | 
+**behaviour** | [**Behaviour**](Behaviour.md) |  | 
 
 
 

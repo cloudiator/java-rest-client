@@ -4,12 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**processType** | **String** |  | 
-**state** | [**StateEnum**](#StateEnum) |  | 
-**type** | [**TypeEnum**](#TypeEnum) |  | 
-**schedule** | **String** | The id of the schedule this process belongs to. | 
-**task** | **String** | The id of the task that is instantiated by this process. | 
+**id** | **String** |  |  [optional]
+**originId** | **String** |  |  [optional]
+**processType** | **String** |  |  [optional]
+**state** | [**StateEnum**](#StateEnum) |  |  [optional]
+**type** | [**TypeEnum**](#TypeEnum) |  |  [optional]
+**schedule** | **String** | The id of the schedule this process belongs to. |  [optional]
+**task** | **String** | The id of the task that is instantiated by this process. |  [optional]
 **diagnostic** | **String** | Diagnostic information about this process |  [optional]
 **reason** | **String** | Reason this process was created |  [optional]
 **owner** | **String** | The user this process was created for |  [optional]
@@ -19,8 +20,7 @@ Name | Type | Description | Notes
 ## Enum: StateEnum
 Name | Value
 ---- | -----
-CREATED | &quot;CREATED&quot;
-FAILED | &quot;FAILED&quot;
+PENDING | &quot;PENDING&quot;
 RUNNING | &quot;RUNNING&quot;
 ERROR | &quot;ERROR&quot;
 DELETED | &quot;DELETED&quot;
@@ -33,6 +33,8 @@ Name | Value
 ---- | -----
 LANCE | &quot;LANCE&quot;
 SPARK | &quot;SPARK&quot;
+FAAS | &quot;FAAS&quot;
+UNKNOWN | &quot;UNKNOWN&quot;
 
 
 

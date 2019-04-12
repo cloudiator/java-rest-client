@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**deleteNode**](NodeApi.md#deleteNode) | **DELETE** /node/{id} | 
 [**findNodes**](NodeApi.md#findNodes) | **GET** /node | 
 [**getNode**](NodeApi.md#getNode) | **GET** /node/{id} | 
-[**getProcessGroup**](NodeApi.md#getProcessGroup) | **GET** /processGroup/{id} | 
 
 
 <a name="addBYON"></a>
@@ -273,61 +272,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Node**](Node.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getProcessGroup"></a>
-# **getProcessGroup**
-> ProcessGroup getProcessGroup(id)
-
-
-
-Retrieves a process group, which groups multiple processes that were create during one request
-
-### Example
-```java
-// Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.NodeApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-NodeApi apiInstance = new NodeApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    ProcessGroup result = apiInstance.getProcessGroup(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling NodeApi#getProcessGroup");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Unique identifier of the resource |
-
-### Return type
-
-[**ProcessGroup**](ProcessGroup.md)
 
 ### Authorization
 

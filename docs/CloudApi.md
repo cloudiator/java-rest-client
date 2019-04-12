@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addCloud**](CloudApi.md#addCloud) | **POST** /clouds | 
 [**addVM**](CloudApi.md#addVM) | **POST** /vm | 
 [**deleteCloud**](CloudApi.md#deleteCloud) | **DELETE** /clouds/{id} | 
+[**discoveryStatus**](CloudApi.md#discoveryStatus) | **GET** /discovery/status | 
 [**editHardware**](CloudApi.md#editHardware) | **PUT** /hardware/{id} | 
 [**editImage**](CloudApi.md#editImage) | **PUT** /images/{id} | 
 [**editLocation**](CloudApi.md#editLocation) | **PUT** /locations/{id} | 
@@ -186,6 +187,57 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="discoveryStatus"></a>
+# **discoveryStatus**
+> Map&lt;String, String&gt; discoveryStatus()
+
+
+
+Gets the status of the discovery engine 
+
+### Example
+```java
+// Import classes:
+//import io.github.cloudiator.rest.ApiClient;
+//import io.github.cloudiator.rest.ApiException;
+//import io.github.cloudiator.rest.Configuration;
+//import io.github.cloudiator.rest.auth.*;
+//import io.github.cloudiator.rest.api.CloudApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+CloudApi apiInstance = new CloudApi();
+try {
+    Map<String, String> result = apiInstance.discoveryStatus();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CloudApi#discoveryStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Map&lt;String, String&gt;**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="editHardware"></a>

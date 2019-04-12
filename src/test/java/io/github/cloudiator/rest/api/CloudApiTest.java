@@ -92,6 +92,21 @@ public class CloudApiTest {
     /**
      * 
      *
+     * Gets the status of the discovery engine 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void discoveryStatusTest() throws ApiException {
+        Map<String, String> response = api.discoveryStatus();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Updates a specific hardware 
      *
      * @throws ApiException

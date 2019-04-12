@@ -35,6 +35,9 @@ public class CloudiatorProcess implements Serializable {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("originId")
+  private String originId = null;
+
   @SerializedName("processType")
   private String processType = null;
 
@@ -43,9 +46,7 @@ public class CloudiatorProcess implements Serializable {
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
-    CREATED("CREATED"),
-    
-    FAILED("FAILED"),
+    PENDING("PENDING"),
     
     RUNNING("RUNNING"),
     
@@ -103,7 +104,11 @@ public class CloudiatorProcess implements Serializable {
   public enum TypeEnum {
     LANCE("LANCE"),
     
-    SPARK("SPARK");
+    SPARK("SPARK"),
+    
+    FAAS("FAAS"),
+    
+    UNKNOWN("UNKNOWN");
 
     private String value;
 
@@ -170,13 +175,31 @@ public class CloudiatorProcess implements Serializable {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public CloudiatorProcess originId(String originId) {
+    this.originId = originId;
+    return this;
+  }
+
+   /**
+   * Get originId
+   * @return originId
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginId() {
+    return originId;
+  }
+
+  public void setOriginId(String originId) {
+    this.originId = originId;
   }
 
   public CloudiatorProcess processType(String processType) {
@@ -188,7 +211,7 @@ public class CloudiatorProcess implements Serializable {
    * Get processType
    * @return processType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getProcessType() {
     return processType;
   }
@@ -206,7 +229,7 @@ public class CloudiatorProcess implements Serializable {
    * Get state
    * @return state
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public StateEnum getState() {
     return state;
   }
@@ -224,7 +247,7 @@ public class CloudiatorProcess implements Serializable {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public TypeEnum getType() {
     return type;
   }
@@ -242,7 +265,7 @@ public class CloudiatorProcess implements Serializable {
    * The id of the schedule this process belongs to.
    * @return schedule
   **/
-  @ApiModelProperty(required = true, value = "The id of the schedule this process belongs to.")
+  @ApiModelProperty(value = "The id of the schedule this process belongs to.")
   public String getSchedule() {
     return schedule;
   }
@@ -260,7 +283,7 @@ public class CloudiatorProcess implements Serializable {
    * The id of the task that is instantiated by this process.
    * @return task
   **/
-  @ApiModelProperty(required = true, value = "The id of the task that is instantiated by this process.")
+  @ApiModelProperty(value = "The id of the task that is instantiated by this process.")
   public String getTask() {
     return task;
   }
@@ -334,6 +357,7 @@ public class CloudiatorProcess implements Serializable {
     }
     CloudiatorProcess cloudiatorProcess = (CloudiatorProcess) o;
     return Objects.equals(this.id, cloudiatorProcess.id) &&
+        Objects.equals(this.originId, cloudiatorProcess.originId) &&
         Objects.equals(this.processType, cloudiatorProcess.processType) &&
         Objects.equals(this.state, cloudiatorProcess.state) &&
         Objects.equals(this.type, cloudiatorProcess.type) &&
@@ -346,7 +370,7 @@ public class CloudiatorProcess implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, processType, state, type, schedule, task, diagnostic, reason, owner);
+    return Objects.hash(id, originId, processType, state, type, schedule, task, diagnostic, reason, owner);
   }
 
 
@@ -356,6 +380,7 @@ public class CloudiatorProcess implements Serializable {
     sb.append("class CloudiatorProcess {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    originId: ").append(toIndentedString(originId)).append("\n");
     sb.append("    processType: ").append(toIndentedString(processType)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.Behaviour;
 import io.github.cloudiator.rest.model.Optimization;
 import io.github.cloudiator.rest.model.Port;
 import io.github.cloudiator.rest.model.Requirement;
 import io.github.cloudiator.rest.model.TaskInterface;
-import io.github.cloudiator.rest.model.TaskType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -54,8 +54,8 @@ public class Task implements Serializable {
   @SerializedName("requirements")
   private List<Requirement> requirements = null;
 
-  @SerializedName("taskType")
-  private TaskType taskType = null;
+  @SerializedName("behaviour")
+  private Behaviour behaviour = null;
 
   public Task name(String name) {
     this.name = name;
@@ -171,22 +171,22 @@ public class Task implements Serializable {
     this.requirements = requirements;
   }
 
-  public Task taskType(TaskType taskType) {
-    this.taskType = taskType;
+  public Task behaviour(Behaviour behaviour) {
+    this.behaviour = behaviour;
     return this;
   }
 
    /**
-   * Get taskType
-   * @return taskType
+   * Get behaviour
+   * @return behaviour
   **/
   @ApiModelProperty(required = true, value = "")
-  public TaskType getTaskType() {
-    return taskType;
+  public Behaviour getBehaviour() {
+    return behaviour;
   }
 
-  public void setTaskType(TaskType taskType) {
-    this.taskType = taskType;
+  public void setBehaviour(Behaviour behaviour) {
+    this.behaviour = behaviour;
   }
 
 
@@ -204,12 +204,12 @@ public class Task implements Serializable {
         Objects.equals(this.interfaces, task.interfaces) &&
         Objects.equals(this.optimization, task.optimization) &&
         Objects.equals(this.requirements, task.requirements) &&
-        Objects.equals(this.taskType, task.taskType);
+        Objects.equals(this.behaviour, task.behaviour);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, ports, interfaces, optimization, requirements, taskType);
+    return Objects.hash(name, ports, interfaces, optimization, requirements, behaviour);
   }
 
 
@@ -223,7 +223,7 @@ public class Task implements Serializable {
     sb.append("    interfaces: ").append(toIndentedString(interfaces)).append("\n");
     sb.append("    optimization: ").append(toIndentedString(optimization)).append("\n");
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
-    sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
+    sb.append("    behaviour: ").append(toIndentedString(behaviour)).append("\n");
     sb.append("}");
     return sb.toString();
   }

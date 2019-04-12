@@ -19,38 +19,45 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.CloudiatorProcess;
+import io.github.cloudiator.rest.model.CloudiatorProcessNew;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
- * SingleProcess
+ * ClusterProcessNew
  */
 
-public class SingleProcess extends CloudiatorProcess implements Serializable {
+public class ClusterProcessNew extends CloudiatorProcessNew implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("node")
-  private String node = null;
+  @SerializedName("nodes")
+  private List<String> nodes = new ArrayList<String>();
 
-  public SingleProcess node(String node) {
-    this.node = node;
+  public ClusterProcessNew nodes(List<String> nodes) {
+    this.nodes = nodes;
+    return this;
+  }
+
+  public ClusterProcessNew addNodesItem(String nodesItem) {
+    this.nodes.add(nodesItem);
     return this;
   }
 
    /**
-   * The id of the node this process is hosted on.
-   * @return node
+   * A list of node identifiers defining the cluster the process is hosted on.
+   * @return nodes
   **/
-  @ApiModelProperty(value = "The id of the node this process is hosted on.")
-  public String getNode() {
-    return node;
+  @ApiModelProperty(required = true, value = "A list of node identifiers defining the cluster the process is hosted on.")
+  public List<String> getNodes() {
+    return nodes;
   }
 
-  public void setNode(String node) {
-    this.node = node;
+  public void setNodes(List<String> nodes) {
+    this.nodes = nodes;
   }
 
 
@@ -62,23 +69,23 @@ public class SingleProcess extends CloudiatorProcess implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SingleProcess singleProcess = (SingleProcess) o;
-    return Objects.equals(this.node, singleProcess.node) &&
+    ClusterProcessNew clusterProcessNew = (ClusterProcessNew) o;
+    return Objects.equals(this.nodes, clusterProcessNew.nodes) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(node, super.hashCode());
+    return Objects.hash(nodes, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SingleProcess {\n");
+    sb.append("class ClusterProcessNew {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    node: ").append(toIndentedString(node)).append("\n");
+    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
