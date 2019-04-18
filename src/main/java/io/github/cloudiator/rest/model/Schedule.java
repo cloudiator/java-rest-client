@@ -97,6 +97,64 @@ public class Schedule implements Serializable {
   @SerializedName("processes")
   private List<CloudiatorProcess> processes = null;
 
+  /**
+   * Gets or Sets state
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    PENDING("PENDING"),
+    
+    RUNNING("RUNNING"),
+    
+    ERROR("ERROR"),
+    
+    RESTORING("RESTORING"),
+    
+    DELETED("DELETED"),
+    
+    MANUAL("MANUAL");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("state")
+  private StateEnum state = null;
+
   public Schedule job(String job) {
     this.job = job;
     return this;
@@ -195,6 +253,24 @@ public class Schedule implements Serializable {
     this.processes = processes;
   }
 
+  public Schedule state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -209,12 +285,13 @@ public class Schedule implements Serializable {
         Objects.equals(this.instantiation, schedule.instantiation) &&
         Objects.equals(this.id, schedule.id) &&
         Objects.equals(this.owner, schedule.owner) &&
-        Objects.equals(this.processes, schedule.processes);
+        Objects.equals(this.processes, schedule.processes) &&
+        Objects.equals(this.state, schedule.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, instantiation, id, owner, processes);
+    return Objects.hash(job, instantiation, id, owner, processes, state);
   }
 
 
@@ -228,6 +305,7 @@ public class Schedule implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    processes: ").append(toIndentedString(processes)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }
