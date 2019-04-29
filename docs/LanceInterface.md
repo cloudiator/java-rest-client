@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **stop** | **String** | Stops the application.  |  [optional]
 **postStop** | **String** | Executed after the application is successfully stopped.  |  [optional]
 **shutdown** | **String** | Executed before the container is shutdown. Can be used to backup state.  |  [optional]
+**updateAction** | **String** | A script that is executed if a new instance of a downstream task is available.  |  [optional]
 
 
 <a name="ContainerTypeEnum"></a>

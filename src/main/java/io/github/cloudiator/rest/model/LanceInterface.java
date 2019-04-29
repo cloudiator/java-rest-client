@@ -124,6 +124,9 @@ public class LanceInterface extends TaskInterface implements Serializable {
   @SerializedName("shutdown")
   private String shutdown = null;
 
+  @SerializedName("updateAction")
+  private String updateAction = null;
+
   public LanceInterface containerType(ContainerTypeEnum containerType) {
     this.containerType = containerType;
     return this;
@@ -376,6 +379,24 @@ public class LanceInterface extends TaskInterface implements Serializable {
     this.shutdown = shutdown;
   }
 
+  public LanceInterface updateAction(String updateAction) {
+    this.updateAction = updateAction;
+    return this;
+  }
+
+   /**
+   * A script that is executed if a new instance of a downstream task is available. 
+   * @return updateAction
+  **/
+  @ApiModelProperty(value = "A script that is executed if a new instance of a downstream task is available. ")
+  public String getUpdateAction() {
+    return updateAction;
+  }
+
+  public void setUpdateAction(String updateAction) {
+    this.updateAction = updateAction;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -400,12 +421,13 @@ public class LanceInterface extends TaskInterface implements Serializable {
         Objects.equals(this.stop, lanceInterface.stop) &&
         Objects.equals(this.postStop, lanceInterface.postStop) &&
         Objects.equals(this.shutdown, lanceInterface.shutdown) &&
+        Objects.equals(this.updateAction, lanceInterface.updateAction) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerType, init, preInstall, install, postInstall, preStart, start, startDetection, stopDetection, postStart, preStop, stop, postStop, shutdown, super.hashCode());
+    return Objects.hash(containerType, init, preInstall, install, postInstall, preStart, start, startDetection, stopDetection, postStart, preStop, stop, postStop, shutdown, updateAction, super.hashCode());
   }
 
 
@@ -428,6 +450,7 @@ public class LanceInterface extends TaskInterface implements Serializable {
     sb.append("    stop: ").append(toIndentedString(stop)).append("\n");
     sb.append("    postStop: ").append(toIndentedString(postStop)).append("\n");
     sb.append("    shutdown: ").append(toIndentedString(shutdown)).append("\n");
+    sb.append("    updateAction: ").append(toIndentedString(updateAction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
