@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **type** | [**TypeEnum**](#TypeEnum) |  |  [optional]
 **schedule** | **String** | The id of the schedule this process belongs to. |  [optional]
 **task** | **String** | The id of the task that is instantiated by this process. |  [optional]
+**taskInterface** | **String** | The task interface used for running the process. |  [optional]
 **diagnostic** | **String** | Diagnostic information about this process |  [optional]
 **reason** | **String** | Reason this process was created |  [optional]
 **owner** | **String** | The user this process was created for |  [optional]
