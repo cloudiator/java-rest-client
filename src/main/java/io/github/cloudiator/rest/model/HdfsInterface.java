@@ -19,49 +19,40 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.CloudiatorProcess;
-import io.github.cloudiator.rest.model.IpAddress;
+import io.github.cloudiator.rest.model.ProcessMapping;
+import io.github.cloudiator.rest.model.TaskInterface;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 /**
- * ClusterProcess
+ * Subtype of TaskInterface. Describes how to deploy a Task to Hdfs. 
  */
+@ApiModel(description = "Subtype of TaskInterface. Describes how to deploy a Task to Hdfs. ")
 
-public class ClusterProcess extends CloudiatorProcess implements Serializable {
+public class HdfsInterface extends TaskInterface implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("nodes")
-  private List<String> nodes = null;
+  @SerializedName("processMapping")
+  private ProcessMapping processMapping = null;
 
-  public ClusterProcess nodes(List<String> nodes) {
-    this.nodes = nodes;
-    return this;
-  }
-
-  public ClusterProcess addNodesItem(String nodesItem) {
-    if (this.nodes == null) {
-      this.nodes = new ArrayList<String>();
-    }
-    this.nodes.add(nodesItem);
+  public HdfsInterface processMapping(ProcessMapping processMapping) {
+    this.processMapping = processMapping;
     return this;
   }
 
    /**
-   * A list of node identifiers defining the cluster the process is hosted on.
-   * @return nodes
+   * Get processMapping
+   * @return processMapping
   **/
-  @ApiModelProperty(value = "A list of node identifiers defining the cluster the process is hosted on.")
-  public List<String> getNodes() {
-    return nodes;
+  @ApiModelProperty(value = "")
+  public ProcessMapping getProcessMapping() {
+    return processMapping;
   }
 
-  public void setNodes(List<String> nodes) {
-    this.nodes = nodes;
+  public void setProcessMapping(ProcessMapping processMapping) {
+    this.processMapping = processMapping;
   }
 
 
@@ -73,23 +64,23 @@ public class ClusterProcess extends CloudiatorProcess implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClusterProcess clusterProcess = (ClusterProcess) o;
-    return Objects.equals(this.nodes, clusterProcess.nodes) &&
+    HdfsInterface hdfsInterface = (HdfsInterface) o;
+    return Objects.equals(this.processMapping, hdfsInterface.processMapping) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodes, super.hashCode());
+    return Objects.hash(processMapping, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClusterProcess {\n");
+    sb.append("class HdfsInterface {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    processMapping: ").append(toIndentedString(processMapping)).append("\n");
     sb.append("}");
     return sb.toString();
   }

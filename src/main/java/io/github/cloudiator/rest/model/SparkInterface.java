@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.ProcessMapping;
 import io.github.cloudiator.rest.model.TaskInterface;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,55 +51,8 @@ public class SparkInterface extends TaskInterface implements Serializable {
   @SerializedName("sparkConfiguration")
   private java.util.Map sparkConfiguration = null;
 
-  /**
-   * Gets or Sets processMapping
-   */
-  @JsonAdapter(ProcessMappingEnum.Adapter.class)
-  public enum ProcessMappingEnum {
-    SINGLE("SINGLE"),
-    
-    CLUSTER("CLUSTER");
-
-    private String value;
-
-    ProcessMappingEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ProcessMappingEnum fromValue(String text) {
-      for (ProcessMappingEnum b : ProcessMappingEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ProcessMappingEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ProcessMappingEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ProcessMappingEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ProcessMappingEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
   @SerializedName("processMapping")
-  private ProcessMappingEnum processMapping = null;
+  private ProcessMapping processMapping = null;
 
   public SparkInterface file(String file) {
     this.file = file;
@@ -198,7 +152,7 @@ public class SparkInterface extends TaskInterface implements Serializable {
     this.sparkConfiguration = sparkConfiguration;
   }
 
-  public SparkInterface processMapping(ProcessMappingEnum processMapping) {
+  public SparkInterface processMapping(ProcessMapping processMapping) {
     this.processMapping = processMapping;
     return this;
   }
@@ -208,11 +162,11 @@ public class SparkInterface extends TaskInterface implements Serializable {
    * @return processMapping
   **/
   @ApiModelProperty(value = "")
-  public ProcessMappingEnum getProcessMapping() {
+  public ProcessMapping getProcessMapping() {
     return processMapping;
   }
 
-  public void setProcessMapping(ProcessMappingEnum processMapping) {
+  public void setProcessMapping(ProcessMapping processMapping) {
     this.processMapping = processMapping;
   }
 

@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **diagnostic** | **String** | Diagnostic information about this process |  [optional]
 **reason** | **String** | Reason this process was created |  [optional]
 **owner** | **String** | The user this process was created for |  [optional]
+**ipAddresses** | [**List&lt;IpAddress&gt;**](IpAddress.md) | The public/private ip addresses under which this process is reachable.  |  [optional]
+**endpoint** | **String** | The endpoint where this process is reachable.  |  [optional]
 
 
 <a name="StateEnum"></a>

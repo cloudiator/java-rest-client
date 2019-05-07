@@ -9,15 +9,7 @@ Name | Type | Description | Notes
 **arguments** | **List&lt;String&gt;** | Array of arguments passed to the application.  |  [optional]
 **sparkArguments** | [**java.util.Map**](java.util.Map.md) | Additional Arguments passed to Spark.  |  [optional]
 **sparkConfiguration** | [**java.util.Map**](java.util.Map.md) | Spark configuration properties.  |  [optional]
-**processMapping** | [**ProcessMappingEnum**](#ProcessMappingEnum) |  |  [optional]
-
-
-<a name="ProcessMappingEnum"></a>
-## Enum: ProcessMappingEnum
-Name | Value
----- | -----
-SINGLE | &quot;SINGLE&quot;
-CLUSTER | &quot;CLUSTER&quot;
+**processMapping** | [**ProcessMapping**](ProcessMapping.md) |  |  [optional]
 
 
 

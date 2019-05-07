@@ -19,9 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.IpAddress;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -168,6 +171,12 @@ public class CloudiatorProcess implements Serializable {
 
   @SerializedName("owner")
   private String owner = null;
+
+  @SerializedName("ipAddresses")
+  private List<IpAddress> ipAddresses = null;
+
+  @SerializedName("endpoint")
+  private String endpoint = null;
 
   public CloudiatorProcess id(String id) {
     this.id = id;
@@ -367,6 +376,50 @@ public class CloudiatorProcess implements Serializable {
     this.owner = owner;
   }
 
+  public CloudiatorProcess ipAddresses(List<IpAddress> ipAddresses) {
+    this.ipAddresses = ipAddresses;
+    return this;
+  }
+
+  public CloudiatorProcess addIpAddressesItem(IpAddress ipAddressesItem) {
+    if (this.ipAddresses == null) {
+      this.ipAddresses = new ArrayList<IpAddress>();
+    }
+    this.ipAddresses.add(ipAddressesItem);
+    return this;
+  }
+
+   /**
+   * The public/private ip addresses under which this process is reachable. 
+   * @return ipAddresses
+  **/
+  @ApiModelProperty(value = "The public/private ip addresses under which this process is reachable. ")
+  public List<IpAddress> getIpAddresses() {
+    return ipAddresses;
+  }
+
+  public void setIpAddresses(List<IpAddress> ipAddresses) {
+    this.ipAddresses = ipAddresses;
+  }
+
+  public CloudiatorProcess endpoint(String endpoint) {
+    this.endpoint = endpoint;
+    return this;
+  }
+
+   /**
+   * The endpoint where this process is reachable. 
+   * @return endpoint
+  **/
+  @ApiModelProperty(value = "The endpoint where this process is reachable. ")
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -387,12 +440,14 @@ public class CloudiatorProcess implements Serializable {
         Objects.equals(this.taskInterface, cloudiatorProcess.taskInterface) &&
         Objects.equals(this.diagnostic, cloudiatorProcess.diagnostic) &&
         Objects.equals(this.reason, cloudiatorProcess.reason) &&
-        Objects.equals(this.owner, cloudiatorProcess.owner);
+        Objects.equals(this.owner, cloudiatorProcess.owner) &&
+        Objects.equals(this.ipAddresses, cloudiatorProcess.ipAddresses) &&
+        Objects.equals(this.endpoint, cloudiatorProcess.endpoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, originId, processType, state, type, schedule, task, taskInterface, diagnostic, reason, owner);
+    return Objects.hash(id, originId, processType, state, type, schedule, task, taskInterface, diagnostic, reason, owner, ipAddresses, endpoint);
   }
 
 
@@ -412,6 +467,8 @@ public class CloudiatorProcess implements Serializable {
     sb.append("    diagnostic: ").append(toIndentedString(diagnostic)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
+    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -104,6 +104,7 @@ public class JSON {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("DockerInterface".toUpperCase(), DockerInterface.class);
                 classByDiscriminatorValue.put("FaasInterface".toUpperCase(), FaasInterface.class);
+                classByDiscriminatorValue.put("HdfsInterface".toUpperCase(), HdfsInterface.class);
                 classByDiscriminatorValue.put("LanceInterface".toUpperCase(), LanceInterface.class);
                 classByDiscriminatorValue.put("PlatformInterface".toUpperCase(), PlatformInterface.class);
                 classByDiscriminatorValue.put("SparkInterface".toUpperCase(), SparkInterface.class);
