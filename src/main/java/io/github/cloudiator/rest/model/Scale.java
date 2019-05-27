@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Node;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -42,7 +41,7 @@ public class Scale implements Serializable {
   private String task = null;
 
   @SerializedName("nodes")
-  private List<Node> nodes = null;
+  private List<String> nodes = null;
 
   public Scale schedule(String schedule) {
     this.schedule = schedule;
@@ -80,29 +79,29 @@ public class Scale implements Serializable {
     this.task = task;
   }
 
-  public Scale nodes(List<Node> nodes) {
+  public Scale nodes(List<String> nodes) {
     this.nodes = nodes;
     return this;
   }
 
-  public Scale addNodesItem(Node nodesItem) {
+  public Scale addNodesItem(String nodesItem) {
     if (this.nodes == null) {
-      this.nodes = new ArrayList<Node>();
+      this.nodes = new ArrayList<String>();
     }
     this.nodes.add(nodesItem);
     return this;
   }
 
    /**
-   * An optional list of nodes
+   * An optional list of nodes for the scaling process
    * @return nodes
   **/
-  @ApiModelProperty(value = "An optional list of nodes")
-  public List<Node> getNodes() {
+  @ApiModelProperty(value = "An optional list of nodes for the scaling process")
+  public List<String> getNodes() {
     return nodes;
   }
 
-  public void setNodes(List<Node> nodes) {
+  public void setNodes(List<String> nodes) {
     this.nodes = nodes;
   }
 
