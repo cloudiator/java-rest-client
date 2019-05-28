@@ -107,6 +107,7 @@ public class JSON {
                 classByDiscriminatorValue.put("HdfsInterface".toUpperCase(), HdfsInterface.class);
                 classByDiscriminatorValue.put("LanceInterface".toUpperCase(), LanceInterface.class);
                 classByDiscriminatorValue.put("PlatformInterface".toUpperCase(), PlatformInterface.class);
+                classByDiscriminatorValue.put("SimulationInterface".toUpperCase(), SimulationInterface.class);
                 classByDiscriminatorValue.put("SparkInterface".toUpperCase(), SparkInterface.class);
                 classByDiscriminatorValue.put("TaskInterface".toUpperCase(), TaskInterface.class);
                 return getClassByDiscriminator(
@@ -120,6 +121,17 @@ public class JSON {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("HttpTrigger".toUpperCase(), HttpTrigger.class);
                 classByDiscriminatorValue.put("Trigger".toUpperCase(), Trigger.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "type"));
+            }
+          })
+          .registerTypeSelector(Distribution.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("NormalDistribution".toUpperCase(), NormalDistribution.class);
+                classByDiscriminatorValue.put("Distribution".toUpperCase(), Distribution.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, "type"));

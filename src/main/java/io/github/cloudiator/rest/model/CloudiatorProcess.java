@@ -111,6 +111,8 @@ public class CloudiatorProcess implements Serializable {
     
     FAAS("FAAS"),
     
+    SIMULATION("SIMULATION"),
+    
     UNKNOWN("UNKNOWN");
 
     private String value;
