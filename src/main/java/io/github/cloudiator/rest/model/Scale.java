@@ -40,6 +40,56 @@ public class Scale implements Serializable {
   @SerializedName("task")
   private String task = null;
 
+  /**
+   * Gets or Sets scaleDirection
+   */
+  @JsonAdapter(ScaleDirectionEnum.Adapter.class)
+  public enum ScaleDirectionEnum {
+    IN("SCALE_IN"),
+    
+    OUT("SCALE_OUT");
+
+    private String value;
+
+    ScaleDirectionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ScaleDirectionEnum fromValue(String text) {
+      for (ScaleDirectionEnum b : ScaleDirectionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ScaleDirectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ScaleDirectionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ScaleDirectionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ScaleDirectionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("scaleDirection")
+  private ScaleDirectionEnum scaleDirection = null;
+
   @SerializedName("nodes")
   private List<String> nodes = null;
 
@@ -77,6 +127,24 @@ public class Scale implements Serializable {
 
   public void setTask(String task) {
     this.task = task;
+  }
+
+  public Scale scaleDirection(ScaleDirectionEnum scaleDirection) {
+    this.scaleDirection = scaleDirection;
+    return this;
+  }
+
+   /**
+   * Get scaleDirection
+   * @return scaleDirection
+  **/
+  @ApiModelProperty(value = "")
+  public ScaleDirectionEnum getScaleDirection() {
+    return scaleDirection;
+  }
+
+  public void setScaleDirection(ScaleDirectionEnum scaleDirection) {
+    this.scaleDirection = scaleDirection;
   }
 
   public Scale nodes(List<String> nodes) {
@@ -117,12 +185,13 @@ public class Scale implements Serializable {
     Scale scale = (Scale) o;
     return Objects.equals(this.schedule, scale.schedule) &&
         Objects.equals(this.task, scale.task) &&
+        Objects.equals(this.scaleDirection, scale.scaleDirection) &&
         Objects.equals(this.nodes, scale.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schedule, task, nodes);
+    return Objects.hash(schedule, task, scaleDirection, nodes);
   }
 
 
@@ -133,6 +202,7 @@ public class Scale implements Serializable {
     
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
+    sb.append("    scaleDirection: ").append(toIndentedString(scaleDirection)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("}");
     return sb.toString();
