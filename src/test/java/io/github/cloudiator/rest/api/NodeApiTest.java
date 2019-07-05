@@ -14,7 +14,9 @@
 package io.github.cloudiator.rest.api;
 
 import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.model.ByonNode;
 import io.github.cloudiator.rest.model.Error;
+import io.github.cloudiator.rest.model.NewNode;
 import io.github.cloudiator.rest.model.Node;
 import io.github.cloudiator.rest.model.NodeRequest;
 import io.github.cloudiator.rest.model.Queue;
@@ -44,9 +46,9 @@ public class NodeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void addBYONTest() throws ApiException {
-        Node node = null;
-        Node response = api.addBYON(node);
+    public void addByonTest() throws ApiException {
+        NewNode newNode = null;
+        Queue response = api.addByon(newNode);
 
         // TODO: test validations
     }
@@ -70,6 +72,22 @@ public class NodeApiTest {
     /**
      * 
      *
+     * Deletes the already existing node from cloudiator, if not allocated.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteByonTest() throws ApiException {
+        String id = null;
+        Queue response = api.deleteByon(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Deletes the node with the given id.
      *
      * @throws ApiException
@@ -79,6 +97,21 @@ public class NodeApiTest {
     public void deleteNodeTest() throws ApiException {
         String id = null;
         Queue response = api.deleteNode(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Retrieve all BYONs the current user has access to
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findByonsTest() throws ApiException {
+        List<ByonNode> response = api.findByons();
 
         // TODO: test validations
     }

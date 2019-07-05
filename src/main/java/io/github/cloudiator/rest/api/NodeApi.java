@@ -27,7 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.github.cloudiator.rest.model.ByonNode;
 import io.github.cloudiator.rest.model.Error;
+import io.github.cloudiator.rest.model.NewNode;
 import io.github.cloudiator.rest.model.Node;
 import io.github.cloudiator.rest.model.NodeRequest;
 import io.github.cloudiator.rest.model.Queue;
@@ -58,15 +60,15 @@ public class NodeApi {
     }
 
     /**
-     * Build call for addBYON
-     * @param node Node to be registered (required)
+     * Build call for addByon
+     * @param newNode Node to be registered (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addBYONCall(Node node, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = node;
+    public com.squareup.okhttp.Call addByonCall(NewNode newNode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = newNode;
 
         // create path and map variables
         String localVarPath = "/byon";
@@ -107,15 +109,15 @@ public class NodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addBYONValidateBeforeCall(Node node, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addByonValidateBeforeCall(NewNode newNode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'node' is set
-        if (node == null) {
-            throw new ApiException("Missing the required parameter 'node' when calling addBYON(Async)");
+        // verify the required parameter 'newNode' is set
+        if (newNode == null) {
+            throw new ApiException("Missing the required parameter 'newNode' when calling addByon(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = addBYONCall(node, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addByonCall(newNode, progressListener, progressRequestListener);
         return call;
 
     }
@@ -123,37 +125,37 @@ public class NodeApi {
     /**
      * 
      * Registers an already existing node for usage
-     * @param node Node to be registered (required)
-     * @return Node
+     * @param newNode Node to be registered (required)
+     * @return Queue
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Node addBYON(Node node) throws ApiException {
-        ApiResponse<Node> resp = addBYONWithHttpInfo(node);
+    public Queue addByon(NewNode newNode) throws ApiException {
+        ApiResponse<Queue> resp = addByonWithHttpInfo(newNode);
         return resp.getData();
     }
 
     /**
      * 
      * Registers an already existing node for usage
-     * @param node Node to be registered (required)
-     * @return ApiResponse&lt;Node&gt;
+     * @param newNode Node to be registered (required)
+     * @return ApiResponse&lt;Queue&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Node> addBYONWithHttpInfo(Node node) throws ApiException {
-        com.squareup.okhttp.Call call = addBYONValidateBeforeCall(node, null, null);
-        Type localVarReturnType = new TypeToken<Node>(){}.getType();
+    public ApiResponse<Queue> addByonWithHttpInfo(NewNode newNode) throws ApiException {
+        com.squareup.okhttp.Call call = addByonValidateBeforeCall(newNode, null, null);
+        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * Registers an already existing node for usage
-     * @param node Node to be registered (required)
+     * @param newNode Node to be registered (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addBYONAsync(Node node, final ApiCallback<Node> callback) throws ApiException {
+    public com.squareup.okhttp.Call addByonAsync(NewNode newNode, final ApiCallback<Queue> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,8 +176,8 @@ public class NodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addBYONValidateBeforeCall(node, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Node>(){}.getType();
+        com.squareup.okhttp.Call call = addByonValidateBeforeCall(newNode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -302,6 +304,129 @@ public class NodeApi {
         return call;
     }
     /**
+     * Build call for deleteByon
+     * @param id Unique identifier of the resource (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteByonCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/byon/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteByonValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteByon(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteByonCall(id, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Deletes the already existing node from cloudiator, if not allocated.
+     * @param id Unique identifier of the resource (required)
+     * @return Queue
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Queue deleteByon(String id) throws ApiException {
+        ApiResponse<Queue> resp = deleteByonWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Deletes the already existing node from cloudiator, if not allocated.
+     * @param id Unique identifier of the resource (required)
+     * @return ApiResponse&lt;Queue&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Queue> deleteByonWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteByonValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes the already existing node from cloudiator, if not allocated.
+     * @param id Unique identifier of the resource (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteByonAsync(String id, final ApiCallback<Queue> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteByonValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for deleteNode
      * @param id Unique identifier of the resource (required)
      * @param progressListener Progress listener
@@ -421,6 +546,119 @@ public class NodeApi {
 
         com.squareup.okhttp.Call call = deleteNodeValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Queue>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for findByons
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call findByonsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/byon";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call findByonsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = findByonsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Retrieve all BYONs the current user has access to
+     * @return List&lt;ByonNode&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ByonNode> findByons() throws ApiException {
+        ApiResponse<List<ByonNode>> resp = findByonsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve all BYONs the current user has access to
+     * @return ApiResponse&lt;List&lt;ByonNode&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ByonNode>> findByonsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = findByonsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<List<ByonNode>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve all BYONs the current user has access to
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call findByonsAsync(final ApiCallback<List<ByonNode>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = findByonsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ByonNode>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

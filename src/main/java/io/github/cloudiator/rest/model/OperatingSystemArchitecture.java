@@ -34,7 +34,9 @@ public enum OperatingSystemArchitecture {
   
   UNKOWN("UNKOWN"),
   
-  I386("I386");
+  I386("I386"),
+  
+  ARM("ARM");
 
   private String value;
 

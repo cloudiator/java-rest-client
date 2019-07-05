@@ -1,5 +1,5 @@
 
-# Node
+# ByonNode
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,32 +11,9 @@ Name | Type | Description | Notes
 **reason** | **String** | Reason this node was created  |  [optional]
 **diagnostic** | **String** | Diagnostic information about the node state  |  [optional]
 **nodeCandidate** | **String** | The node candidate this node was created from if applicable.  |  [optional]
-**id** | **String** | Unique identifier of this node.  |  [optional]
-**originId** | **String** | Original id of this node. Is present of the node was created e.g. at a cloud provider.  |  [optional]
+**id** | **String** | Unique identifier of this BYON.  |  [optional]
 **userId** | **String** | User id of the owner of this node.  |  [optional]
-**nodeType** | [**NodeTypeEnum**](#NodeTypeEnum) | The type of this node.  |  [optional]
-**state** | [**StateEnum**](#StateEnum) | The state the node is currently in.  |  [optional]
-
-
-<a name="NodeTypeEnum"></a>
-## Enum: NodeTypeEnum
-Name | Value
----- | -----
-UNKNOWN_TYPE | &quot;UNKNOWN_TYPE&quot;
-VM | &quot;VM&quot;
-BYON | &quot;BYON&quot;
-CONTAINER | &quot;CONTAINER&quot;
-FAAS | &quot;FAAS&quot;
-
-
-<a name="StateEnum"></a>
-## Enum: StateEnum
-Name | Value
----- | -----
-PENDING | &quot;PENDING&quot;
-RUNNING | &quot;RUNNING&quot;
-ERROR | &quot;ERROR&quot;
-DELETED | &quot;DELETED&quot;
+**allocated** | **Boolean** | Signals if the node was allocated by cloudiator  |  [optional]
 
 
 
