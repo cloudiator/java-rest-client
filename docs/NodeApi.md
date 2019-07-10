@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="addByon"></a>
 # **addByon**
-> Queue addByon(newNode)
+> ByonNode addByon(newNode)
 
 
 
@@ -41,7 +41,7 @@ ApiKeyAuth.setApiKey("YOUR API KEY");
 NodeApi apiInstance = new NodeApi();
 NewNode newNode = new NewNode(); // NewNode | Node to be registered
 try {
-    Queue result = apiInstance.addByon(newNode);
+    ByonNode result = apiInstance.addByon(newNode);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NodeApi#addByon");
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Queue**](Queue.md)
+[**ByonNode**](ByonNode.md)
 
 ### Authorization
 

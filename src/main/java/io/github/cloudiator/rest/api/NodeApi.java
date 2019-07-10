@@ -126,11 +126,11 @@ public class NodeApi {
      * 
      * Registers an already existing node for usage
      * @param newNode Node to be registered (required)
-     * @return Queue
+     * @return ByonNode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Queue addByon(NewNode newNode) throws ApiException {
-        ApiResponse<Queue> resp = addByonWithHttpInfo(newNode);
+    public ByonNode addByon(NewNode newNode) throws ApiException {
+        ApiResponse<ByonNode> resp = addByonWithHttpInfo(newNode);
         return resp.getData();
     }
 
@@ -138,12 +138,12 @@ public class NodeApi {
      * 
      * Registers an already existing node for usage
      * @param newNode Node to be registered (required)
-     * @return ApiResponse&lt;Queue&gt;
+     * @return ApiResponse&lt;ByonNode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Queue> addByonWithHttpInfo(NewNode newNode) throws ApiException {
+    public ApiResponse<ByonNode> addByonWithHttpInfo(NewNode newNode) throws ApiException {
         com.squareup.okhttp.Call call = addByonValidateBeforeCall(newNode, null, null);
-        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
+        Type localVarReturnType = new TypeToken<ByonNode>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -155,7 +155,7 @@ public class NodeApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addByonAsync(NewNode newNode, final ApiCallback<Queue> callback) throws ApiException {
+    public com.squareup.okhttp.Call addByonAsync(NewNode newNode, final ApiCallback<ByonNode> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -177,7 +177,7 @@ public class NodeApi {
         }
 
         com.squareup.okhttp.Call call = addByonValidateBeforeCall(newNode, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Queue>(){}.getType();
+        Type localVarReturnType = new TypeToken<ByonNode>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

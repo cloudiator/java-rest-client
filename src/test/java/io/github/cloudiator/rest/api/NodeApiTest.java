@@ -48,7 +48,7 @@ public class NodeApiTest {
     @Test
     public void addByonTest() throws ApiException {
         NewNode newNode = null;
-        Queue response = api.addByon(newNode);
+        ByonNode response = api.addByon(newNode);
 
         // TODO: test validations
     }
