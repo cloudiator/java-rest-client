@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **containerType** | [**ContainerTypeEnum**](#ContainerTypeEnum) | The container type that lance should use. Can be DOCKER to force a docker deployment, NATIVE to force a plain container deployment or BOTH to let the system derive the container type.  |  [optional]
+**operatingSystem** | [**OperatingSystem**](OperatingSystem.md) | Describes the operating system required by this interface. If container type is set to NATIVE, this describes the OS required by the scripts, of container type is set to DOCKER, this describes the OS used to spawn the docker container.  |  [optional]
 **init** | **String** | Initialization action.  |  [optional]
 **preInstall** | **String** | Executed before installation action. Can be e.g. used for downloading binaries.  |  [optional]
 **install** | **String** | Used for installing the application.  |  [optional]

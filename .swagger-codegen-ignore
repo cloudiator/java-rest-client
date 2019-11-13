@@ -30,3 +30,6 @@
 
 # ignore the travis file
 .travis.yml
+
+# ignore the APIClient
+src/main/java/io/github/cloudiator/rest/ApiClient.java
