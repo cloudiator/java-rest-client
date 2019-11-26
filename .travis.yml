@@ -4,8 +4,8 @@ jdk:
   - oraclejdk8
 language: java
 install:
-  - mvn install -U -DskipTests=true
-script: mvn install -Dmaven.javadoc.skip=true
+  - mvn -q install -U -DskipTests=true
+script: mvn -q install -Dmaven.javadoc.skip=true
 env:
   global:
     - secure: KyaUO00iF2jP/yD/jeA5F9bzLRT0zz+eG6kn86R+CaQAO0uJzozRAWNzu2KXg8498goXr6i6yZYJOJTZGBnV91EJsWLuT23cBm0L8htuSnxGDwVEkqNhS7GSk8a53cNbcbD/SVfHWgkpoWR+LrRr+eYAcf5OsPh9kz+j0+x30ZwNk4olsY6vrlTYYoozTHSmkhYl74Kwpn4c4TJZhevtUFsiU4LRvde5x/1jPvfJPXM0ChupcBkZ8bVtjXebdFIZYcTcKyxSO+EpRgfFq6Zfh8USTm3WnmpNFzy7OHM02qTDd/Gc7WdNLyv2H/3AfxlsIFq35OtcSUNmxfF855y0xPxPQDiR/kRFlnijmTMPDV9L+JsCvrHYvkMCHy594ZpUF9ItfS2AUzUCz37A1AUCeY2Ym5jl5VWedPlcW8sgLqDQCsTsTl0m3J7fctvWxRKX0/hMf5y3MGJ3ExJLssKm9boPS0Qbl3YPIOLNU7Lf0Q7FDXP7e7D2S/4Ee9CGM8HXGRKNA6pAKwQYUeepI/oONtZvHxxY8Y3vECRCJR8y0scYW1DrqMYHzVPIAsgEZNT4OSeVktqEaZx0bJWazCF1xKtnm5ekkeTuBPVbbjjiko9APYVAppuFEND/DQk+sQldBp0bJ1e4Q1wavu+Jzj1JixLJSeXrcn/blb9KRMdqKIs=
