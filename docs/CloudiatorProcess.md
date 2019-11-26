@@ -1,7 +1,9 @@
 
+
 # CloudiatorProcess
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
@@ -19,8 +21,9 @@ Name | Type | Description | Notes
 **endpoint** | **String** | The endpoint where this process is reachable.  |  [optional]
 
 
-<a name="StateEnum"></a>
+
 ## Enum: StateEnum
+
 Name | Value
 ---- | -----
 PENDING | &quot;PENDING&quot;
@@ -30,8 +33,9 @@ DELETED | &quot;DELETED&quot;
 FINISHED | &quot;FINISHED&quot;
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 LANCE | &quot;LANCE&quot;

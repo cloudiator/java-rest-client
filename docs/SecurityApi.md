@@ -22,28 +22,37 @@ Decrypts the given string
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.SecurityApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.SecurityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-SecurityApi apiInstance = new SecurityApi();
-String text = "text_example"; // String | Text to decrypt
-try {
-    Text result = apiInstance.decrypt(text);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SecurityApi#decrypt");
-    e.printStackTrace();
+    SecurityApi apiInstance = new SecurityApi(defaultClient);
+    String text = "text_example"; // String | Text to decrypt
+    try {
+      Text result = apiInstance.decrypt(text);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SecurityApi#decrypt");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -66,6 +75,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 <a name="deleteSecure"></a>
 # **deleteSecure**
 > deleteSecure(key)
@@ -75,27 +89,36 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.SecurityApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.SecurityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-SecurityApi apiInstance = new SecurityApi();
-String key = "key_example"; // String | Key of the stored variable 
-try {
-    apiInstance.deleteSecure(key);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SecurityApi#deleteSecure");
-    e.printStackTrace();
+    SecurityApi apiInstance = new SecurityApi(defaultClient);
+    String key = "key_example"; // String | Key of the stored variable 
+    try {
+      apiInstance.deleteSecure(key);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SecurityApi#deleteSecure");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -115,8 +138,13 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="encrypt"></a>
 # **encrypt**
@@ -129,28 +157,37 @@ Encrypts the given string
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.SecurityApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.SecurityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-SecurityApi apiInstance = new SecurityApi();
-String text = "text_example"; // String | Text to encrypt
-try {
-    Text result = apiInstance.encrypt(text);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SecurityApi#encrypt");
-    e.printStackTrace();
+    SecurityApi apiInstance = new SecurityApi(defaultClient);
+    String text = "text_example"; // String | Text to encrypt
+    try {
+      Text result = apiInstance.encrypt(text);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SecurityApi#encrypt");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -173,6 +210,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 <a name="retrieveSecure"></a>
 # **retrieveSecure**
 > Text retrieveSecure(key)
@@ -184,28 +226,37 @@ Retrieves the stored value.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.SecurityApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.SecurityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-SecurityApi apiInstance = new SecurityApi();
-String key = "key_example"; // String | Key of the stored variable 
-try {
-    Text result = apiInstance.retrieveSecure(key);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SecurityApi#retrieveSecure");
-    e.printStackTrace();
+    SecurityApi apiInstance = new SecurityApi(defaultClient);
+    String key = "key_example"; // String | Key of the stored variable 
+    try {
+      Text result = apiInstance.retrieveSecure(key);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SecurityApi#retrieveSecure");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -228,6 +279,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 <a name="storeSecure"></a>
 # **storeSecure**
 > Text storeSecure(key, value)
@@ -237,29 +293,38 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.SecurityApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.SecurityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-SecurityApi apiInstance = new SecurityApi();
-String key = "key_example"; // String | Key of the stored variable 
-Text value = new Text(); // Text | Value of the stored variable 
-try {
-    Text result = apiInstance.storeSecure(key, value);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SecurityApi#storeSecure");
-    e.printStackTrace();
+    SecurityApi apiInstance = new SecurityApi(defaultClient);
+    String key = "key_example"; // String | Key of the stored variable 
+    Text value = new Text(); // Text | Value of the stored variable 
+    try {
+      Text result = apiInstance.storeSecure(key, value);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SecurityApi#storeSecure");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -282,4 +347,9 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 

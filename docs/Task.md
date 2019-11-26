@@ -1,7 +1,10 @@
 
+
 # Task
 
+Represents a new task of a job. 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Human-readable name. Uniquely identifies a task. | 

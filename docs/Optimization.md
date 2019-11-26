@@ -1,15 +1,19 @@
 
+
 # Optimization
 
+Superclass for polymorphism, only subtypes are allowed
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | 
 **objective** | [**ObjectiveEnum**](#ObjectiveEnum) |  |  [optional]
 
 
-<a name="ObjectiveEnum"></a>
+
 ## Enum: ObjectiveEnum
+
 Name | Value
 ---- | -----
 MAXIMIZE | &quot;MAXIMIZE&quot;

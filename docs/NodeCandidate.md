@@ -1,7 +1,10 @@
 
+
 # NodeCandidate
 
+A node creatable by the system
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
@@ -16,8 +19,9 @@ Name | Type | Description | Notes
 **environment** | [**Environment**](Environment.md) |  |  [optional]
 
 
-<a name="NodeCandidateTypeEnum"></a>
+
 ## Enum: NodeCandidateTypeEnum
+
 Name | Value
 ---- | -----
 IAAS | &quot;IAAS&quot;

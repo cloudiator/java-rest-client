@@ -1,7 +1,10 @@
 
+
 # IdentifierRequirement
 
+Subtype of Requirement 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hardwareId** | **String** |  |  [optional]

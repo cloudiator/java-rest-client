@@ -1,7 +1,10 @@
 
+
 # Job
 
+Represents a job in the system. A job is a logical group of tasks 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 

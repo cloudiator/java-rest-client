@@ -1,7 +1,10 @@
 
+
 # UserNew
 
+Represents a user that should be create in the system 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | EMail address of the user | 

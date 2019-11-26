@@ -1,7 +1,10 @@
 
+
 # JobNew
 
+Represents a job that should be created in the system. 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 

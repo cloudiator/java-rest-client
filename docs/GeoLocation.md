@@ -1,7 +1,10 @@
 
+
 # GeoLocation
 
+Part of Location Represents a geographical location 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **String** | City of the location |  [optional]

@@ -1,7 +1,10 @@
 
+
 # AttributeOptimization
 
+Refers to the attribute that should be optimized
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **objectiveClass** | **String** |  |  [optional]
@@ -9,8 +12,9 @@ Name | Type | Description | Notes
 **aggregation** | [**AggregationEnum**](#AggregationEnum) |  |  [optional]
 
 
-<a name="AggregationEnum"></a>
+
 ## Enum: AggregationEnum
+
 Name | Value
 ---- | -----
 SUM | &quot;SUM&quot;

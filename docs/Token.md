@@ -1,7 +1,10 @@
 
+
 # Token
 
+Represents an API Token, that is used to represent a successful authentication of a user 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **token** | **String** | The token | 

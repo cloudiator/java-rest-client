@@ -1,7 +1,10 @@
 
+
 # NewPlatform
 
+Repesents a new PaaS provider to be created 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Human-readable name | 
@@ -11,8 +14,9 @@ Name | Type | Description | Notes
 **endpoint** | **String** | URI where the api of this platform provider can be accessed. |  [optional]
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 HEROKU | &quot;HEROKU&quot;

@@ -1,7 +1,10 @@
 
+
 # Hardware
 
+Represents a hardware offer by a cloud 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for the hardware | 

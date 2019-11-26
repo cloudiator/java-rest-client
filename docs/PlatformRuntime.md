@@ -1,7 +1,10 @@
 
+
 # PlatformRuntime
 
+Repesents a PaaS environemnt to run an component 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | human readable name | 
@@ -12,8 +15,9 @@ Name | Type | Description | Notes
 **id** | **String** | Unique identifier for the hardwareRuntime |  [optional]
 
 
-<a name="LanguageEnum"></a>
+
 ## Enum: LanguageEnum
+
 Name | Value
 ---- | -----
 PHP | &quot;PHP&quot;
@@ -22,8 +26,9 @@ RUBY | &quot;RUBY&quot;
 PYTHON | &quot;PYTHON&quot;
 
 
-<a name="RuntimeTypeEnum"></a>
+
 ## Enum: RuntimeTypeEnum
+
 Name | Value
 ---- | -----
 STANDALONE | &quot;standalone&quot;

@@ -1,7 +1,10 @@
 
+
 # Image
 
+Represents an image offer by a cloud 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for this image | 

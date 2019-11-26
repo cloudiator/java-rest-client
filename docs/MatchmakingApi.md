@@ -21,28 +21,37 @@ Returns possible node candidates.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MatchmakingApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MatchmakingApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MatchmakingApi apiInstance = new MatchmakingApi();
-List<Requirement> nodeRequirements = Arrays.asList(new Requirement()); // List<Requirement> | Node Request 
-try {
-    List<NodeCandidate> result = apiInstance.findNodeCandidates(nodeRequirements);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MatchmakingApi#findNodeCandidates");
-    e.printStackTrace();
+    MatchmakingApi apiInstance = new MatchmakingApi(defaultClient);
+    List<Requirement> nodeRequirements = Arrays.asList(); // List<Requirement> | Node Request 
+    try {
+      List<NodeCandidate> result = apiInstance.findNodeCandidates(nodeRequirements);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MatchmakingApi#findNodeCandidates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -65,6 +74,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | ACCEPTED |  -  |
+
 <a name="getNodeCandidate"></a>
 # **getNodeCandidate**
 > NodeCandidate getNodeCandidate(id)
@@ -76,28 +90,37 @@ Returns the node candidate with the given id if it exists.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MatchmakingApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MatchmakingApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MatchmakingApi apiInstance = new MatchmakingApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    NodeCandidate result = apiInstance.getNodeCandidate(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MatchmakingApi#getNodeCandidate");
-    e.printStackTrace();
+    MatchmakingApi apiInstance = new MatchmakingApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      NodeCandidate result = apiInstance.getNodeCandidate(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MatchmakingApi#getNodeCandidate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -117,8 +140,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The node candidate identified with the id  |  -  |
 
 <a name="getSolution"></a>
 # **getSolution**
@@ -131,28 +159,37 @@ Returns a solution of the matchmaking process (if it is still available)
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MatchmakingApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MatchmakingApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MatchmakingApi apiInstance = new MatchmakingApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    Solution result = apiInstance.getSolution(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MatchmakingApi#getSolution");
-    e.printStackTrace();
+    MatchmakingApi apiInstance = new MatchmakingApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      Solution result = apiInstance.getSolution(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MatchmakingApi#getSolution");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -172,8 +209,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The solution identified with the id  |  -  |
 
 <a name="solveMatchmaking"></a>
 # **solveMatchmaking**
@@ -186,28 +228,37 @@ Solves a matchmaking problem
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MatchmakingApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MatchmakingApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MatchmakingApi apiInstance = new MatchmakingApi();
-NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | The requirements with respect to nodes
-try {
-    Queue result = apiInstance.solveMatchmaking(nodeRequirements);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MatchmakingApi#solveMatchmaking");
-    e.printStackTrace();
+    MatchmakingApi apiInstance = new MatchmakingApi(defaultClient);
+    NodeRequirements nodeRequirements = new NodeRequirements(); // NodeRequirements | The requirements with respect to nodes
+    try {
+      Queue result = apiInstance.solveMatchmaking(nodeRequirements);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MatchmakingApi#solveMatchmaking");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -229,4 +280,9 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | ACCEPTED |  -  |
 

@@ -1,7 +1,10 @@
 
+
 # Platform
 
+Representation of a platform used by Cloudiator
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Human-readable name | 
@@ -12,8 +15,9 @@ Name | Type | Description | Notes
 **id** | **String** | Unique identifier for the platform |  [optional]
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 HEROKU | &quot;HEROKU&quot;

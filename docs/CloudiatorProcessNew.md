@@ -1,7 +1,10 @@
 
+
 # CloudiatorProcessNew
 
+A process represents a task running on a node
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **processType** | **String** |  |  [optional]

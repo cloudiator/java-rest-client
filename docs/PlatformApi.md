@@ -30,28 +30,37 @@ Creates a new platform.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-NewPlatform platform = new NewPlatform(); // NewPlatform | Platform to add
-try {
-    Platform result = apiInstance.addPlatform(platform);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#addPlatform");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    NewPlatform platform = new NewPlatform(); // NewPlatform | Platform to add
+    try {
+      Platform result = apiInstance.addPlatform(platform);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#addPlatform");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -72,7 +81,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**404** | Item not found |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="addPlatformEnvironment"></a>
 # **addPlatformEnvironment**
@@ -85,28 +105,37 @@ Creates a new PlatformEnvironment
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-NewPlatformEnvironment platformEnvironment = new NewPlatformEnvironment(); // NewPlatformEnvironment | PlatformEnvironment to be created 
-try {
-    PlatformEnvironment result = apiInstance.addPlatformEnvironment(platformEnvironment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#addPlatformEnvironment");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    NewPlatformEnvironment platformEnvironment = new NewPlatformEnvironment(); // NewPlatformEnvironment | PlatformEnvironment to be created 
+    try {
+      PlatformEnvironment result = apiInstance.addPlatformEnvironment(platformEnvironment);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#addPlatformEnvironment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -127,7 +156,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+**400** | Bad Request |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**404** | Item not found |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="addPlatformHardware"></a>
 # **addPlatformHardware**
@@ -140,28 +180,37 @@ Creates a new PlatformHardware
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-NewPlatformHardware platformHardware = new NewPlatformHardware(); // NewPlatformHardware | PlatformHardware to be created 
-try {
-    PlatformHardware result = apiInstance.addPlatformHardware(platformHardware);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#addPlatformHardware");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    NewPlatformHardware platformHardware = new NewPlatformHardware(); // NewPlatformHardware | PlatformHardware to be created 
+    try {
+      PlatformHardware result = apiInstance.addPlatformHardware(platformHardware);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#addPlatformHardware");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -182,7 +231,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+**400** | Bad Request |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**404** | Item not found |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="addPlatformRuntime"></a>
 # **addPlatformRuntime**
@@ -195,28 +255,37 @@ Creates a new PlatformRuntime
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-NewPlatformRuntime platformRuntime = new NewPlatformRuntime(); // NewPlatformRuntime | PlatformRuntime to be created 
-try {
-    PlatformRuntime result = apiInstance.addPlatformRuntime(platformRuntime);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#addPlatformRuntime");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    NewPlatformRuntime platformRuntime = new NewPlatformRuntime(); // NewPlatformRuntime | PlatformRuntime to be created 
+    try {
+      PlatformRuntime result = apiInstance.addPlatformRuntime(platformRuntime);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#addPlatformRuntime");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -237,7 +306,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+**400** | Bad Request |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**404** | Item not found |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="deletePlatform"></a>
 # **deletePlatform**
@@ -250,27 +330,36 @@ Deletes the platform identified by the given id paramater.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    apiInstance.deletePlatform(id);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#deletePlatform");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      apiInstance.deletePlatform(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#deletePlatform");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -290,8 +379,19 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, code, message
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**404** | Item not found |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatform"></a>
 # **findPlatform**
@@ -304,28 +404,37 @@ Returns the platform identified by the given id parameter
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    Platform result = apiInstance.findPlatform(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatform");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      Platform result = apiInstance.findPlatform(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatform");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -346,7 +455,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The platform identified by the id  |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatformEnvironment"></a>
 # **findPlatformEnvironment**
@@ -359,28 +477,37 @@ Returns the PlatformEnvironment identified by the id parameter.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    PlatformEnvironment result = apiInstance.findPlatformEnvironment(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatformEnvironment");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      PlatformEnvironment result = apiInstance.findPlatformEnvironment(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatformEnvironment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -401,7 +528,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatformEnvironments"></a>
 # **findPlatformEnvironments**
@@ -414,27 +550,36 @@ Returns all platform environment  visible to the user
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-try {
-    List<PlatformEnvironment> result = apiInstance.findPlatformEnvironments();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatformEnvironments");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    try {
+      List<PlatformEnvironment> result = apiInstance.findPlatformEnvironments();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatformEnvironments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -452,7 +597,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatformHardware"></a>
 # **findPlatformHardware**
@@ -465,28 +619,37 @@ Returns the PlatformHardware identified by the id parameter.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    PlatformHardware result = apiInstance.findPlatformHardware(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatformHardware");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      PlatformHardware result = apiInstance.findPlatformHardware(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatformHardware");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -507,7 +670,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatformHardwares"></a>
 # **findPlatformHardwares**
@@ -520,27 +692,36 @@ Returns all platform hardware visible to the user
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-try {
-    List<PlatformHardware> result = apiInstance.findPlatformHardwares();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatformHardwares");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    try {
+      List<PlatformHardware> result = apiInstance.findPlatformHardwares();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatformHardwares");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -558,7 +739,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatformRuntime"></a>
 # **findPlatformRuntime**
@@ -571,28 +761,37 @@ Returns the PlatformRuntime identified by the id parameter.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-String id = "id_example"; // String | Unique identifier of the resource
-try {
-    PlatformRuntime result = apiInstance.findPlatformRuntime(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatformRuntime");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    String id = "id_example"; // String | Unique identifier of the resource
+    try {
+      PlatformRuntime result = apiInstance.findPlatformRuntime(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatformRuntime");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -613,7 +812,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatformRuntimes"></a>
 # **findPlatformRuntimes**
@@ -626,27 +834,36 @@ Returns all platform runtime  visible to the user
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-try {
-    List<PlatformRuntime> result = apiInstance.findPlatformRuntimes();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatformRuntimes");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    try {
+      List<PlatformRuntime> result = apiInstance.findPlatformRuntimes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatformRuntimes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -664,7 +881,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 
 <a name="findPlatforms"></a>
 # **findPlatforms**
@@ -677,27 +903,36 @@ Returns all platform from the system that the user has access to
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.PlatformApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.PlatformApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-PlatformApi apiInstance = new PlatformApi();
-try {
-    List<Platform> result = apiInstance.findPlatforms();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlatformApi#findPlatforms");
-    e.printStackTrace();
+    PlatformApi apiInstance = new PlatformApi(defaultClient);
+    try {
+      List<Platform> result = apiInstance.findPlatforms();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PlatformApi#findPlatforms");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -715,5 +950,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, code, message, 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | All platforms  |  -  |
+**401** | Authorization for this action is missing |  -  |
+**403** | Forbidden action |  -  |
+**500** | An unexpected Error occured |  -  |
+**504** | Server temporary not available |  -  |
 

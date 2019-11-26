@@ -1,7 +1,10 @@
 
+
 # NewPlatformRuntime
 
+Represents a runtime for a Platform component, e.g. Java, PHP, Tomcat
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | human readable name | 
@@ -11,8 +14,9 @@ Name | Type | Description | Notes
 **version** | **Double** | the version of the specified type | 
 
 
-<a name="LanguageEnum"></a>
+
 ## Enum: LanguageEnum
+
 Name | Value
 ---- | -----
 PHP | &quot;PHP&quot;
@@ -21,8 +25,9 @@ RUBY | &quot;RUBY&quot;
 PYTHON | &quot;PYTHON&quot;
 
 
-<a name="RuntimeTypeEnum"></a>
+
 ## Enum: RuntimeTypeEnum
+
 Name | Value
 ---- | -----
 STANDALONE | &quot;standalone&quot;

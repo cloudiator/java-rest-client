@@ -1,15 +1,19 @@
 
+
 # PeriodicBehaviour
 
+Subtype of Behaviour Represents a periodic runtime behaviour 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **interval** | [**Interval**](Interval.md) |  |  [optional]
 **collisionHandling** | [**CollisionHandlingEnum**](#CollisionHandlingEnum) |  |  [optional]
 
 
-<a name="CollisionHandlingEnum"></a>
+
 ## Enum: CollisionHandlingEnum
+
 Name | Value
 ---- | -----
 CANCEL | &quot;CANCEL&quot;

@@ -1,7 +1,9 @@
 
+
 # Schedule
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **job** | **String** | The identifier of the job |  [optional]
@@ -12,16 +14,18 @@ Name | Type | Description | Notes
 **state** | [**StateEnum**](#StateEnum) |  |  [optional]
 
 
-<a name="InstantiationEnum"></a>
+
 ## Enum: InstantiationEnum
+
 Name | Value
 ---- | -----
 AUTOMATIC | &quot;AUTOMATIC&quot;
 MANUAL | &quot;MANUAL&quot;
 
 
-<a name="StateEnum"></a>
+
 ## Enum: StateEnum
+
 Name | Value
 ---- | -----
 PENDING | &quot;PENDING&quot;

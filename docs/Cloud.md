@@ -1,7 +1,10 @@
 
+
 # Cloud
 
+Representation of a cloud used by Cloudiator 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpoint** | **String** | URI where the api of this cloud provider can be accessed. |  [optional]
@@ -15,8 +18,9 @@ Name | Type | Description | Notes
 **diagnostic** | **String** | Diagnostic information for the cloud |  [optional]
 
 
-<a name="StateEnum"></a>
+
 ## Enum: StateEnum
+
 Name | Value
 ---- | -----
 OK | &quot;OK&quot;

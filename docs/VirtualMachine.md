@@ -1,7 +1,9 @@
 
+
 # VirtualMachine
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image** | [**Image**](Image.md) |  |  [optional]
@@ -14,8 +16,9 @@ Name | Type | Description | Notes
 **state** | [**StateEnum**](#StateEnum) |  |  [optional]
 
 
-<a name="StateEnum"></a>
+
 ## Enum: StateEnum
+
 Name | Value
 ---- | -----
 RUNNING | &quot;RUNNING&quot;

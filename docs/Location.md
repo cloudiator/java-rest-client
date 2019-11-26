@@ -1,7 +1,10 @@
 
+
 # Location
 
+Repesents a (virtual) location offers by a cloud 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier | 
@@ -15,8 +18,9 @@ Name | Type | Description | Notes
 **owner** | **String** |  |  [optional]
 
 
-<a name="LocationScopeEnum"></a>
+
 ## Enum: LocationScopeEnum
+
 Name | Value
 ---- | -----
 PROVIDER | &quot;PROVIDER&quot;

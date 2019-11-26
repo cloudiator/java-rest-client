@@ -1,7 +1,10 @@
 
+
 # Login
 
+Login information provided by the user to be authorized 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | EMail address of the user | 

@@ -1,15 +1,19 @@
 
+
 # Interval
 
+A time interval consisting of unit and period
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **unit** | [**UnitEnum**](#UnitEnum) | The unit of the interval |  [optional]
 **period** | **Long** | The period of the interval |  [optional]
 
 
-<a name="UnitEnum"></a>
+
 ## Enum: UnitEnum
+
 Name | Value
 ---- | -----
 DAYS | &quot;DAYS&quot;

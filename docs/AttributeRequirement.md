@@ -1,7 +1,10 @@
 
+
 # AttributeRequirement
 
+Subtype of Requirement 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **requirementClass** | **String** |  |  [optional]

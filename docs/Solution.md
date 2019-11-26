@@ -1,7 +1,10 @@
 
+
 # Solution
 
+A valid solution to a matchmaking problem.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]

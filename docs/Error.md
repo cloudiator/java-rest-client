@@ -1,7 +1,10 @@
 
+
 # Error
 
+Basic errorClass 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **Integer** |  | 

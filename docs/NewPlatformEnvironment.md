@@ -1,7 +1,10 @@
 
+
 # NewPlatformEnvironment
 
+Repesents a PaaS environemnt to run an component 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Human-readable name | 

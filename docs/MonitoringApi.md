@@ -22,28 +22,37 @@ Creates a monitor
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MonitoringApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MonitoringApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MonitoringApi apiInstance = new MonitoringApi();
-Monitor monitor = new Monitor(); // Monitor | Monitor to be created 
-try {
-    Monitor result = apiInstance.addMonitor(monitor);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#addMonitor");
-    e.printStackTrace();
+    MonitoringApi apiInstance = new MonitoringApi(defaultClient);
+    Monitor monitor = new Monitor(); // Monitor | Monitor to be created 
+    try {
+      Monitor result = apiInstance.addMonitor(monitor);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitoringApi#addMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -66,6 +75,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+
 <a name="deleteMonitor"></a>
 # **deleteMonitor**
 > deleteMonitor(metric, target)
@@ -77,28 +91,37 @@ Deletes the monitor identified by the given metric name.
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MonitoringApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MonitoringApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MonitoringApi apiInstance = new MonitoringApi();
-String metric = "metric_example"; // String | Unique identifier of a monitor
-MonitoringTarget target = new MonitoringTarget(); // MonitoringTarget | Target of the Monitor 
-try {
-    apiInstance.deleteMonitor(metric, target);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#deleteMonitor");
-    e.printStackTrace();
+    MonitoringApi apiInstance = new MonitoringApi(defaultClient);
+    String metric = "metric_example"; // String | Unique identifier of a monitor
+    MonitoringTarget target = new MonitoringTarget(); // MonitoringTarget | Target of the Monitor 
+    try {
+      apiInstance.deleteMonitor(metric, target);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitoringApi#deleteMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -119,8 +142,13 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="findMonitors"></a>
 # **findMonitors**
@@ -133,27 +161,36 @@ Returns all monitors visible to the user
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MonitoringApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MonitoringApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MonitoringApi apiInstance = new MonitoringApi();
-try {
-    List<Monitor> result = apiInstance.findMonitors();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#findMonitors");
-    e.printStackTrace();
+    MonitoringApi apiInstance = new MonitoringApi(defaultClient);
+    try {
+      List<Monitor> result = apiInstance.findMonitors();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitoringApi#findMonitors");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -173,6 +210,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
+
 <a name="getMonitor"></a>
 # **getMonitor**
 > Monitor getMonitor(metric, target)
@@ -184,29 +226,38 @@ Retrieves the monitor with the given metric name
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MonitoringApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MonitoringApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MonitoringApi apiInstance = new MonitoringApi();
-String metric = "metric_example"; // String | Unique identifier of a monitor
-MonitoringTarget target = new MonitoringTarget(); // MonitoringTarget | Target of the Monitor 
-try {
-    Monitor result = apiInstance.getMonitor(metric, target);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#getMonitor");
-    e.printStackTrace();
+    MonitoringApi apiInstance = new MonitoringApi(defaultClient);
+    String metric = "metric_example"; // String | Unique identifier of a monitor
+    MonitoringTarget target = new MonitoringTarget(); // MonitoringTarget | Target of the Monitor 
+    try {
+      Monitor result = apiInstance.getMonitor(metric, target);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitoringApi#getMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -227,8 +278,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
 
 <a name="updateMonitor"></a>
 # **updateMonitor**
@@ -241,29 +297,38 @@ Updating a monitor
 ### Example
 ```java
 // Import classes:
-//import io.github.cloudiator.rest.ApiClient;
-//import io.github.cloudiator.rest.ApiException;
-//import io.github.cloudiator.rest.Configuration;
-//import io.github.cloudiator.rest.auth.*;
-//import io.github.cloudiator.rest.api.MonitoringApi;
+import io.github.cloudiator.rest.ApiClient;
+import io.github.cloudiator.rest.ApiException;
+import io.github.cloudiator.rest.Configuration;
+import io.github.cloudiator.rest.auth.*;
+import io.github.cloudiator.rest.models.*;
+import io.github.cloudiator.rest.api.MonitoringApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:9000");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
-
-MonitoringApi apiInstance = new MonitoringApi();
-String metric = "metric_example"; // String | Unique identifier of a monitor
-Monitor monitor = new Monitor(); // Monitor | Monitor to be updated 
-try {
-    Monitor result = apiInstance.updateMonitor(metric, monitor);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#updateMonitor");
-    e.printStackTrace();
+    MonitoringApi apiInstance = new MonitoringApi(defaultClient);
+    String metric = "metric_example"; // String | Unique identifier of a monitor
+    Monitor monitor = new Monitor(); // Monitor | Monitor to be updated 
+    try {
+      Monitor result = apiInstance.updateMonitor(metric, monitor);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitoringApi#updateMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -286,4 +351,9 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK  |  -  |
 

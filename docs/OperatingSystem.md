@@ -1,7 +1,10 @@
 
+
 # OperatingSystem
 
+Represents the operating system of an image 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operatingSystemFamily** | [**OperatingSystemFamily**](OperatingSystemFamily.md) |  |  [optional]
