@@ -791,6 +791,8 @@ public class ApiClient {
         } else if (obj instanceof File) {
             // File body parameter support.
             return RequestBody.create(MediaType.parse(contentType), (File) obj);
+        } else if (obj instanceof String) {
+            return RequestBody.create(MediaType.parse(contentType), (String) obj);
         } else if (isJsonMime(contentType)) {
             String content;
             if (obj != null) {
