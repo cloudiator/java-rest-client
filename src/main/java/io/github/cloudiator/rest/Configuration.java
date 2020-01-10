@@ -13,7 +13,7 @@
 
 package io.github.cloudiator.rest;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

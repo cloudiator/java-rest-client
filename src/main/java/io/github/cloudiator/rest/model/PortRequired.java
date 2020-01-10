@@ -31,7 +31,7 @@ import java.io.Serializable;
  * Subtype of port. Represents a communication port that the task requires from other (downstream) tasks. 
  */
 @ApiModel(description = "Subtype of port. Represents a communication port that the task requires from other (downstream) tasks. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
 public class PortRequired extends Port implements Serializable {
   private static final long serialVersionUID = 1L;
 

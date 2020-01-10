@@ -32,7 +32,7 @@ import java.io.Serializable;
  * Subtype of TaskInterface. Describes how to deploy a Task to Hdfs. 
  */
 @ApiModel(description = "Subtype of TaskInterface. Describes how to deploy a Task to Hdfs. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
 public class HdfsInterface extends TaskInterface implements Serializable {
   private static final long serialVersionUID = 1L;
 

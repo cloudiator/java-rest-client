@@ -90,6 +90,7 @@ public class JSON {
                     public Class getClassForElement(JsonElement readElement) {
                         Map classByDiscriminatorValue = new HashMap();
                         classByDiscriminatorValue.put("NormalDistribution".toUpperCase(Locale.ROOT), NormalDistribution.class);
+                        classByDiscriminatorValue.put("FixedDistribution".toUpperCase(Locale.ROOT), FixedDistribution.class);
                         classByDiscriminatorValue.put("Distribution".toUpperCase(Locale.ROOT), Distribution.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));

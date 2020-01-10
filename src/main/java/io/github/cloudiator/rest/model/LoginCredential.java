@@ -29,7 +29,7 @@ import java.io.Serializable;
  * Credentials for remote access to the virtual machine. Typically, one of password or privateKey is set. 
  */
 @ApiModel(description = "Credentials for remote access to the virtual machine. Typically, one of password or privateKey is set. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
 public class LoginCredential implements Serializable {
   private static final long serialVersionUID = 1L;
 

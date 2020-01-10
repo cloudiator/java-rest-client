@@ -29,7 +29,7 @@ import java.io.Serializable;
  * A process represents a task running on a node
  */
 @ApiModel(description = "A process represents a task running on a node")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
 
 public class CloudiatorProcessNew implements Serializable {
   private static final long serialVersionUID = 1L;

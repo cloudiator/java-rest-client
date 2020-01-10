@@ -29,7 +29,7 @@ import java.io.Serializable;
  * Represents a runtime for a Platform component, e.g. Java, PHP, Tomcat
  */
 @ApiModel(description = "Represents a runtime for a Platform component, e.g. Java, PHP, Tomcat")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
 public class NewPlatformRuntime implements Serializable {
   private static final long serialVersionUID = 1L;
 
