@@ -35,7 +35,7 @@ import java.io.Serializable;
  * Represents a job that should be created in the system. 
  */
 @ApiModel(description = "Represents a job that should be created in the system. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class JobNew implements Serializable {
   private static final long serialVersionUID = 1L;
 

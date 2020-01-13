@@ -28,7 +28,7 @@ import java.io.Serializable;
 /**
  * JobAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class JobAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 

@@ -28,6 +28,7 @@ IAAS | &quot;IAAS&quot;
 FAAS | &quot;FAAS&quot;
 PAAS | &quot;PAAS&quot;
 BYON | &quot;BYON&quot;
+SIMULATION | &quot;SIMULATION&quot;
 
 
 

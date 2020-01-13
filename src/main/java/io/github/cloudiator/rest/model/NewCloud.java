@@ -33,7 +33,7 @@ import java.io.Serializable;
  * Represents a new cloud that is to be created 
  */
 @ApiModel(description = "Represents a new cloud that is to be created ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class NewCloud implements Serializable {
   private static final long serialVersionUID = 1L;
 

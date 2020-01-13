@@ -31,7 +31,7 @@ import java.io.Serializable;
  * Represents a queued task within the system. Used to execute long running requests. 
  */
 @ApiModel(description = "Represents a queued task within the system. Used to execute long running requests. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T15:38:08.423+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class Queue implements Serializable {
   private static final long serialVersionUID = 1L;
 
