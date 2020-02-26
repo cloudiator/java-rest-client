@@ -9,5 +9,7 @@
 
 * `PUBLIC` (value: `"PUBLIC"`)
 
+* `SIMULATION` (value: `"SIMULATION"`)
+
 
 

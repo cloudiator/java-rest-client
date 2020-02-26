@@ -23,6 +23,7 @@ VM | &quot;VM&quot;
 BYON | &quot;BYON&quot;
 CONTAINER | &quot;CONTAINER&quot;
 FAAS | &quot;FAAS&quot;
+SIMULATION | &quot;SIMULATION&quot;
 
 
 

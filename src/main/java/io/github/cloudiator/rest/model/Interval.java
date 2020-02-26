@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.cloudiator.rest.model.TimeUnit;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,95 +30,38 @@ import java.io.Serializable;
  * A time interval consisting of unit and period
  */
 @ApiModel(description = "A time interval consisting of unit and period")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class Interval implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * The unit of the interval
-   */
-  @JsonAdapter(UnitEnum.Adapter.class)
-  public enum UnitEnum {
-    DAYS("DAYS"),
-    
-    HOURS("HOURS"),
-    
-    MICROSECONDS("MICROSECONDS"),
-    
-    MILLISECONDS("MILLISECONDS"),
-    
-    MINUTES("MINUTES"),
-    
-    NANOSECONDS("NANOSECONDS"),
-    
-    SECONDS("SECONDS");
-
-    private String value;
-
-    UnitEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static UnitEnum fromValue(String value) {
-      for (UnitEnum b : UnitEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<UnitEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final UnitEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public UnitEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return UnitEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_UNIT = "unit";
   @SerializedName(SERIALIZED_NAME_UNIT)
-  private UnitEnum unit;
+  private TimeUnit unit;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
   @SerializedName(SERIALIZED_NAME_PERIOD)
   private Long period;
 
 
-  public Interval unit(UnitEnum unit) {
+  public Interval unit(TimeUnit unit) {
     
     this.unit = unit;
     return this;
   }
 
    /**
-   * The unit of the interval
+   * Get unit
    * @return unit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The unit of the interval")
+  @ApiModelProperty(value = "")
 
-  public UnitEnum getUnit() {
+  public TimeUnit getUnit() {
     return unit;
   }
 
 
-  public void setUnit(UnitEnum unit) {
+  public void setUnit(TimeUnit unit) {
     this.unit = unit;
   }
 

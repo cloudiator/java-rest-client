@@ -26,3 +26,4 @@
 .travis.yml
 pom.xml
 src/main/java/io/github/cloudiator/rest/ApiClient.java
+src/main/java/io/github/cloudiator/rest/ApiException.java

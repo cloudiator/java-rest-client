@@ -33,7 +33,9 @@ public enum CloudType {
   
   PRIVATE("PRIVATE"),
   
-  PUBLIC("PUBLIC");
+  PUBLIC("PUBLIC"),
+  
+  SIMULATION("SIMULATION");
 
   private String value;
 

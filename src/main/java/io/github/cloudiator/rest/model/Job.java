@@ -37,7 +37,7 @@ import java.io.Serializable;
  * Represents a job in the system. A job is a logical group of tasks 
  */
 @ApiModel(description = "Represents a job in the system. A job is a logical group of tasks ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class Job implements Serializable {
   private static final long serialVersionUID = 1L;
 

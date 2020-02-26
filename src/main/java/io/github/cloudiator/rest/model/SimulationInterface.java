@@ -20,8 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.cloudiator.rest.model.Distribution;
 import io.github.cloudiator.rest.model.SimulationInterfaceAllOf;
+import io.github.cloudiator.rest.model.StartTime;
 import io.github.cloudiator.rest.model.TaskInterface;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,16 +32,16 @@ import java.io.Serializable;
  * Simulated task interface 
  */
 @ApiModel(description = "Simulated task interface ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-26T14:14:48.729+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-13T10:47:33.672+01:00[Europe/Berlin]")
 public class SimulationInterface extends TaskInterface implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
-  private Distribution startTime;
+  private StartTime startTime;
 
 
-  public SimulationInterface startTime(Distribution startTime) {
+  public SimulationInterface startTime(StartTime startTime) {
     
     this.startTime = startTime;
     return this;
@@ -54,12 +54,12 @@ public class SimulationInterface extends TaskInterface implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Distribution getStartTime() {
+  public StartTime getStartTime() {
     return startTime;
   }
 
 
-  public void setStartTime(Distribution startTime) {
+  public void setStartTime(StartTime startTime) {
     this.startTime = startTime;
   }
 

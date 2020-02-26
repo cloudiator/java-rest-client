@@ -7,7 +7,7 @@ Simulated task interface
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**startTime** | [**Distribution**](Distribution.md) |  |  [optional]
+**startTime** | [**StartTime**](StartTime.md) |  |  [optional]
 
 
 
